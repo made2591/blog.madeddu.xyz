@@ -1,6 +1,6 @@
 # My personal Github page
 
-My personal github page. Build with [Jekyll](http://jekyllrb.com/) and [Autm-rb](https://github.com/kirqe/autm-rb). Thanks to [kirqe](https://github.com/kirqe).
+My personal [github page](https://made2591.github.com). Build with [Jekyll](http://jekyllrb.com/) and [Autm-rb](https://github.com/kirqe/autm-rb). Thanks to [kirqe](https://github.com/kirqe).
 
 ## Screens
 

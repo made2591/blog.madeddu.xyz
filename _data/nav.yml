@@ -9,3 +9,5 @@ items:
     path: '/'
   - text: 'About'
     path: '/about'
+  - text: 'Resume'
+    path: '/matteo_madeddu_cv.pdf'
