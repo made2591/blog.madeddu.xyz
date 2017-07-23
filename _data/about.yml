@@ -18,9 +18,12 @@ text: |
 
   * [cognitive-system-postagger](https://github.com/made2591/cognitive-system-postagger) is a part-of-speech tagger (viterbi / cky) / probabilistic-context-free-grammar manipulator library written in Python.
   * [cognitive-system-semantics](https://github.com/made2591/cognitive-system-semantics) is a word sense disambiguation / document classification tool library written in Java using mainly Wordnet and Babelnet.
-  * [gym-workout](https://github.com/made2591/gym-workout) is a vagrant machine (uuuu, vm, third millenium - I know, you dockerers) with a silex+propel+materialize web based application to manage gym workout.
-  * [trello2google](https://github.com/made2591/trello2google) is a trello / google-calendar-task-management library written in Python with the BIG contribution of [valentinarho](https://github.com/valentinarho).
+  * [__spotispy-framework__](https://made2591.github.com/spotispy-framework) is (will be) a docker-based (I'm planning porting with [@valentinarho](https://github.com/valentinarho)) Python framework to make data science - the musician way. 
   * [google-task-gtd](https://github.com/made2591/google-task-gtd) is a sort of involuntary google goals library written in Python - I swear, I wrote this 3/4 months before goals came out XD.
+  * [__gym-workout__](https://github.com/made2591/gym-workout) is a vagrant machine (uuuu, vm, third millenium - I know, you dockerers) with a silex+propel+materialize web based application to manage gym workout.
+  * [trello2google](https://github.com/made2591/trello2google) is a trello / google-calendar-task-management library written in Python with the BIG contribution of [@valentinarho](https://github.com/valentinarho).
+  
+  and so many [__many others__](https://github.com/made2591?tab=repositories) cutting-edge repo XD in my github.com page.
 
   ## Actual work position (GE Aviation - AvioAero)
 
@@ -34,8 +37,8 @@ text: |
   | Brief | Long |
   | ------ | ----------- |
   | cognitive | work on cognitive. :O |
-  | IBM    | work with IBM. :O :O |
-  | cognitive&IBM | damn, work on / with / in / for / Watson. Cognitive research lab. dsaf :O___________ |
+  | IBM    | work in IBM. :O :O |
+  | cognitive&IBM | damn, work on / with / in / for / IBM Watson. Cognitive Research Lab. dsaf :O___________ |
   | data   | work with data. Ok THAT'S => accademic influence. |
   | AWS    | work with AWS. Who not? |
   | data&AWS | work with data on AWS, in cloud... which the data belong. |
