@@ -1,0 +1,53 @@
+text: |
+
+  I am a Computer Science enthusiast with a strong propensity to interdisciplinarity. 
+  
+  I obtained a bachelor and master degree in Computer Science with a specialization in Artificial Intelligence. 
+  
+  I have a deep knowledge of Python, Java, Javascript, PHP, MATLAB.
+
+  I’m currently a dreamer, a juggler, a skater, a skier, a guitarist, a gopher (?!) - maybe.
+
+  ## My opensource repo
+
+  Currently working on
+
+  - [go-perceptron-go](http://github.com/made2591/go-perceptron-go) - experiments with Go and really simple neural network models.
+
+  ## Some old opensource repo
+
+  * [cognitive-system-postagger](https://github.com/made2591/cognitive-system-postagger) is a part-of-speech tagger (viterbi / cky) / probabilistic-context-free-grammar manipulator library written in Python.
+  * [cognitive-system-semantics](https://github.com/made2591/cognitive-system-semantics) is a word sense disambiguation / document classification tool library written in Java using mainly Wordnet and Babelnet.
+  * [gym-workout](https://github.com/made2591/gym-workout) is a vagrant machine (uuuu, vm, third millenium - I know, you dockerers) with a silex+propel+materialize web based application to manage gym workout.
+  * [trello2google](https://github.com/made2591/trello2google) is a trello / google-calendar-task-management library written in Python with the BIG contribution of [valentinarho](https://github.com/valentinarho).
+  * [google-task-gtd](https://github.com/made2591/google-task-gtd) is a sort of involuntary google goals library written in Python - I swear, I wrote this 3/4 months before goals came out XD.
+
+  ## Actual work position (GE Aviation - AvioAero)
+
+  | Theme  | Description |
+  | ------ | ----------- |
+  | predix.io | (industrial) edge connectivity, Predix machine, cloudfoundry-based [Predix](http://predix.io) platform. It's a dirty job, but somebody's gotta do it. |
+  | IIoT   | brilliant factory, digitalization, analytics. Fashionable. |
+
+  ## Purposes (evergreen)
+
+  | Brief | Long |
+  | ------ | ----------- |
+  | cognitive | work on cognitive. :O |
+  | IBM    | work with IBM. :O :O |
+  | cognitive&IBM | damn, work on / with / in / for / Watson. Cognitive research lab. dsaf :O___________ |
+  | data   | work with data. Ok THAT'S => accademic influence. |
+  | AWS    | work with AWS. Who not? |
+  | data&AWS | work with data on AWS, in cloud... which the data belong. |
+  | cool&work | in the end continue working (pls!) on cool stuff (__mandatory__). |
+
+  ## Interests (always changing)
+
+  See purposes.
+
+  ## Links to my profile
+
+  * [Github](https://github.com/made2591/)
+  * [Twitter](https://twitter.com/made2591)
+  * [Linkedin](https://linkedin.com/in/mmadeddu)
+  * [Facebook](https://www.facebook.com/matteo.madeddu)
