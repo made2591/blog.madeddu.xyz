@@ -16,11 +16,13 @@ text: |
 
   Currently working on
 
+  - [placeholder](#) a collector with goa.design (work in progress on naming)
   - [go-perceptron-go](http://github.com/made2591/go-perceptron-go) - experiments with Go and really simple neural network models.
   - [quantum](http://github.com/made2591/quantum) - experiments with entagled state in OpenQASM 2.0.
 
   ## Some old opensource repo
 
+  * [predix-configurator](https://github.com/made2591/predix-configurator) is a configuration tool realized to help you setup your edge connectivity stack.
   * [cognitive-system-postagger](https://github.com/made2591/cognitive-system-postagger) is a part-of-speech tagger (viterbi / cky) / probabilistic-context-free-grammar manipulator library written in Python.
   * [cognitive-system-semantics](https://github.com/made2591/cognitive-system-semantics) is a word sense disambiguation / document classification tool library written in Java using mainly Wordnet and Babelnet.
   * [__spotispy-framework__](https://made2591.github.com/spotispy-framework) is (will be) a docker-based (I'm planning porting with [@valentinarho](https://github.com/valentinarho)) Python framework to make data science - the musician way. 
@@ -34,6 +36,7 @@ text: |
 
   | Theme  | Description |
   | ------ | ----------- |
+  | AWS | API for digital twin: infrastructure, finance, edge connectivity, security, billing. Tech: Golang, [goa.design](https://goa.design), [mux](https://github.com/gorilla/mux), [logrus](https://github.com/sirupsen/logrus), [aws-sdk-go](https://github.com/aws/aws-sdk-go) - mainly cloudwatch, ec2 and ecs apis. Angular 4 + packages as front-end tech|
   | predix.io | (industrial) edge connectivity, Predix machine, cloudfoundry-based [Predix](http://predix.io) platform. It's a dirty job, but somebody's gotta do it. |
   | IIoT   | brilliant factory, digitalization, analytics. Fashionable. |
 
