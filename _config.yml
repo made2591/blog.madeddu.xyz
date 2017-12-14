@@ -1,12 +1,12 @@
 baseurl: "" # The subpath of your site. Use "" if you're hosting a blog at the root level.
 url: "made2591.github.io" # the base hostname & protocol for your site.
 
-#paginate: 6 #articles per page
-#paginate_path: /blog/page:num #makes pagination working
+paginate: 6 #articles per page
+paginate_path: /blog/page:num #makes pagination working
 
 # header text
 title: Matteo Madeddu
-header: Mac OS lover, Docker fan, Python geek, Go explorer, Trello addicted.
+header: Mac OS lover, Docker fan, Go explorer, Python geek, Trello addicted.
 
 # for welcome page
 # to replace image go to index.html
@@ -16,7 +16,7 @@ email:
 
 # disqus comment
 disqus:
-    shortname: "mm" #your disqus comment short name
+    shortname: "made2591" #your disqus comment short name
 
 # google analytics
 google:
@@ -35,8 +35,6 @@ exclude:
   - "CHANGELOG.md"
   - "Gemfile"
   - "Gemfile.lock"
-
-# permalink: /posts/:title
 
 permalink: /posts/:title
 
