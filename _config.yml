@@ -38,6 +38,8 @@ exclude:
 
 # permalink: /posts/:title
 
+permalink: /posts/:title
+
 defaults:
   -
     scope:
@@ -45,9 +47,9 @@ defaults:
       type: "pages"
     values:
       layout: "default"
-#  -
-#    scope:
-#      path: ""
-#      type: "posts"
-#    values:
-#      layout: "post"
+  -
+    scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
