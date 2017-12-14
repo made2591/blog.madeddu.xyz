@@ -6,7 +6,7 @@ url: "made2591.github.io" # the base hostname & protocol for your site.
 
 # header text
 title: Matteo Madeddu
-header: Mac OS lover, Docker fan, Python geek, Go explorer, Trello addicted.
+header: Mac OS lover, Docker fan, Go explorer, Python geek, Trello addicted.
 
 # for welcome page
 # to replace image go to index.html
@@ -35,8 +35,6 @@ exclude:
   - "CHANGELOG.md"
   - "Gemfile"
   - "Gemfile.lock"
-
-# permalink: /posts/:title
 
 permalink: /posts/:title
 

@@ -1,6 +1,5 @@
 # nav items in header
 items:
-  # not ready yet ;-)
   - text: 'Blog'
     path: '/blog'
   - text: 'Archive'
