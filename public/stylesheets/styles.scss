@@ -216,3 +216,7 @@ mark, .mark {
 .orng{
   color: #EC4E3B;
 }
+
+img[alt*="perceptron"] {
+  -webkit-filter: invert(70%);
+}
