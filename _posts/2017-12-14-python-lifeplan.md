@@ -1,5 +1,5 @@
 ---
-title: "Life Plan"
+title: "How to plan your daily activity with Python"
 tags: [coding, algorithms, python, scheduling, task]
 ---
 
