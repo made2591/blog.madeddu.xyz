@@ -1,27 +1,15 @@
 text: |
 
-  I am a Computer Science enthusiast with a strong propensity to interdisciplinarity. 
-  
-  I obtained a bachelor and master degree in Computer Science with a specialization in Artificial Intelligence. 
+  I am Matteo, I have a bs and ms in computer science with a specialization in artificial intelligence. 
 
-  I graduated with honors and distinction in April 2016 with a thesis in the field of neuro-computational model, and specifically about taxonomic response and fast-mapping abilities of children, entitled [A Visual Auditory Model based on Growing Self-organizing Maps to analyze the Taxonomic Response in early childhood](https://made2591.github.com/matteo_madeddu_master_thesis.pdf).
-  
-  I was invited at the [__AI*IA__](http://www.aixia.it/) conference, held in Genova from Nov 28th to Dec 1st 2016 to receive a special mention for my work, considered one of the Best Italian Master thesis in Artificial Intelligence.
+  I graduated with honors and distinction in April 2016 with a thesis in the field of neuro-computational model, and specifically about taxonomic response and fast-mapping abilities of children, entitled [A Visual Auditory Model based on Growing Self-organizing Maps to analyze the Taxonomic Response in early childhood](https://made2591.github.com/matteo_madeddu_master_thesis.pdf). For this work, I was invited at the [__AI*IA__](http://www.aixia.it/) conference, held in Genova from Nov 28th to Dec 1st 2016 to receive a special mention as one of the Best Italian Master thesis in Artificial Intelligence.
 
-  Tech skills: I have a deep knowledge of Python, Java, Javascript, PHP, MATLAB.
+  I am a Golang dev, Mac OS lover, Docker fan, Python geek, Trello addicted, a juggler, a skier, a skater, a guitarist (sometimes), a dreamer (always). Always looking for a team of passionate people to work with, a mentor to guide us, in a company that wants to make the difference.
 
-  I’m a dreamer, a juggler, a skater, a skier, a guitarist (sometimes).
+  ## Some of my repo
 
-  ## My opensource repo
-
-  Currently working on
-
-  - [placeholder](#) a collector with goa.design (work in progress on naming)
-  - [go-perceptron-go](http://github.com/made2591/go-perceptron-go) - experiments with Go and really simple neural network models.
-  - [quantum](http://github.com/made2591/quantum) - experiments with entagled state in OpenQASM 2.0.
-
-  ## Some old opensource repo
-
+  * [__go-perceptron-go__](http://github.com/made2591/go-perceptron-go) - experiments with Go and really simple neural network models.
+  * [quantum](http://github.com/made2591/quantum) - experiments with entagled state in OpenQASM 2.0.
   * [predix-configurator](https://github.com/made2591/predix-configurator) is a configuration tool realized to help you setup your edge connectivity stack.
   * [cognitive-system-postagger](https://github.com/made2591/cognitive-system-postagger) is a part-of-speech tagger (viterbi / cky) / probabilistic-context-free-grammar manipulator library written in Python.
   * [cognitive-system-semantics](https://github.com/made2591/cognitive-system-semantics) is a word sense disambiguation / document classification tool library written in Java using mainly Wordnet and Babelnet.
@@ -30,27 +18,25 @@ text: |
   * [__gym-workout__](https://github.com/made2591/gym-workout) is a vagrant machine (uuuu, vm, third millenium - I know, you dockerers) with a silex+propel+materialize web based application to manage gym workout.
   * [trello2google](https://github.com/made2591/trello2google) is a trello / google-calendar-task-management library written in Python with the BIG contribution of [@valentinarho](https://github.com/valentinarho).
   
-  and so many [__many others__](https://github.com/made2591?tab=repositories) cutting-edge repo XD in my github.com page.
+  and [__some others__](https://github.com/made2591?tab=repositories).
 
   ## Actual work position (GE Aviation - AvioAero)
 
-  | Theme  | Description |
-  | ------ | ----------- |
-  | AWS | API for digital twin: infrastructure, finance, edge connectivity, security, billing. Tech: Golang, [goa.design](https://goa.design), [mux](https://github.com/gorilla/mux), [logrus](https://github.com/sirupsen/logrus), [aws-sdk-go](https://github.com/aws/aws-sdk-go) - mainly cloudwatch, ec2 and ecs apis. Angular 4 + packages as front-end tech|
+  | Theme     | Description |
+  | --------- | ----------- |
+  | AWS       | API for digital twin: infrastructure, finance, edge connectivity, security, billing. Tech: Golang, [goa.design](https://goa.design), [mux](https://github.com/gorilla/mux), [logrus](https://github.com/sirupsen/logrus), [aws-sdk-go](https://github.com/aws/aws-sdk-go) - mainly cloudwatch, ec2 and ecs apis. Angular 4 + packages as front-end tech |
   | predix.io | (industrial) edge connectivity, Predix machine, cloudfoundry-based [Predix](http://predix.io) platform. It's a dirty job, but somebody's gotta do it. |
-  | IIoT   | brilliant factory, digitalization, analytics. Fashionable. |
+  | IIoT      | brilliant factory, digitalization, analytics. Fashionable. |
 
   ## Purposes (evergreen)
 
-  | Brief | Long |
-  | ------ | ----------- |
-  | cognitive | work on cognitive. :O |
-  | IBM    | work in IBM. :O :O |
-  | cognitive&IBM | damn, work on / with / in / for / IBM Watson. Cognitive Research Lab. dsaf :O___________ |
-  | data   | work with data. Ok THAT'S => accademic influence. |
-  | AWS    | work with AWS. Who not? |
-  | data&AWS | work with data on AWS, in cloud... which the data belong. |
-  | cool&work | in the end continue working (pls!) on cool stuff (__mandatory__). |
+  | Brief  | Long                               |
+  | ------ | ---------------------------------- |
+  | People | work with cool people              |
+  | Theme  | work on cool stuff (__mandatory__) |
+  | IBM    | work in IBM :O                     |
+  | AWS    | work in AWS                        |
+  | Google | work in Google                     |
 
   ## Interests (always changing)
 
@@ -59,6 +45,6 @@ text: |
   ## Links to my profile
 
   * [Github](https://github.com/made2591/)
-  * [Twitter](https://twitter.com/made2591)
   * [Linkedin](https://linkedin.com/in/mmadeddu)
+  * [Twitter](https://twitter.com/made2591)
   * [Facebook](https://www.facebook.com/matteo.madeddu)
