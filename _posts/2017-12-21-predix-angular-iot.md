@@ -1,6 +1,6 @@
 ---
 title: "Predix Machine and how to configure them"
-tags: [coding, python, angular, predix, brilliant, factory, iot]
+tags: [theory, network, angular, predix, brilliant, factory, iot]
 ---
 
 ### Predix Machine and how to configure them
