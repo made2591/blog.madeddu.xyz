@@ -106,11 +106,16 @@ The coaxial cable has better shielding and greater bandwidth than unshielded twi
 <span style="color:#A04279; font-size: bold;">Power Lines</span>
 The use of power lines (electricity distribution) for data communication is an old idea. In recent years there has been renewed interest in high-rate communication over these lines, both inside the home as a LAN and outside the home for broadband Internet access. Using electrical wires inside the home is not so easy, because of appliances switch on and off and creating electrical noise, electrical properties of the wiring change from house to house: international standards are actively under development because many products use various proprietary standards for power-line networking, allowing transport to a few hundred megabits.
 
+<p align="center"><img src="https://image.ibb.co/kwePCG/powerline.png" alt="perceptron" style="width: 80%; marker-top: -10px;"/></p>
+
 <span style="color:#A04279; font-size: bold;">Fiber Optics</span>
 The achievable bandwidth with fiber technology is 50 Tbps: we are nowhere near reaching these limits. The current practical limit of around 100 Gbps is due to our inability to convert between electrical and optical signals any faster. To build higher-capacity links, many channels are simply carried in parallel over a single fiber. However, the cost to install fiber over the last mile to reach consumers and bypass the low bandwidth of wires and limited availability of spectrum is tremendous. It also costs more energy to move bits than to compute. 
 An optical transmission system has three key components: the light source, the transmission medium, and the detector. Conventionally, a pulse of light indicates a 1 bit and the absence of light indicates a 0 bit. The transmission medium is an ultra-thin fiber of glass. The detector generates an electrical pulse when light falls on it. By attaching a light source to one end of an optical fiber and a detector to the other, we have a unidirectional data transmission system that accepts an electrical signal, converts and transmits it by light pulses, and then reconverts the output to an electrical signal at the receiving end.
 
-[to complete yet]
+<p align="center"><img src="https://image.ibb.co/gH6nGb/coaxial.png" alt="perceptron" style="width: 100%; marker-top: -10px;"/></p>
+
+The sketch of Fig. 2-6(b) shows only one trapped ray, but since any light ray incident on the boundary above the critical angle will be reflected internally, many different rays will be bouncing around at different angles. Each ray is said to have a different mode, so a fiber having this property is called a multimode fiber.
+However, if the fiber’s diameter is reduced to a few wavelengths of light the fiber acts like a wave guide and the light can propagate only in a straight line, without bouncing, yielding a single-mode fiber. Single-mode fibers are more ex- pensive but are widely used for longer distances. Currently available single-mode fibers can transmit data at 100 Gbps for 100 km without amplification. Even higher data rates have been achieved in the laboratory for shorter distances.
 
 Thank you everybody for reading!
 
