@@ -101,6 +101,8 @@ Cat 8.2 | S/FTP, F/FTP | 1600–2000 MHz | 40GBASE-T Ethernet or POTS/CATV/1000B
 <span style="color:#A04279; font-size: bold;">Coaxial Cable</span>
 The coaxial cable has better shielding and greater bandwidth than unshielded twisted pairs, so it can span longer distances at higher speeds. Coaxial cables used to be widely used within the telephone system for long-distance lines but have now largely been replaced by fiber optics on longhaul routes. 
 
+<p align="center"><img src="https://image.ibb.co/gH6nGb/coaxial.png" alt="perceptron" style="width: 100%; marker-top: -10px;"/></p>
+
 <span style="color:#A04279; font-size: bold;">Power Lines</span>
 The use of power lines (electricity distribution) for data communication is an old idea. In recent years there has been renewed interest in high-rate communication over these lines, both inside the home as a LAN and outside the home for broadband Internet access. Using electrical wires inside the home is not so easy, because of appliances switch on and off and creating electrical noise, electrical properties of the wiring change from house to house: international standards are actively under development because many products use various proprietary standards for power-line networking, allowing transport to a few hundred megabits.
 
