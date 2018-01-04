@@ -13,7 +13,7 @@ As Andrew Tanenbaum says in his book, "the physical layer is the foundation on w
 - __Part 3__: The digital modulation, which is all about how analog signals are converted into digital bits and back again;
 - __Part 4__: The multiplexing schemes aka _how multiple conversations can be put on the same transmission medium at the same time without interfering with one another_;
 
-### Part 1 - Data trasmission
+### Part 1 of 4 - Data trasmission
 First, you need to know what is a <span style="color:#A04279; font-size: bold;">the Fourier transform</span>: you can find a complex explanation [here](https://en.wikipedia.org/wiki/Fourier_transform). For those afraid of math, including myself, I will try to gild the pill in the next lines. 
 
 Let's start with waveform: virtually __everything__ in the world can be described via a waveform - a function of time, space or some other variable. For instance, sound waves, electromagnetic fields, the elevation of a hill versus location, the price of your favorite stock versus time, etc. The Fourier Transform gives us a unique and powerful way of _viewing_ these waveforms, because it proves [wait for it] an incredible fact, that deserves quotation:
@@ -58,16 +58,16 @@ The only thing you have to remember is that _if the signal consists of $$V$$ dis
 
 If random noise is present, the situation deteriorates rapidly. Let be $$S$$ the signal power, and $$N$$ the noise power. Than, the signal-to-noise ratio is $$S/N$$. Usually, this ratio is expressed on a log scale as the quantity $$10 * log_10(S/N)$$, because it can vary over a tremendous range. The units of this log scale are called __decibels__ (dB). Another genius, Shannon, derived an important result in this field: the maximum data rate or capacity of a noisy channel whose bandwidth is $$B \; Hz$$ and whose signal-to-noise ratio is $$S/N$$ is = $$B * log_2(1 + S/N) \; bits/sec$$
 
-#### Media
+### Part 2 of 4 - Media types
 Various physical media can be used for the actual transmission. Each one has its own niche in terms of bandwidth, delay, cost, and ease of installation and maintenance. Media are roughly grouped into guided media, such as copper wire and fiber optics, and unguided media, such as terrestrial wireless, satellite, and lasers through the air.
 
-##### Guided Transmission Media
+#### Guided Transmission Media
 <span style="color:#A04279; font-size: bold;">Magnetic Media</span>
 One of the most common ways to transport data from one computer to another is to write them onto magnetic tape or removable media (e.g., recordable DVDs), physically transport the tape or disks to the destination machine, and read them back in again.
 
-| Pro | Cons |
---------------
-| Bandwith | Transmission time | 
+Pro | Cons |
+-------------|
+Bandwith | Transmission time | 
 
 <span style="color:#A04279; font-size: bold;">Twisted Pairs</span>
 One of the oldest and still most common transmission media is twisted pair. It consists of two insulated copper wires. The wires are twisted together in a helical form, just like a DNA molecule. Twisting is done because two parallel wires constitute a fine antenna. When the wires are twisted, the waves from different twists cancel out, so the wire radiates less effectively. A signal is usually carried as the difference in voltage between the two wires in the pair. This provides better immunity to external noise because the noise tends to affect both wires the same, leaving the differential unchanged. The most common application of the twisted pair is the telephone system. The bandwidth depends on the thickness of the wire and the distance traveled, but several megabits/sec can be achieved for a few kilometers in many cases.
@@ -112,10 +112,41 @@ The use of power lines (electricity distribution) for data communication is an o
 The achievable bandwidth with fiber technology is 50 Tbps: we are nowhere near reaching these limits. The current practical limit of around 100 Gbps is due to our inability to convert between electrical and optical signals any faster. To build higher-capacity links, many channels are simply carried in parallel over a single fiber. However, the cost to install fiber over the last mile to reach consumers and bypass the low bandwidth of wires and limited availability of spectrum is tremendous. It also costs more energy to move bits than to compute. 
 An optical transmission system has three key components: the light source, the transmission medium, and the detector. Conventionally, a pulse of light indicates a 1 bit and the absence of light indicates a 0 bit. The transmission medium is an ultra-thin fiber of glass. The detector generates an electrical pulse when light falls on it. By attaching a light source to one end of an optical fiber and a detector to the other, we have a unidirectional data transmission system that accepts an electrical signal, converts and transmits it by light pulses, and then reconverts the output to an electrical signal at the receiving end.
 
-<p align="center"><img src="https://image.ibb.co/gH6nGb/coaxial.png" alt="perceptron" style="width: 100%; marker-top: -10px;"/></p>
+<p align="center"><img src="https://image.ibb.co/gRN1bb/fiber_t.png" alt="perceptron" style="width: 100%; marker-top: -10px;"/></p>
 
-The sketch of Fig. 2-6(b) shows only one trapped ray, but since any light ray incident on the boundary above the critical angle will be reflected internally, many different rays will be bouncing around at different angles. Each ray is said to have a different mode, so a fiber having this property is called a multimode fiber.
-However, if the fiber’s diameter is reduced to a few wavelengths of light the fiber acts like a wave guide and the light can propagate only in a straight line, without bouncing, yielding a single-mode fiber. Single-mode fibers are more ex- pensive but are widely used for longer distances. Currently available single-mode fibers can transmit data at 100 Gbps for 100 km without amplification. Even higher data rates have been achieved in the laboratory for shorter distances.
+At the center is the glass core through which the light propagates. In multimode fibers, the core is typically 50 microns in diameter, about the thickness of a human hair. In single-mode fibers, the core is 8 to 10 microns. What happens inside the core? The light ray incident on the boundary above the critical angle will be reflected internally: this implies that many different rays will be bouncing around at different angles. Each ray is said to have a different mode, so a fiber having this property is called a __multimode fiber__.
+If the fiber’s diameter is reduced to a few wavelengths of light the fiber acts like a wave guide and the light can propagate only in a straight line, without bouncing, yielding a __single-mode__ fiber. Single-mode fibers are more expensive but are widely used for longer distances.
+
+#### Wireless Transmission
+When electrons move, they create electromagnetic waves that can propagate through space. The number of oscillations per second of a wave is called its frequency, $$f$$, and is measured in Hz. The distance between two consecutive maxima (or minima) is called the wavelength, which is universally designated by the Greek letter $$\lambda$$. The fundamental relation between $$f$$, $$\lambda$$, and $$c$$ (in a vacuum) is:
+
+$$\lambda * f = c$$
+
+The amount of information that a signal such as an electromagnetic wave can carry depends on the received power and is proportional to its bandwidth. Most transmissions use a relatively narrow frequency band. They concentrate their signals in this narrow band to use the spectrum efficiently and obtain reasonable data rates by transmitting with enough power. 
+
+<p align="center"><img src="https://image.ibb.co/gNWWsG/spectrum_t.png" alt="perceptron" style="width: 100%; marker-top: -10px;"/></p>
+
+However, in some cases, a wider band is used, with three variations. In frequency hopping spread spectrum, the transmitter hops from frequency to frequency hundreds of times per second. It is popular for military communication because it makes transmissions hard to detect and next to impossible to jam. A second form of spread spectrum, direct sequence spread spectrum, uses a code sequence to spread the data signal over a wider frequency band. It is widely used commercially as a spectrally efficient way to let multiple signals share the same frequency band. A third method of communication with a wider band is UWB (Ultra- WideBand) communication. UWB sends a series of rapid pulses, varying their positions to communicate information.
+
+<span style="color:#A04279; font-size: bold;">Radio Transmission</span>
+Radio frequency (RF) waves are easy to generate, can travel long distances, and can penetrate buildings easily, so they are widely used for communication, both indoors and outdoors. Radio waves also are omnidirectional, meaning that they travel in all directions from the source, so the transmitter and receiver do not have to be carefully aligned physically.
+
+<span style="color:#A04279; font-size: bold;">Microwave Transmission</span>
+In summary, microwave communication is so widely used for long-distance telephone communication, mobile phones, television distribution, and other purposes that a severe shortage of spectrum has developed. It has several key advan- tages over fiber. The main one is that no right of way is needed to lay down cables. By buying a small plot of ground every 50 km and putting a microwave tower on it, one can bypass the telephone system entirely.
+
+Then there are also Satellites but I ignore them.
+
+### Part 3 of 4 - The digital modulation
+To send digital information, we must devise analog signals to represent bits. The process of converting between bits and signals that represent them is called digital modulation. There are two different schemes:
+- __baseband transmission schemes__ directly convert bits into a signal: the signal occupies frequencies from zero up to a maximum that depends on the signaling rate. It is common for wires. 
+- __passband transmission schemes__ regulate the amplitude, phase, or frequency of a carrier signal to convey bits: the signal occupies a band of frequencies around the frequency of the carrier signal. It is common for wireless and optical channels for which the signals must reside in a given frequency band.
+
+Furthermore, channels are often shared by multiple signals because it is much more convenient. How to share the medium? With __multiplexing__. There are several way of multiplexing. It can be accomplished in several different ways: for time, for frequency and for code division.
+
+#### Baseband Transmission
+The most straightforward form of digital modulation is to use a positive voltage to represent a 1 and a negative voltage to represent a 0. This scheme is called NRZ (Non-Return-to-Zero). 
+
+<p align="center"><img src="https://image.ibb.co/c4pUew/lines_t.png" alt="perceptron" style="width: 100%; marker-top: -10px;"/></p>
 
 Thank you everybody for reading!
 
