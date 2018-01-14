@@ -23,6 +23,7 @@ Ok, here the ingredients to prepare the environment:
 To order your files, you first have to make some sort of statistics: Elasticsearch + Kibana can really help you in doing that. Of course, you also have to create data to explore your file systems, but this is really a simple task I will show in the end. First, let's start with the core: Elasticsearch.
 
 #### Step 1: run Elasticsearch
+<<<<<<< HEAD
 Elasticsearch is a distributed, RESTful search and analytics engine capable of solving different _scenarios_: what do I mean? That it could be use to centrally store your data, let you _discover the expected_ and _uncover the unexpected_ - cit. This is perfect for my original purpose (make order in my file systems)! How can you install Elastisearch in a portable way? It's really simple: using Docker OR... if you don't use Docker - I mean, why!? - open a shell and do the following:
 
 {% highlight bash %}
