@@ -14,6 +14,8 @@ package (thank you [atosatto](https://github.com/atosatto) for your advise): I o
 
 If you want to find out how to start building with these tools, this is the right place for you!
 
+<p align="center"><img src="https://www.gopherguides.com/assets/images/logos/logo.svg" style="width: 70%; marker-top: -10px;"/></p>
+
 #### goa.design
 goa is a _holistic approach for building microservices_ in Golang (cit). I don't want to go through all the features of the packages, you can read a _quite_ complete [overview](https://goa.design/design/overview/) of the project in the official site. What goa actually offers is a good starting point if you want to _design_ your microservices without losing time in the construction of the outline logic and focusing mainly on the definition of resources, actions and media types. Look at some piece of code from the [goa-cellar](https://github.com/goadesign/goa-cellar) example:
 
