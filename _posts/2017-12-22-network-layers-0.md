@@ -139,4 +139,6 @@ We talked a lot about the roles of each layers in __OSI__ reference models. Let'
  2 | Data link    | MAC  | PPP / SBTV / SLIP                     |
  1 | Physical     | [..] |  /                                    |
 
+<span style="color:#A04279; font-size: bold;">UPDATE 05/01/2018</span>: you can now read the second part of the Network Saga at the post [A journey through the network - Layer 1](https://made2591.github.io/posts/network-layers-1). Enjoy the reading!
+
 Thank you everybody for reading!
