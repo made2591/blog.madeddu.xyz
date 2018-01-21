@@ -116,7 +116,7 @@ Both GoLang and Python version of program provide two function:
 - Multiple _prefixed number of routine_;
 
 ##### Simple Go Version
-Ok, I will not talk about single routine methods: it's really simple, the most optimized version I was able to think about (in terms of io operations, etc). You can see the code below - the commented version on [Github](https://github.com/made2591/go-py-benchmark/blob/master/sorting.go):
+Ok, I will not talk about single routine methods: it's really simple, the most optimized version I was able to think about (in terms of io operations, etc). You can see the code below - the commented version on [Github](https://github.com/made2591/go-py-benchmark/blob/master/main.go):
 
 {% highlight go %}
 func msort_sort(a []int) []int {
@@ -365,7 +365,7 @@ And this perform better. The question is better using Threads or Processes? Well
 <p align="center"><img src="http://image.ibb.co/kHjz6w/mergesort.png" style="width: 100%; marker-top: -10px;"/></p>
 
 ### Conclusion
-Python sucks. GoLang rulez. I'm sorry, Python: I loved you. The complete code is available here: [go-py-benchmark](http://github.com/made2591/go-py-benchmark).
+Python sucks. GoLang rulez. I'm sorry, Python: I loved you. The complete code is available here: [go-py-benchmark](https://made2591.github.io/posts/go-py-benchmark).
 
 Thank you everybody for reading!
 
