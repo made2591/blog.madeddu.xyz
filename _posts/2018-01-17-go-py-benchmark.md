@@ -116,7 +116,7 @@ Both GoLang and Python version of program provide two function:
 - Multiple _prefixed number of routine_;
 
 ##### Simple Go Version
-Ok, I will not talk about single routine methods: it's really simple, the most optimized version I was able to think about (in terms of io operations, etc). You can see the code below - the commented version on [Github](https://github.com/made2591/go-py-benchmark/blob/master/sorting.go):
+Ok, I will not talk about single routine methods: it's really simple, the most optimized version I was able to think about (in terms of io operations, etc). You can see the code below - the commented version on [Github](https://github.com/made2591/go-py-benchmark/blob/master/main.go):
 
 {% highlight go %}
 func msort_sort(a []int) []int {
