@@ -364,6 +364,10 @@ And this perform better. The question is better using Threads or Processes? Well
 
 <p align="center"><img src="http://image.ibb.co/kHjz6w/mergesort.png" style="width: 100%; marker-top: -10px;"/></p>
 
+This is a graph with only GoLang series:
+
+<p align="center"><img src="http://image.ibb.co/gG7VDb/gomerge.png" style="width: 100%; marker-top: -10px;"/></p>
+
 ### Conclusion
 Python sucks. GoLang rulez. I'm sorry, Python: I loved you. The complete code is available here: [go-py-benchmark](https://made2591.github.io/posts/go-py-benchmark).
 
