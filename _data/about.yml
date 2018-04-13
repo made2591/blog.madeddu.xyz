@@ -2,7 +2,7 @@ text: |
 
   I am Matteo, I have a bs and ms in computer science with a specialization in artificial intelligence. 
 
-  I graduated with honors and distinction in April 2016 with a thesis in the field of neuro-computational model, and specifically about taxonomic response and fast-mapping abilities of children, entitled [A Visual Auditory Model based on Growing Self-organizing Maps to analyze the Taxonomic Response in early childhood](https://made2591.github.com/matteo_madeddu_master_thesis.pdf). For this work, I was invited at the [__AI*IA__](http://www.aixia.it/) conference, held in Genova from Nov 28th to Dec 1st 2016 to receive a special mention as one of the Best Italian Master thesis in Artificial Intelligence.
+  I graduated with honors and distinction in April 2016 with a thesis in the field of neuro-computational model, and specifically about taxonomic response and fast-mapping abilities of children, entitled [A Visual Auditory Model based on Growing Self-organizing Maps to analyze the Taxonomic Response in early childhood](https://made2591.github.com/matteo_madeddu_master_thesis.pdf). For this work, I was invited at the [__AI*IA__](http://www.aixia.it/) conference, held in Genova from Nov 28th to Dec 1st 2016 to receive a special mention as one of the Best Italian Master thesis in Artificial Intelligence 😎.
 
   I am a Golang dev, Mac OS lover, Docker fan, Python geek, Trello addicted, a juggler, a skier, a skater, a guitarist (sometimes), a dreamer (always). Always looking for a team of passionate people to work with, a mentor to guide us, in a company that wants to make the difference.
 
@@ -19,6 +19,10 @@ text: |
   * [trello2google](https://github.com/made2591/trello2google) is a trello / google-calendar-task-management library written in Python with the BIG contribution of [@valentinarho](https://github.com/valentinarho).
   
   and [__some others__](https://github.com/made2591?tab=repositories).
+
+  ## Some of my notes (attenzion: tex available!!😃)
+
+  * [quantum-notes](https://github.com/made2591/quantum-notes) - this is a latex document that collect my personal notes about IBM Q platform, in general the quantum-computing world. I was also invited in Verona by the Quantum Research Group to talk about the platform ...the coolest guys were certainly sick.
 
   ## Actual work position (GE Aviation - AvioAero)
 
@@ -37,6 +41,7 @@ text: |
   | IBM    | work in IBM :O                     |
   | AWS    | work in AWS                        |
   | Google | work in Google                     |
+  | Microsoft | just kidding                    |
 
   ## Interests (always changing)
 
