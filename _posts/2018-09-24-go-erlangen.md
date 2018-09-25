@@ -4,7 +4,7 @@ tags: [coding, erlangen, bayern, germany]
 ---
 
 ### A little tool for a small city
-Here we are!! I recently move to Germany to join the adidas team - platform engineering team. [This](https://github.com/made2591/go-erlangen) is a really small piece of GOde (:P) I wrote for erlangen citizen ^^
+Here we are!! I recently moved to Germany to join the adidas - platform engineering team. [This](https://github.com/made2591/go-erlangen) is a really small piece of GOde (:P) I wrote for Erlangen (my new place) citizens ^^
 
 #### Needs
 You will only need an [https://www.internationalshowtimes.com/](https://www.internationalshowtimes.com/) movie api key. You can get one quite easily by going [here](https://www.internationalshowtimes.com/signup.html)
