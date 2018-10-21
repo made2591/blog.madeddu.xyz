@@ -55,7 +55,7 @@ $${\displaystyle{\displaystyle s(t) = \sum_{k=-\infty}^{+\infty}s(k \Delta t){\t
 expressed in terms of the normalized sync function[^sf]. What the f**k I said?! Don't know. 
 
 <span style="color:#A04279; font-size: bold;">Simpler explanation</span>
-The only thing you have to remember is that _if the signal consists of $$V$$ discrete levels (wait for example), Nyquist’s theorem states that the maximum data rate = $$2B * log_2(V) \; bits/sec$$. For example, a noiseless $$3 \; kHz$$ channel cannot transmit binary (i.e., two-level) signals at a rate exceeding 6000 bps, because $$2 * 3000 * log_2(2) \; bits/sec = 6000$$.
+The only thing you have to remember is that _if the signal consists of $$V$$ discrete levels (wait for example), Nyquist's theorem states that the maximum data rate = $$2B * log_2(V) \; bits/sec$$. For example, a noiseless $$3 \; kHz$$ channel cannot transmit binary (i.e., two-level) signals at a rate exceeding 6000 bps, because $$2 * 3000 * log_2(2) \; bits/sec = 6000$$.
 
 If random noise is present, the situation deteriorates rapidly. Let be $$S$$ the signal power, and $$N$$ the noise power. Than, the signal-to-noise ratio is $$S/N$$. Usually, this ratio is expressed on a log scale as the quantity $$10 * log_10(S/N)$$, because it can vary over a tremendous range. The units of this log scale are called __decibels__ (dB). Another genius, Shannon, derived an important result in this field: the maximum data rate or capacity of a noisy channel whose bandwidth is $$B \; Hz$$ and whose signal-to-noise ratio is $$S/N$$ is = $$B * log_2(1 + S/N) \; bits/sec$$
 
@@ -114,7 +114,7 @@ An optical transmission system has three key components: the light source, the t
 
 <p align="center"><img src="https://image.ibb.co/gRN1bb/fiber_t.png" alt="perceptron" style="width: 100%; marker-top: -10px;"/></p>
 
-At the center is the glass core through which the light propagates. What happens inside the core? The light ray incident on the boundary above the critical angle will be reflected internally: this implies that many different rays will be bouncing around at different angles. Each ray is said to have a different mode, so a fiber having this property is called a __multimode fiber__. If the fiber’s diameter is reduced to a few wavelengths of light the fiber acts like a wave guide and the light can propagate only in a straight line, without bouncing, yielding a __single-mode__ fiber. Single-mode fibers are more expensive but are widely used for longer distances.
+At the center is the glass core through which the light propagates. What happens inside the core? The light ray incident on the boundary above the critical angle will be reflected internally: this implies that many different rays will be bouncing around at different angles. Each ray is said to have a different mode, so a fiber having this property is called a __multimode fiber__. If the fiber's diameter is reduced to a few wavelengths of light the fiber acts like a wave guide and the light can propagate only in a straight line, without bouncing, yielding a __single-mode__ fiber. Single-mode fibers are more expensive but are widely used for longer distances.
 
 #### Wireless Transmission
 When electrons move, they create electromagnetic waves that can propagate through space. The number of oscillations per second of a wave is called frequency, $$f$$, and is measured in Hz. The distance between two consecutive maxima (or minima) is called the wavelength, which is universally designated by the Greek letter $$\lambda$$. The fundamental relation between $$f$$, $$\lambda$$, and $$c$$ (in a vacuum) is:
@@ -187,8 +187,8 @@ If you are still alive and you arrived here without becoming crazy, you certainl
 
 #### The Bell telephone model
 This model has remained essentially intact for over 100 years. A simple description follow.
-- each telephone has two copper wires coming out of it that go directly to the telephone company’s nearest end office called __local central office__[^^lcod];
-- the two-wire connections between each subscriber’s telephone and the end office are known in the trade as the __local loop__.
+- each telephone has two copper wires coming out of it that go directly to the telephone company's nearest end office called __local central office__[^^lcod];
+- the two-wire connections between each subscriber's telephone and the end office are known in the trade as the __local loop__.
 
 If a user $$U_a$$ attached to a given __end office__ $$O_1$$ calls another user $$U_b$$ attached to $$O_1$$, the switching mechanism of the office sets up a __direct electrical connection__ between the two __local loops__. This connection remains intact for the duration of the call.
 If the $$U_b$$'s telephone is attached to another __end office__ $$O_2$$, there's a different procedure: each end office has a number of __outgoing lines__ to one or more nearby switching centers, called __toll offices__ (or, if they are within the same local area, tandem offices).
@@ -205,7 +205,7 @@ The two-wire local loop, also know as the "last mile" between the end office and
 ##### ADSL
 The xDSL services have all been designed with certain goals in mind: 
 - work over the existing old Category 3 twisted pair local loops;
-- not affect customers’ existing telephones and fax machines;
+- not affect customers' existing telephones and fax machines;
 - be much faster than 56 kbps;
 - should be always on, with just a monthly charge and no per-minute charge;
 

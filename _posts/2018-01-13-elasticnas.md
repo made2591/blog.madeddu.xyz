@@ -100,7 +100,7 @@ A table should appear with all informations and inferred types for each field ab
 ##### Create a Dashboard
 If you click to the ```Dashboard``` menu in the left sidebar, you should see an empty page with a button __Create a dashboard__: a Dashboard is nothing more than a set of visualizations. Let's create a new one! If you click on ```Add```, a message appear:
 
-	This dashboard is empty. Let’s fill it up!
+	This dashboard is empty. Let's fill it up!
 	Click the Add button in the menu bar above to add a visualization to the dashboard.
 
 ##### Create a visualization

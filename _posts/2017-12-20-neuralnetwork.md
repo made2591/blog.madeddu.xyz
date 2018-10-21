@@ -4,7 +4,7 @@ tags: [coding, golang, ann, perceptron, classifier, neural, networks]
 ---
 
 ### History
-We can date the birth of artificial neural networks in 1958, with the introduction of Perceptron [^rosen] by Frank Rosenblatt. It was the first algorithm created to reproduce the biological neuron. Conceptually, the easier perceptron that you might think of is made of a single neuron: when it’s exposed to a stimulus, it provides a binary response, just as would a biological neuron.
+We can date the birth of artificial neural networks in 1958, with the introduction of Perceptron [^rosen] by Frank Rosenblatt. It was the first algorithm created to reproduce the biological neuron. Conceptually, the easier perceptron that you might think of is made of a single neuron: when it's exposed to a stimulus, it provides a binary response, just as would a biological neuron.
 
 ![ann](https://pbs.twimg.com/media/DPtxHXKW4AEcLyc.jpg)
 
@@ -65,7 +65,7 @@ Suppose we can calculate the error _E_ according to the variation of the weight 
 
 <p align="center"><img src="https://image.ibb.co/jJH2em/graph.png" alt="perceptron" style="width: 250px; marker-top: -10px;"/></p>
 
-Therefore, if we calculate the derivative of this function, we can understand how the variation of the weight makes a positive or negative contribution to the error. In practice, whatever the derived value, we can use a single weight correction function that decrease the involved weight of derived quantity (modulated by learning rate). Despite the fact that it’s quite impossible, for any network or cost function, to be truly convex, the gradient descent follows the derivatives computed for each neuron unit to essentially "roll" down the slope until it finds its way to the center - as close as possible to the _global minimum_. Before continuing, let's take a step back.
+Therefore, if we calculate the derivative of this function, we can understand how the variation of the weight makes a positive or negative contribution to the error. In practice, whatever the derived value, we can use a single weight correction function that decrease the involved weight of derived quantity (modulated by learning rate). Despite the fact that it's quite impossible, for any network or cost function, to be truly convex, the gradient descent follows the derivatives computed for each neuron unit to essentially "roll" down the slope until it finds its way to the center - as close as possible to the _global minimum_. Before continuing, let's take a step back.
 
 ##### Why multilayer? The linearly separable problems
 The problem with the binary perceptron made with a single neuron is the inability to handle non-linearly separable problems: these kind of problems are the ones in which, in other words, it's impossible to define an hyperplane able to separate, in the vector space of the inputs, those that require a positive output from those requiring a negative output. An example of three non-collinear points belonging to two different classes ('_+_' and '_-_') are always linearly separable in two dimensions. This is illustrated by the first three examples in the following figure:
