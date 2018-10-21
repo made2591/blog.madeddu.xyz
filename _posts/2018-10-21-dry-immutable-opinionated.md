@@ -41,7 +41,7 @@ Many times I heard the sentence "why we should create an ami for this? then we s
 This is similar to what I'm building in [immutable](https://github.com/made2591/immutable): the idea is that you define your design once, trying to decoupling as much as possible from your IasS provider - at least, conceptually - and be able to restore everything from scratch with a single pull. What you should be aware, is that to avoid errors you have to not repeat yourself.
 
 #### DRY
-In software engineering, don't repeat yourself (DRY) is a principle of software development aimed at reducing repetition of software patterns, replacing it with abstractions or using data normalization to avoid redundancy. In IaaC, this implies defining resources, configuration, environment, provider and states once, separately, and avoid as much as possible writing twice what you can write once. This starting from the common environment variables shared across different setup to the resource definition that should use parameters, built-in functions and the maximum expressive power of the language you are using to avoid repetition. The code is clearer, more robust, more safe, and we all like formalism - hopefully. More specifically, the DRY principle is stated as "Every piece of knowledge must have a single, unambiguous, authoritative representation within a system".
+In software engineering, don't repeat yourself (DRY) is a principle of software development aimed at reducing repetition of software patterns, replacing it with abstractions or using data normalization to avoid redundancy[^wiki]. In IaaC, this implies defining resources, configuration, environment, provider and states once, separately, and avoid as much as possible writing twice what you can write once. This starting from the common environment variables shared across different setup to the resource definition that should use parameters, built-in functions and the maximum expressive power of the language you are using to avoid repetition. The code is clearer, more robust, more safe, and we all like formalism - hopefully. More specifically, the DRY principle is stated as "Every piece of knowledge must have a single, unambiguous, authoritative representation within a system".
 
 ![dry](https://i.imgur.com/RbFzUWe.jpg)
 
@@ -66,3 +66,4 @@ A still *only-partially* related git repository I used to experiment with these 
 Thank you everybody for reading!
 
 [^opin]: But there are repository like [this](https://github.com/GovTechSG/terraform-aws-vpc) that provided opionated configurations to start from.
+[^wiki]: [Wikipedia](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself)
