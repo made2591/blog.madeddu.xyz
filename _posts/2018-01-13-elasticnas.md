@@ -40,7 +40,7 @@ Kibana gives _shape_ to your data and is the extensible user interface for confi
 For mac OS
 {% highlight bash %}
 curl -O https://artifacts.elastic.co/downloads/kibana/kibana-6.1.1-darwin-x86_64.tar.gz
-shasum kibana-6.1.1-darwin-x86_64.tar.gz 
+shasum kibana-6.1.1-darwin-x86_64.tar.gz
 tar -xzf kibana-6.1.1-darwin-x86_64.tar.gz
 cd kibana-6.1.1-darwin-x86_64/
 {% endhighlight %}
@@ -48,7 +48,7 @@ cd kibana-6.1.1-darwin-x86_64/
 For linux 64bit
 {% highlight bash %}
 wget https://artifacts.elastic.co/downloads/kibana/kibana-6.1.1-linux-x86_64.tar.gz
-sha1sum kibana-6.1.1-linux-x86_64.tar.gz 
+sha1sum kibana-6.1.1-linux-x86_64.tar.gz
 tar -xzf kibana-6.1.1-linux-x86_64.tar.gz
 cd kibana-6.1.1-linux-x86_64/
 {% endhighlight %}
@@ -83,7 +83,7 @@ The stats for each file are extened with, of course, file name and extensions - 
 explorer(path = "/", process = 1, output = "files.json")
 {% endhighlight %}
 
-__NOTE__: you can of course play with AWK and print your JSON struct to a file with a single command - but again I'm lazy ok!? And I'm also working on layer 2 for my network saga, it takes - believe me - A LOT of time. 
+__NOTE__: you can of course play with AWK and print your JSON struct to a file with a single command - but again I'm lazy ok!? And I'm also working on layer 2 for my network saga, it takes - believe me - A LOT of time.
 
 Then, following the instruction of the [getting started guide](https://www.elastic.co/guide/en/elasticsearch/reference/current/_exploring_your_data.html), I load my data in Elasticsearch using the bulk api: it is amazing because it makes it possible to perform many index/delete operations in a single API call - greatly increasing the indexing speed.
 

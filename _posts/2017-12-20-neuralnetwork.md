@@ -52,7 +52,7 @@ A neuron corresponds to the simple binary perceptron originally proposed by Rose
 - ```Bias```, a 64 bit float that represents NeuronUnit natural propensity to spread signal,
 - ```Lrate```, a 64 bit float that represents learning rate of neuron,
 - ```MultipleExpectation```, a 64 bit float that represents the desired value when I load the input pattner into network in Multi NeuralLayer Perceptron,
-- ```Delta```, a 64 bit float that mantains error during execution of training algorithm (later); 
+- ```Delta```, a 64 bit float that mantains error during execution of training algorithm (later);
 
 ##### Perceptron
 As I said, the single perceptron schema is implemented by a single neuron. The easiest way to implement this simple classifier is to establish a threshold function, insert it into the neuron, combine the values (eventually using different weights for each of them) that describe the stimulus in a single value, provide this value to the neuron and see what it returns in output. The schema show how it works:
@@ -60,7 +60,7 @@ As I said, the single perceptron schema is implemented by a single neuron. The e
 ![perceptron](https://upload.wikimedia.org/wikipedia/commons/6/60/ArtificialNeuronModel_english.png)
 
 ##### Metric
-Why _weights_? What does it mean the expression _dimension modulation_ of the the input? Well, training conceptually is "the process of learning the skills you need to do a particular job or activity". But how do you know if you're getting better, or if you are learning the skills you need? Of course, you need a metric of how good or bad you're doing. Also in ANN there's a metric generally called _cost function_. Suppose we want to change a certain _wi_ weight of the network. More or less, the cost function looks at the function the network has inferred and uses it to estimate values for the data points in the training set. The difference between the outputs of the network and the training set data points are the main values for the cost function. When training your network, the goal is to get the value of this cost function as low as possible. The most basic of the training algorithms is the _gradient descent_. 
+Why _weights_? What does it mean the expression _dimension modulation_ of the the input? Well, training conceptually is "the process of learning the skills you need to do a particular job or activity". But how do you know if you're getting better, or if you are learning the skills you need? Of course, you need a metric of how good or bad you're doing. Also in ANN there's a metric generally called _cost function_. Suppose we want to change a certain _wi_ weight of the network. More or less, the cost function looks at the function the network has inferred and uses it to estimate values for the data points in the training set. The difference between the outputs of the network and the training set data points are the main values for the cost function. When training your network, the goal is to get the value of this cost function as low as possible. The most basic of the training algorithms is the _gradient descent_.
 Suppose we can calculate the error _E_ according to the variation of the weight value _wi_: we are therefore able to draw the graph in a graph like the one in the figure.
 
 <p align="center"><img src="https://image.ibb.co/jJH2em/graph.png" alt="perceptron" style="width: 250px; marker-top: -10px;"/></p>
@@ -283,14 +283,14 @@ func Execute(mlp *MultiLayerNetwork, s *Pattern, options ...int) (r []float64) {
 
 Basically, what ```Execute``` function does is computing the result of execution for each _output_ ```NeuronUnit``` in _output_ ```NeuralLayer```. In order, it first _inserts input_ to _input_ ```NeuralLayer``` of the network, assigning the values of the dimensions (```Features``` field) of each pattern to values (```Value``` field) of each ```NeuronUnit``` in input layer (```mlp.NeuralLayers[0]```); after that, for each layers from first hidden to output, and for each neurons in the previous level and the current, execution algorithm computes the sum of multiplication between the weight that links two involved neurons and the (output) computed in the step before of the previous neuron - this is the meaning of most internal for. Then, the bias - natural propension to activation - of the neuron is added to the quantity _nv_, and output value of the current neuron in the current neural layer is _updated_ with the activation function computed passing this quantity _nv_ as parameter. The last for simply accumulate values of all neurons in last level and return the result. To summarize, this algorithm makes the input flow through the network, using weights to modulate the various dimensions that describe it and the activation functions to calculate the response of each neuron. In the end, the values accumulated in the neurons of the last level are returned.
 
-Back to the ```BackPropagate```, we already said it starts executing the network. The idea is to get the value accumulated in the neurons of the last level, to compute the error accumulated retracing the various steps backwards. With the (__uncorrect__) assumption of a convex function, we can imagine that _solving the weight update task backwards, by calculating the derivative of the activation function_, is a good way to _go down towards the global optimum_. In reality, there is no guarantee of not being _stuck in a false minimum_, and this depends on the characteristics of the function and (most likely) also on the architecture chosen for our ann. 
+Back to the ```BackPropagate```, we already said it starts executing the network. The idea is to get the value accumulated in the neurons of the last level, to compute the error accumulated retracing the various steps backwards. With the (__uncorrect__) assumption of a convex function, we can imagine that _solving the weight update task backwards, by calculating the derivative of the activation function_, is a good way to _go down towards the global optimum_. In reality, there is no guarantee of not being _stuck in a false minimum_, and this depends on the characteristics of the function and (most likely) also on the architecture chosen for our ann.
 
 <p align="center"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Extrema_example.svg/600px-Extrema_example.svg.png" alt="perceptron" style="width: 300px; marker-top: -10px;"/></p>
 
 Weights update:
 
 ##### Weight update - 2 of 2
-For each weight in the network, the following steps must be followed: 
+For each weight in the network, the following steps must be followed:
 
 - the weight's output delta and input activation are multiplied to find the gradient of the weight,
 - a percentage (modulated by learning rate) of the weight's gradient is subtracted from the weight;
@@ -388,7 +388,7 @@ func BackPropagate(mlp *MultiLayerNetwork, s *Pattern, o []float64, options ...i
 {% endhighlight %}
 
 After execution step, ```BackPropagate``` function starts computing output error and delta for the output level. The delta for a given neuron can be calculated as follows:
-	
+
 	delta = (expected - output) * transfer\_derivative(output)
 
 where expected is the expected output value (_o[i]_) for the neuron and output is the output value for the neuron (_no[i]_) computed by the Execution step (the first operation is done in the code by _e = o[i] - no[i]_ operation). Then, the _transfer\_derivative()_ calculates the slope of the neuron's output value and the algorithm save this value to the delta fields of each of the neurons (not only in the oupput layers): this is done because the layers of the network are iterated in reverse order - or _backwards_, as it is shown by the _k-for_ (_k--_) - starting at the output and working backwards. This ensures that the neurons in the output layer have errors values calculated first that neurons in the hidden layer can use in the subsequent iteration.
@@ -401,7 +401,7 @@ where _delta\_j_ is the error signal from the _j\_th_ neuron in the output layer
 
 	weight\_i = weight\_i + (learning_rate * delta\_j * input)
 
-Finally, the errors (as the abs difference between expcted minus computed) accumulated in the neurons of the last level are returned. Wait a minute: where is the training algorithm? 
+Finally, the errors (as the abs difference between expcted minus computed) accumulated in the neurons of the last level are returned. Wait a minute: where is the training algorithm?
 
 #### Training Algorithm
 Look at the code below! Basically, what it does is running for a fixed amount of epochs the BackPropagate function.
