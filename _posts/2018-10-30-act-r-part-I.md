@@ -153,6 +153,8 @@ Both $$P_i$$ and $$C_i$$ are learned from experience with that production rule.
 
 ### Conclusion
 
-I want to go more in depth with some more details about knowledge representation, so stay tuned :D and as usual...
+I want to go more in depth with some more details about knowledge representation, so stay tuned :D
+
+UPDATE: [ACT-R - Part II](https://made2591.github.io/posts/act-r-part-II) available now
 
 Thank you everybody for reading!
