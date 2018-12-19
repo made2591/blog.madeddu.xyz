@@ -6,7 +6,7 @@ tags: [theory, ml, fundamentals, approach, work, thoughts, life]
 ### Preamble
 I would like to say "recently", but actually is almost a few years I heard - and I'm still hearing a lot about Machine Learning and I didn't want to believe it until now - believe me, I truly didn't want to believe it - but yes here we are Machine Learning ufficially replace Big Data as buzzy word of the this past years, most problably will be still the word of the next year and I could not be more sad, frustrated, and worried about. Please haters don't hate me, Internet don't misunderstand me, companies don't hire me, but first of all - please - don't teach anything to your machines before finishing this post (!) 🤓 because they never learnt anything until now and they always felt good about so please - keep them simple operating system as they are, or at least talk with them before enrolled them in any advanced analytics course.
 
-<p align="center"><img src="https://movie.talkymedia.it/wp-content/uploads/sites/5/2017/01/People_are_being_mean_by_making_mashups_of_sad_Ben_Affleck_s_reaction_to_Batman_v_Superman_reviews.jpg" style="width: 100%; marker-top: -10px;"/></p>
+<p align="center"><img src="https://i2-prod.irishmirror.ie/incoming/article7633457.ece/ALTERNATES/s615b/Ben-Affleck-in-Batman-V-Superman-interview.jpg" style="width: 100%; marker-top: -10px;"/></p>
 
 ### Introduction
 The first question everyone in the world should first ask to himself before even going to Google searching for the latest super cool tool to solve his/her problem is *when a ML tool is good to solve a problem?* I said it again, quoting the question because it's crucial:
@@ -16,7 +16,7 @@ The first question everyone in the world should first ask to himself before even
 The answer is quite simple, but it becomes complicated because there are many considerations to do before having the right answer. To better provide an answer to this question, maybe it's important to remember what Machine Learning is and what it is not.
 
 ### What Machine Learning is not
-Machine learning is not a one-step solution, like "I need to prepare a cake. I need flour eggs sugar and lemon cream. Done". It can not solve all business problems or turns struggles into successes: I said it again just to be sure will be printed in the T-Shirt for the next year. 
+Machine learning is not a one-step solution, like "I need to prepare a cake. I need flour eggs sugar and lemon cream. Done". It can not solve all business problems or turns struggles into successes: I said it again just to be sure will be printed in the T-Shirt for the next year.
 
 > Machine Learning can not solve all business problems or turns struggles into successes.
 
@@ -78,7 +78,7 @@ Much of the data are useless, we all now about this. The problem is that even th
 - <span style="color:#A04279; font-size: bold;">__What type of ML problem is it?__</span> There are many kind of problems already solved and identify similar problems can arise good discussion points.
 - <span style="color:#A04279; font-size: bold;">__Why did you choose this algorithm?__</span> Ask whoever decided to do something why it was decided to do it like that, which is the ratio behind is key. There could be a baseline in literature to have comparison, etc.
 - <span style="color:#A04279; font-size: bold;">__How will you evaluate the model performance?__</span> Depending on the business problem, performance of the Machine Learning problem can be evaluated and is useful for every team know a priori how they will evaluate results.
-- <span style="color:#A04279; font-size: bold;">__How confindent are you that can you can generalize result?__</span> If the ML will work on specific dataset, maybe is not so a good solution. 
+- <span style="color:#A04279; font-size: bold;">__How confindent are you that can you can generalize result?__</span> If the ML will work on specific dataset, maybe is not so a good solution.
 
 <p align="center"><img src="https://www.sciencealert.com/images/2018-03/processed/666_web_600.jpg" style="width: 100%; marker-top: -10px;"/></p>
 
