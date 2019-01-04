@@ -10,3 +10,5 @@ items:
     path: '/about'
   - text: 'Resume'
     path: '/matteo_madeddu_cv.pdf'
+  - text: 'Quotes'
+    path: '/quotes'
