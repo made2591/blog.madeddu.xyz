@@ -18,7 +18,7 @@ If you are interested in discover more about that, I will say something about:
 - Handle secrets, docker-slim and automation;
 
 ### Attack happens: what to do
-Let's think about a potentially real scenario: you have an application running over one or more Docker images - that could or could not be scaled out to many containers, it doesn't matter for the purpose of the reasoning. Let imagine that this application runs some malicious code and/or code with bugs well known or - even worst - not kwnon yet. This bring your system to be hacked by someone else - i.e. someone else take control of the Docker container running your application by using some exploits and accidentally - even worst - scale privileges to your host system too.
+Let's think about a potentially real scenario: you have an application running over one or more Docker images - that could or could not be scaled out to many containers, it doesn't matter for the purpose of the reasoning. Let imagine that this application runs some malicious code and/or code with bugs well known or - even worst - not known yet. This bring your system to be hacked by someone else - i.e. someone else take control of the Docker container running your application by using some exploits and accidentally - even worst - scale privileges to your host system too.
 
 The first question is: what should you do if this happens to your application?
 
@@ -30,7 +30,7 @@ There's a manual incident response. This are the main things you should keep in 
 
 > You can always avoid what you already now (already happened to you) and you should act to avoid as much as possible what you don't know (never happened to you).
 
-Thus, even if the damage is huge, having traces will prevent you (or you replacement if you caused a mess and you got fired 😅) to repeat the same mistakes already did once;
+Thus, even if the damage is huge, having traces will prevent you (or your replacement if you caused a mess and you got fired 😅) to repeat the same mistakes already did once;
 - **Establish attack extension**. This for sure it's something important to enroll the right amount of time / resources in investigation during (and after) the attack: how urgent is this - which systems are impacted - etc;
 - **KEEP CALM**. At least, try to 😂;
 
@@ -51,7 +51,7 @@ Sorry, three.
 ##### Docker network
 One of the reasons Docker containers and services are so powerful is that you can connect them together, or connect them to non-Docker workloads. Docker's networking subsystem is pluggable, using drivers. Several drivers exist by default, and provide core networking functionality.
 
-The Docker network command, as stated by the documentation, *let you manage networks*. What does it means? It means that if you have to isolate something from something else, the network layer is a good starting point to apply a potentially already sufficient cut off. Let's see the commands in details
+The Docker network command, as stated by the documentation, *let you manage networks*. What does it means? It means that if you have to isolate something from something else, the network layer is a good starting point to apply a potentially already sufficient cutoff. Let's see the commands in details
 
 | Command | What it does |
 |---|---|
@@ -63,17 +63,17 @@ The Docker network command, as stated by the documentation, *let you manage netw
 | `docker network prune` | remove all unused networks; |
 | `docker network rm` | remove one or more networks; |
 
-Of course, the most usefull programs if you are still admin of your system - and you should, otherwise just RUN FOREST, RUN!!! - is detach the network interface of the container(s): which one? Well, this is something more related to the way you monitor your application but usually you should be able to identify where is the cause if you're owner (or you now the owner) of the application. What I mean? For instance, if you're homepage get hacked, you should be able to know at least which part of the application serve the homepage and start from there, etc.
+Of course, the most useful programs if you are still admin of your system - and you should, otherwise just RUN FOREST, RUN!!! - is detach the network interface of the container(s): which one? Well, this is something more related to the way you monitor your application but usually you should be able to identify where is the cause if you're owner (or you know the owner) of the application. What I mean? For instance, if you're homepage get hacked, you should be able to know at least which part of the application serve the homepage and start from there, etc.
 
 ##### Docker stop
 The well known Docker stop terminate your container: if your container is orchestrated by some other tools (ecs, k8s, etc), it could not be enough and you should most probably act over deployment, services, or any other abstraction layer that *manage* your container for you.
 
-The point is: a stopped container is something you can work on to understand what happened (for instance by looking at the logs with `docker log` command) and in general is a good practise to avoid escalation of the problem.
+The point is: a stopped container is something you can work on to understand what happened (for instance by looking at the logs with `docker log` command) and in general is a good idea to avoid escalation of the problem.
 
 <p align="center"><img src="https://i.imgur.com/J8ZVlEw.png" style="width: 100%; marker-top: -10px;"/></p>
 
 ##### Docker diff
-Despite the Docker diff is a really powerfull command, it doesn't seem to be always well known: what it does and why it's important?
+Despite the Docker diff is a really powerful command, it doesn't seem to be always well known: what it does and why it's important?
 
 To quote [the official doc](https://docs.docker.com/engine/reference/commandline/diff/), the Docker diff inspect changes to files or directories on a container's filesystem.
 
@@ -91,14 +91,14 @@ Ok, know that we saw how to isolate and/or stop a container, let's see how to mi
 ### Attack mitigation
 The main goal of security is to make attacks difficult - ideally, impossible - to be perpetrated by anyone else who don't have privileged access to your system. How can you do this with Docker?
 
-- **Set a USER**: this come from unix operating system so it's really nothing more than the concept of multi user / least privilege concepts ported to Docker world;
+- **Set a USER**: this come from unix operating system so it's really nothing more than the concept of multiuser / least privilege concepts ported to Docker world;
 - **Run a read-only filesystem**: this could seem trivial, but we will see how much troubles could cause to the majority of the attackers, i.e. the more inexperienced ones;
 
 #### Why setting a USER
 By default, users are not namespaced in Docker. What does it means namespaced and why is this important to know? Well, because namespaces are a fundamental aspect of **containers on Linux** (yes, Docker didn't invent anything, I already wrote [about this](https://made2591.github.io/posts/jails) once). Thus, let's do a recall of this concept first.
 
 ##### Linux namespaces
-Namespaces are a feature of the Linux kernel[^namespaces] that partitions kernel resources such that one set of processes sees one set of resources while another set of processes sees a different set of resources. The feature works by having the same name space for these resources in the various sets of processes, but those names referring to distinct resources. Examples of resource names that can exist in multiple spaces, so that the named resources are partitioned, are process IDs, hostnames, user IDs, file names, and some names associated with network access, and interprocess communication.
+Namespaces are a feature of the Linux kernel[^namespaces] that partitions kernel resources such that one set of processes sees one set of resources while another set of processes sees a different set of resources. The feature works by having the same namespace for these resources in the various sets of processes, but those names referring to distinct resources. Examples of resource names that can exist in multiple spaces, so that the named resources are partitioned, are process IDs, hostnames, user IDs, file names, and some names associated with network access, and interprocess communication.
 
 Thus, back to USER and Docker, this is what you should now:
 
@@ -108,7 +108,7 @@ Thus, back to USER and Docker, this is what you should now:
 | <span style="color:#FCD184; font-size: bold;">Root in the container is root on the host</span> | BOOOOOOOM^2; |
 | Consider the possibility of container breakout | yes, containers are not *jails* (ready: fight); |
 
-From this three foundamental information (practise examples in a while) you should learn that attackers should be constrained with the container, because you wouldn't run apps in VMs as root: and thus, you should not do it in a container even.
+From this three fundamental information (practise examples in a while) you should learn that attackers should be constrained with the container, because you wouldn't run apps in VMs as root: and thus, you should not do it in a container even.
 
 #### Docker Namespaces
 Since Docker since 1.10, the namespaces where introduced to automatically maps users in container to high-numbered user on host. You can configure the mapping set on the daemon - and not per container - due to some complications with ownership of shared layers. Unfortunately, there are some problems yet with volume permissions and volume plugings, you can't use --pid=host or --net=host (to share the network interface) and some privileged operations are not allowed (like the mknod to create files for peripheral).
@@ -156,7 +156,7 @@ And this can be combined also with the volume directive:
 docker run --read-only -v "$PWD":/tmp debian sh -c 'echo "whatever" > /tmp/file'
 {% endhighlight %}
 
-One option I found usefull when you have to deal with filesystem issues - but also for security reason could be the use of temporary in memory - not persistent - volume
+One option I found useful when you have to deal with filesystem issues - but also for security reason could be the use of temporary in memory - not persistent - volume
 
 {% highlight sh %}
 docker run --read-only --tmpfs /tmp:size=65536k debian sh -c 'echo "whatever" > /tmp/file'
@@ -234,7 +234,7 @@ It's more likely that your Dockerfile will rely on a `setuid/setgid` binary than
 #### Limit the capabilites
 The linux kernel defines various capabilities (CAP_AUDIT_CONTROL CAP_CHOWN CAP_FSETID CAP_LEASE CAP_MKNOD, etc). Directly from the [man](http://man7.org/linux/man-pages/man7/capabilities.7.html), for the purpose of performing permission checks, traditional UNIX implementations distinguish two categories of processes: privileged processes (whose effective user ID is 0, referred to as superuser or root), and unprivileged processes (whose effective UID is nonzero). Privileged processes bypass all kernel permission checks, while unprivileged processes are subject to full permission checking based on the process's credentials (usually: effective UID, effective GID, and supplementary group list).
 
-Starting with kernel 2.2, Linux divides the privileges traditionally associated with superuser into distinct units, known as capabilities, which can be independently enabled and disabled. Capabilities are aper-thread attribute.
+Starting with kernel 2.2, Linux divides the privileges traditionally associated with superuser into distinct units, known as capabilities, which can be independently enabled and disabled. Capabilities are a per-thread attribute.
 
 Docker containers get a bunch of these capabilities by default, but some of them are not present: try run this command from a shell.
 
@@ -272,7 +272,7 @@ There's default seccomp profile (it can be found [here](https://github.com/moby/
 
 Now the point is: what do you need inside your Docker? Who knows. Good luck
 
-But ehy! There's a tool for everything: [docker-slim](https://github.com/docker-slim/docker-slim) can help you build your secomp profile.
+But hey! There's a tool for everything: [docker-slim](https://github.com/docker-slim/docker-slim) can help you build your secomp profile.
 
 ##### Docker-slim
 If you only want to auto-generate a Seccomp profile (along with other interesting image metadata) use the profile command.
@@ -285,7 +285,7 @@ docker run --security-opt seccomp:<docker-slim directory>/.images/<YOUR_APP_IMAG
 Feel free to copy the generated profile. You can use the generated Seccomp profile with your original image or with the minified image. But docker-slim do so much more like minifying your images: if you want to auto-generate a Seccomp profile AND minify your image use the build command (more in the official repo)
 
 #### Limiting resources
-Another important thing that can be done to avoid attacks (specially DoS attacks or similar) is limiting resources. This is something that can be done by docker natively - even outside of orchestration environment and can be useful when you have high and low priority containers.
+Another important thing that can be done to avoid attacks (specialy DoS attacks or similar) is limiting resources. This is something that can be done by docker natively - even outside of orchestration environment and can be useful when you have high and low priority containers.
 
 ##### Limit CPUs
 How can you *keep under control* - and thus act differently if you notice something weird - CPUs across containers? Well, containers get a default relative weighting of 1024. Share this value is as simple as run:
@@ -294,13 +294,13 @@ How can you *keep under control* - and thus act differently if you notice someth
 docker run -d -c 512 --name a myimage
 {% endhighlight %}
 
-You can have another image running at default 1024, and this will imply 66% for it and 33% a. With other two flags you can control even how many CPU and timeperiod dimension available for use for each container:
+You can have another image running at default 1024, and this will imply 66% for it and 33% a. With other two flags you can control even how many CPU and time period dimension available for use for each container:
 
 {% highlight sh %}
 docker run -it --cpu-period=50000 --cpu-quota=25000
 {% endhighlight %}
 
-or even the more recent `--cpus 1.0` to specify the amount of cpus you want to use directly. Nice, but working over the memory could be more usefull.
+or even the more recent `--cpus 1.0` to specify the amount of cpus you want to use directly. Nice, but working over the memory could be more useful.
 
 ##### Limit memories
 By default, a container can use as much memory and swap as it likes. This could potentially let the attacker or some other bugs to cause memory problems and thus stop your application working properly. If you accept to encounter some performance overhead problems, you can control both memory and swap by doing using flags like:
@@ -324,9 +324,9 @@ At least, I do this every day. It's super simple and easy to use, but if you do:
 docker inspect & ps
 {% endhighlight %}
 
-The major problem is that it makes the secret too visible from the linked containers and also as output of `env` command - then of course you cat your credentials files every day thus everythings is in there in the history XD.
+The major problem is that it makes the secret too visible from the linked containers and also as output of `env` command - then of course you cat your credentials files every day thus everything is in there in the history XD.
 
-Now the point is: if not inside the ENV, where the f\*\*k do I have to place my secrets?!?! Maybe mounting a readonly file could seem an option:
+Now the point is: if not inside the ENV, where the f\*\*k do I have to place my secrets?!?! Maybe mounting a read-only file could seem an option:
 
 {% highlight sh %}
 docker run -v /nested_dir_in_host/key_file:/key_file:ro myimage
@@ -335,7 +335,7 @@ docker run -v /nested_dir_in_host/key_file:/key_file:ro myimage
 but who likes files?! And this nested_dir_in_host/key_file is really secure? The solution is using a Vault (never did it) or even better port your authentication out - and define roles and authorization outside. The process should be something like *I trust my immutable object* and I provide to him *temporary credentials* it can use to do things. This is to decouple your image (your vulnerable part) from your system (locked part).
 
 ### If it's not enough...
-Unfortunately, even by apply everything you haven't solved the intial problem: because in the end you cannot lock everything. The general guidance is to - first of all - avoid vulnerable software: in fact, if you have a bug in your application the only real solution is to replace the library because running old and known-vulnerable code will get you hacked. Then prefer minimal images (like alpine ones are often the most checked and not vulnerable, but of course it depends on the images you are using). And finally, since it's almost an impossible task keeping the images you build up-to-date with CVEs and actually is even harder to know what libraries are in use, you can leverage an image scanner that automatically scan images for known vulnerabilities.
+Unfortunately, even by apply everything you haven't solved the initial problem: because in the end you cannot lock everything. The general guidance is to - first of all - avoid vulnerable software: in fact, if you have a bug in your application the only real solution is to replace the library because running old and known-vulnerable code will get you hacked. Then prefer minimal images (like alpine ones are often the most checked and not vulnerable, but of course it depends on the images you are using). And finally, since it's almost an impossible task keeping the images you build up-to-date with CVEs and actually is even harder to know what libraries are in use, you can leverage an image scanner that automatically scan images for known vulnerabilities.
 
 Thank you everybody for reading!
 
