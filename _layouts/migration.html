@@ -25,7 +25,6 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-	<link rel="stylesheet" type="text/css" href={{ "/public/stylesheets/jquery.funnyText.css" | prepend:site.baseurl }}/>
 	<style>
 		.text1, .text2{
 			display:block;
@@ -63,6 +62,40 @@
 			height:100%;
 			background-color: #707070;
 			background-color: #707070;
+		}
+
+		.charWrap {
+			display:inline-block;
+			position:relative;
+			overflow: hidden;
+		}
+		.funnyText span.left,
+		.funnyText span.right,
+		.funnyText span.top,
+		.funnyText span.bottom {
+			position:absolute;
+		}
+		.funnyText .charWrap {
+			transition: all 0.4s ease-in-out;
+			-webkit-transition: all 0.4s ease-in-out;/** Chrome & Safari **/
+			-moz-transition: all 0.4s ease-in-out;/** Firefox **/
+			-o-transition: all 0.4s ease-in-out;/** Opera **/
+		}
+		.funnyText .charWrap .top {
+			top:0;
+		}
+		.funnyText .charWrap .left {
+			left:0;
+		}
+		.funnyText .charWrap .right {
+			right:0;
+		}
+		.funnyText .charWrap .bottom {
+			bottom:0;
+		}
+		.funnyText .character {
+			overflow:hidden;
+			display:inline-block;
 		}
 
 	</style>
