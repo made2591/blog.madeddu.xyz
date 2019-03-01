@@ -64,14 +64,14 @@ a:hover, a:active, a:focus, a:visited  {
   outline: 0;
 }
 
-.wrapper {
+.welcome-div {
   max-width: {{ site.data.theme.width }};
   margin: 0 auto;
   position: relative;
   padding: 0 20px;
 }
 
-section img {
+.welcome-div img {
   max-width: 100%;
 }
 
