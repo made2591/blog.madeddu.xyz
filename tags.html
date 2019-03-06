@@ -1,9 +1,13 @@
 ---
 layout: page
 permalink: "tags/index.html"
+layout: redirect
 ---
+<script>
+  window.location.href = "https://madeddu.xyz/categories/";
+</script>
 
-<ul class="tags">
+<!-- <ul class="tags">
   <a class="text-muted">Tag cloud:</a>
   {% for tag in site.tags %}
   <a href="#{{ tag | first | slugize }}">
@@ -20,8 +24,8 @@ permalink: "tags/index.html"
 
   {% for post in site.tags[tag_name] %}
   <article>
-    <a href="{{ post.url | prepend:site.baseurl }}">{{post.title}}</a><small class="text-muted"> {{ post.date | date_to_string }}</small> 
+    <a href="{{ post.url | prepend:site.baseurl }}">{{post.title}}</a><small class="text-muted"> {{ post.date | date_to_string }}</small>
   </article>
   {% endfor %}
 {% endfor %}
-</div>
+</div>-->

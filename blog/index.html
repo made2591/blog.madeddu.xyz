@@ -1,9 +1,12 @@
 ---
+layout: redirect
 title: "blog"
-
 ---
+<script>
+  window.location.href = "https://madeddu.xyz/posts/";
+</script>
 
-{% if site.data.theme.compact %}
+<!-- {% if site.data.theme.compact %}
   <div class="posts compact">
     {% for post in site.posts  %}
     <div class="clearfix">
@@ -28,7 +31,7 @@ title: "blog"
     </div>
     {% endfor %}
   </div>
-  
+
 <div class="paginate" >
 {% if paginator.total_pages > 1 %}
   {% if paginator.previous_page %}
@@ -55,4 +58,4 @@ title: "blog"
 
 {% endif %}
 </div>
-{% endif %}
+{% endif %} -->
