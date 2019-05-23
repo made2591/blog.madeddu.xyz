@@ -9,6 +9,8 @@ tags: [coding, aws, cdk, guide, impression]
 Hi everybody, thanks for the claps, it was a great month - rain rain rain again - now I'm back. The only GOOD THING of this terrible May is that [AWS CDK](https://docs.aws.amazon.com/cdk/latest/guide/what-is.html) came to simplify our life and I started using it (just a little) bit - still, enough to say, sincerely: it's awesome. I used the Typescript version, everything is broken 2 release out of 3 but the time you save exploring the interfaces instead of looking for Cloudformation documentation online worths the time spending in troubleshooting the ongoing changes.
 Today I'm here to write about a common use case, a simple stack, and that's all I have to say.
 
+<div class="img_container"><img src="https://i.imgur.com/Cb1D4nt.jpg" style="width: 100%; marker-top: -10px;"/></div>
+
 ### Scenario
 Quick and dirty: you all bloggers, startuppers, freelancers, enterprises (mmm?) but mostly **mums** have a simple static blog - it's fancy and s3 is cheaper than a Wordpress with a digital ocean of machines to maintain, no? - indeed, you would like to have a contact form on it. I mean, a real, simple, cool, cheap, no-frontend-for-free-in-this-blog-post-I'm-sorry contact form, am I wrong? Then you are in the right place! Because thanks to [REST API Integrations](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-integration-settings.html) of API Gateway you can do it pretty easily.
 
