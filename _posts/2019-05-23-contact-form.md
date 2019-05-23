@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "Contact form: API Gateway, DynamoDB, SNS"
+title: "How to deploy a serverless contact form with API Gateway, DynamoDB and SNS"
 categories: [coding, aws]
-tags: [coding, aws, cloudfront, cdk, guide, impression]
+tags: [coding, aws, cdk, guide, impression]
 ---
 
 ### Introduction
