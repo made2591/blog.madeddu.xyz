@@ -171,7 +171,7 @@ After the deployment, you will have to subscribe your email to the deployed topi
 Since there's no direct integration from DynamoDB Stream to SNS, I had to write a Lambda to push my updates: you can find the code of the Lambda [here](https://github.com/made2591/immutable.templates/blob/master/templates/contact-form/lib/sns-lambda/index.js) and the core CDK declaration part below:
 
 {% highlight js %}
-// create invalidation lambda
+// create sns lambda
 this.snslambda = new lambda.Function(this, props.stage.toString() + "-contacts-sns", {
     runtime: lambda.Runtime.NodeJS810,
     handler: 'index.handler',
@@ -193,7 +193,7 @@ new lambda.EventSourceMapping(this, props.stage.toString() + "-contacts-dynamo-s
 Don't forget to provide the right permissions to invoke the lambda!
 
 {% highlight js %}
-// give to pipeline permission to invoke the invalidation lambda
+// give to pipeline permission to invoke the sns lambda
 new lambda.CfnPermission(this, props.stage.toString() + "-contacts-lambda", {
     functionName: this.snslambda.functionArn,
     action: "lambda:InvokeFunction",
