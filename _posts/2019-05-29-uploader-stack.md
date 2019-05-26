@@ -10,7 +10,7 @@ The [AWS CDK](https://docs.aws.amazon.com/cdk/latest/guide/what-is.html) is beco
 
 <div class="img_container"><img src="https://i.imgur.com/YltF5n6.jpg" style="width: 100%; marker-top: -10px;"/></div>
 
-### Scenario 1
+### Scenario
 You want to provide an endpoint to upload object: where? S3, of course. How? With a pre-signed a URL! What is it? A pre-signed URL it's a URL that gives someone access to the object identified in the URL, provided that the creator of the pre-signed URL has the permissions to access that object. That is, if you receive a pre-signed URL to upload an object, you can upload the object only if the creator of the pre-signed URL has the necessary permissions to upload that object.
 
 To create a pre-signed URL, you must provide security credentials - or something that acts with a Role with permissions over the bucket - and then specify a bucket name, an object key, an HTTP method (PUT for uploading objects), and expiration date and time. The pre-signed URLs are valid only for the specified duration.

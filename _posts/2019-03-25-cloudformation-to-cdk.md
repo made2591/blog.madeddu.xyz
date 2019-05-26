@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "From Cloudformation to CDK: the good, the bad and the evil"
-categories: [coding, aws]
+categories: [coding, aws, serverless]
 tags: [coding, aws, cloudfront, cdk, guide, impression]
 ---
 

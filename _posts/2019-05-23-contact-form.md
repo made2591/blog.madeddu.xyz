@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "How to deploy a serverless contact form with API Gateway, DynamoDB and SNS"
-categories: [coding, aws]
-tags: [coding, aws, cdk, guide, impression]
+categories: [coding, aws, serverless]
+tags: [coding, aws, cdk, guide, serverless]
 ---
 
 ### Introduction
@@ -21,7 +21,7 @@ Before going ahead, if you want to go straight to the code, [here you are](https
 <div class="img_container"><img src="https://i.imgur.com/z20B4rG.png" style="width: 100%; marker-top: -10px;"/></div>
 
 ### The architecture
-Before deep dive into the code, excluding the s3/Cloudfront arrival (1) I already discussed [here](http://madeddu.xyz/posts/cloudformation-to-cdk/) - if you visit it, please go to directly to the repo, the post is already outdated 😂 - and the Click Submit POST request to the API Endpoint (2) - let's discuss the steps from 3 to 5. 
+Before deep dive into the code, excluding the s3/Cloudfront arrival (1) I already discussed [here](http://madeddu.xyz/posts/cloudformation-to-cdk/) - if you visit it, please go to directly to the repo, the post is already outdated 😂 - and the Click Submit POST request to the API Endpoint (2) - let's discuss the steps from 3 to 5.
 
 #### API Service Integration
 Setting up an API method is a simple as writing something like this:
@@ -47,8 +47,8 @@ Setting up an integration request first involves configuring how to pass client-
 
 {% highlight json %}
 {
-    "name" : "Who is contacting", 
-    "email" : "whois.contacting@gmail.com", 
+    "name" : "Who is contacting",
+    "email" : "whois.contacting@gmail.com",
     "content" : "Lorem ipsum"
 }
 {% endhighlight %}
@@ -208,4 +208,4 @@ With just a few lines of Typescript, we are able to have a contact form, complet
 
 Thank you for reading!
 
-PS: I didn't deploy it yet here, I'm sorry XD 
+PS: I didn't deploy it yet here, I'm sorry XD
