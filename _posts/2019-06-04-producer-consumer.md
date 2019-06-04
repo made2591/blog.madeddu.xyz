@@ -28,7 +28,7 @@ Until now, this stack seems similar to the one I discussed [previously](https://
 
 <div class="img_container"><img src="https://i.imgur.com/7Z3KeHf.png" style="width: 100%; marker-top: -10px;"/></div>
 
-Ok, so what changed? Well, when the file is uploaded, S3 will put a message over an sqs queue (8). I added a piece: the consumer will be able to retrieve the reference to the *file* sent - message content, whatever it is - by polling the SQS Queue (9). With this message, the consumer can ask to API Gateway the permission to retrieve the original content produced (10). Once the presigned URL is generated and sent back (11), it can retrieve safely the content of the message directly from S3 (12).
+Ok, so what changed? Well, when the file is uploaded, S3 will put a message over an SQS queue (8). I added a piece: the consumer will be able to retrieve the reference to the *file* sent - message content, whatever it is - by polling the SQS Queue (9). With this message, the consumer can ask to API Gateway the permission to retrieve the original content produced (10). Once the presigned URL is generated and sent back (11), it can retrieve safely the content of the message directly from S3 (12).
 
 #### Surprise surprise
 Ok now let's move to the funny part: the code!

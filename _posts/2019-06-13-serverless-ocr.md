@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "A serverless OCR with Polly and Rekognition unveils the power of inheritance in CDK"
+title: "A serverless OCR with Polly and Rekognition unveils the power of stack inheritance in CDK"
 categories: [coding, aws, serverless]
 tags: [coding, aws, cdk, guide, serverless, polly, rekognition]
 ---
