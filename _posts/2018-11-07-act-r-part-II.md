@@ -1,10 +1,12 @@
 ---
+layout: post
 title: "ACT-R by John R. Anderson - Part II"
+categories: [theory, cognitive]
 tags: [theory, cognitive, architecture, reasoning, knowledge, representation]
 ---
 
 ### Introduction
-In my [previous post](https://made2591.github.io/posts/act-r-part-I) I wrote about the cognitive architecture ACT-R, mainly putting together what I learnt by research over the topic. In this post, I would like to go more in depth about how ACT-R works, the concepts behind and try to provide my interpretation of some technical examples, regarding coding of the modeling and everything related.
+In my [previous post](https://madeddu.xyz/posts/act-r-part-I) I wrote about the cognitive architecture ACT-R, mainly putting together what I learnt by research over the topic. In this post, I would like to go more in depth about how ACT-R works, the concepts behind and try to provide my interpretation of some technical examples, regarding coding of the modeling and everything related.
 
 #### What really is ACT-R
 ACT-R is a production system theory that tries to explain human cognition by developing a model of the knowledge structures that underlie cognition. There are two types of knowledge representation in ACT-R:

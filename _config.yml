@@ -1,42 +1,61 @@
-baseurl: "" # The subpath of your site. Use "" if you're hosting a blog at the root level.
-url: "made2591.github.io" # the base hostname & protocol for your site.
-
-paginate: 6 #articles per page
-paginate_path: /blog/page:num #makes pagination working
-
-# header text
+# Site settings
 title: Matteo Madeddu
-header: Mac OS lover, Docker fan, Go explorer, Python geek, Trello addicted.
-
-# for welcome page
-# to replace image go to index.html
+motto: Everything is possible. The impossible only takes more time.
+language: "en"
 email:
   address: "matteo.madeddu@gmail.com"
   text: "matteo.madeddu [at] gmail.com"
+description: > # this means to ignore newlines until "baseurl:"
+  "Mac OS lover, Docker fan, Go explorer, Python geek, Blogger, Juggler."
+baseurl: "" # the subpath of your site, e.g. /blog/
+url: "https://madeddu.xyz" # the base hostname & protocol for your site
+twitter_username: made2591
+github_username:  made2591
+
+#------------------------------------------------------------------------------
+# Markdown processor and code highlighting
+#------------------------------------------------------------------------------
+markdown: kramdown
+markdown_ext: "markdown,mkdown,mkdn,mkd,md"
+highlighter: rouge
+
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+
+#------------------------------------------------------------------------------
+# Pagination and friendly URLs
+#------------------------------------------------------------------------------
+paginate: 6
+paginate_path: /posts/page-:num
+permalink: /posts/:title/
 
 # disqus comment
 disqus:
-    shortname: "made2591" #your disqus comment short name
+  shortname: "madeddu-xyz" #your disqus comment short name
 
-# google analytics
-google:
-    tracking-id: "" #your tracking id here
+#------------------------------------------------------------------------------
+# Social sharing, comments and RSS.
+#------------------------------------------------------------------------------
+disqus-id: madeddu-xyz
 
-plugins:
-  - jekyll-sitemap
-  - jekyll-paginate
-  - jemoji
+enable-share: true
+github: 'https://github.com/made2591/'
+# stack-overflow: 'https://stackoverflow.com/'
+twitter: 'https://twitter.com/made2591'
+linkedin: 'https://linkedin.com/in/mmadeddu'
+# youtube: ''
+facebook: 'https://www.facebook.com/matteo.madeddu'
 
-# This is used by feed.xml. Uncomment if you want to use it.
-# description: "..."
+rss-feed-limit: 10
+rss-show-full: false
 
-exclude:
-  - "README.md"
-  - "CHANGELOG.md"
-  - "Gemfile"
-  - "Gemfile.lock"
-
-permalink: /posts/:title
+#------------------------------------------------------------------------------
+# Configuration, plugins, gems, etc..
+#------------------------------------------------------------------------------
+source: .
+destination: ./_site
+plugins: ['jekyll-paginate', 'jekyll-sitemap', 'jemoji']
 
 defaults:
   -

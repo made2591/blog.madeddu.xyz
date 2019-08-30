@@ -1,12 +1,14 @@
 ---
+layout: post
 title: "Build a multilayer perceptron with Golang"
-tags: [coding, golang, ann, perceptron, classifier, neural, networks]
+categories: [coding, golang, theory, algorithms]
+tags: [golang, ann, perceptron, classifier, neural, networks]
 ---
 
 ### History
 We can date the birth of artificial neural networks in 1958, with the introduction of Perceptron [^rosen] by Frank Rosenblatt. It was the first algorithm created to reproduce the biological neuron. Conceptually, the easier perceptron that you might think of is made of a single neuron: when it's exposed to a stimulus, it provides a binary response, just as would a biological neuron.
 
-![ann](https://pbs.twimg.com/media/DPtxHXKW4AEcLyc.jpg)
+![ann](https://i.imgur.com/uUZ5vyF.jpg)
 
 This model differs greatly from the neural network involving billions of neurons in a biological brain. Shortly after his birth, the researchers showed the world the problems of Perceptron: in fact, it was quickly proved that perceptrons could not be trained to recognize many classes of input patterns. To get a more powerful network, it was necessary to take advantage of multiple level of units and create a multilayers perceptron, with more intermediates neurons used to solve linearly separable[^linsep] subproblems, whose outputs were combined together by the final level to provide a concrete response to original input problem. Even though the Perceptron was just a simple but severely limited binary classifier, it introduced a great innovation: the idea to simulate the basic computational unit of a complex biological system that exists in nature.
 
@@ -57,20 +59,20 @@ A neuron corresponds to the simple binary perceptron originally proposed by Rose
 ##### Perceptron
 As I said, the single perceptron schema is implemented by a single neuron. The easiest way to implement this simple classifier is to establish a threshold function, insert it into the neuron, combine the values (eventually using different weights for each of them) that describe the stimulus in a single value, provide this value to the neuron and see what it returns in output. The schema show how it works:
 
-![perceptron](https://upload.wikimedia.org/wikipedia/commons/6/60/ArtificialNeuronModel_english.png)
+![perceptron](https://i.imgur.com/uu0iNCC.png)
 
 ##### Metric
 Why _weights_? What does it mean the expression _dimension modulation_ of the the input? Well, training conceptually is "the process of learning the skills you need to do a particular job or activity". But how do you know if you're getting better, or if you are learning the skills you need? Of course, you need a metric of how good or bad you're doing. Also in ANN there's a metric generally called _cost function_. Suppose we want to change a certain _wi_ weight of the network. More or less, the cost function looks at the function the network has inferred and uses it to estimate values for the data points in the training set. The difference between the outputs of the network and the training set data points are the main values for the cost function. When training your network, the goal is to get the value of this cost function as low as possible. The most basic of the training algorithms is the _gradient descent_.
 Suppose we can calculate the error _E_ according to the variation of the weight value _wi_: we are therefore able to draw the graph in a graph like the one in the figure.
 
-<p align="center"><img src="https://image.ibb.co/jJH2em/graph.png" alt="perceptron" style="width: 250px; marker-top: -10px;"/></p>
+<div class="img_container"><img src="https://i.imgur.com/W5zQiw7.png"  style="width: 250px; marker-top: -10px;"/></div>
 
 Therefore, if we calculate the derivative of this function, we can understand how the variation of the weight makes a positive or negative contribution to the error. In practice, whatever the derived value, we can use a single weight correction function that decrease the involved weight of derived quantity (modulated by learning rate). Despite the fact that it's quite impossible, for any network or cost function, to be truly convex, the gradient descent follows the derivatives computed for each neuron unit to essentially "roll" down the slope until it finds its way to the center - as close as possible to the _global minimum_. Before continuing, let's take a step back.
 
 ##### Why multilayer? The linearly separable problems
 The problem with the binary perceptron made with a single neuron is the inability to handle non-linearly separable problems: these kind of problems are the ones in which, in other words, it's impossible to define an hyperplane able to separate, in the vector space of the inputs, those that require a positive output from those requiring a negative output. An example of three non-collinear points belonging to two different classes ('_+_' and '_-_') are always linearly separable in two dimensions. This is illustrated by the first three examples in the following figure:
 
-<p align="center"><img src="https://image.ibb.co/coBkX6/linear.png" alt="perceptron" style="width: 250px; marker-top: -10px;"/></p>
+<div class="img_container"><img src="https://i.imgur.com/jFC0NZR.png"  style="width: 250px; marker-top: -10px;"/></div>
 
 However, not all sets of four points, no three collinear, are linearly separable in two dimensions. The fourth image would need two straight lines and thus is not linearly separable. This is the main reason scientist start working with multilayers at the very beginning. Let's move one step forward, introducing the ```NeuralLayer``` struct.
 
@@ -106,7 +108,7 @@ where:
 
 Inside the ```MultiLayerNetwork``` struct there's an algorithm to create multilayer perceptron: if you pass a struct with ```NeuralLayers``` [4, 3, 3], you can define a network struct with 3 layer: input, hidden, output, with respectively 4, 3 and 3 neurons, as shown in the figure below.
 
-![perceptron](https://image.ibb.co/j9jgpm/first_example_copia.png)
+![perceptron](https://i.imgur.com/vcxtFKD.png)
 
 The piece of code that handle network creation is the following:
 
@@ -285,7 +287,7 @@ Basically, what ```Execute``` function does is computing the result of execution
 
 Back to the ```BackPropagate```, we already said it starts executing the network. The idea is to get the value accumulated in the neurons of the last level, to compute the error accumulated retracing the various steps backwards. With the (__uncorrect__) assumption of a convex function, we can imagine that _solving the weight update task backwards, by calculating the derivative of the activation function_, is a good way to _go down towards the global optimum_. In reality, there is no guarantee of not being _stuck in a false minimum_, and this depends on the characteristics of the function and (most likely) also on the architecture chosen for our ann.
 
-<p align="center"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Extrema_example.svg/600px-Extrema_example.svg.png" alt="perceptron" style="width: 300px; marker-top: -10px;"/></p>
+<div class="img_container"><img src="https://i.imgur.com/sR50plx.png"  style="width: 300px; marker-top: -10px;"/></div>
 
 Weights update:
 

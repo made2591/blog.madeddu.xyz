@@ -1,12 +1,14 @@
 ---
+layout: post
 title: "How to plan your daily activity with Python"
-tags: [coding, algorithms, python, scheduling, task]
+categories: [coding, algorithms]
+tags: [python, algorithms, scheduling, task]
 ---
 
 ### The problems of life
-Each of us has dreams, aspirations, hobbies, interests, but also hundreds of deadlines, a thousand commitments, ten thousand thoughts, a hundred thousand different problems to cope with every day. I am a computer scientist and personally all these things in my life translate into a huge pile of [things/books/articles/guide/blogs] to read, which by the way are very often interrelated. The situation is more or less this: 
+Each of us has dreams, aspirations, hobbies, interests, but also hundreds of deadlines, a thousand commitments, ten thousand thoughts, a hundred thousand different problems to cope with every day. I am a computer scientist and personally all these things in my life translate into a huge pile of [things/books/articles/guide/blogs] to read, which by the way are very often interrelated. The situation is more or less this:
 
-![books](https://af-production.s3.amazonaws.com/photos/images/76458/original/books.jpg)
+![books](https://i.imgur.com/ojx9vzi.jpg)
 
 The problem is that often in the presence of many things to do we lose more time deciding how to do them and when to decide to start them. I formalized a simple method to handle all my stuff.
 
@@ -21,7 +23,7 @@ Patience and a couple of hours to implement your solution. Then:
 - A unit of measure for each of the activities on the list that is _small enough_ (what I mean? for example, for reading material it could be pages to read, for a generic activity a number that represent a percentage to complete the task);
 
 ### A real case
-I recently bought a TCP/IP book to study and learn a little bit more about computer networks. The problem is that I bought 3 more books together with this one (damn it, Amazon!). I would like to end my reading in a reasonable number of days. However, I have other commitments that take away precious time: unfortunately, I can not spend all my time reading this book. The book is a simple object to formalize: just write on a file some aspects to calibrate the way to divide the pages to be addressed daily. Let's formalize a book. 
+I recently bought a TCP/IP book to study and learn a little bit more about computer networks. The problem is that I bought 3 more books together with this one (damn it, Amazon!). I would like to end my reading in a reasonable number of days. However, I have other commitments that take away precious time: unfortunately, I can not spend all my time reading this book. The book is a simple object to formalize: just write on a file some aspects to calibrate the way to divide the pages to be addressed daily. Let's formalize a book.
 
 ### Example of book
 {% highlight json %}
@@ -92,11 +94,11 @@ for activityName in pickedUpActivities[:workingMaximumThemes]:
   endWorkHour   = startWorkHour + datetime.timedelta(minutes=int(workingMinutes/workingMaximumThemes))
 
 {% endhighlight %}
- 
+
 You've done! The only things to do is inserting the loop above in another loop over the entire activity list and break this external loop when all activities contained are 100% complete. You may have notice that the properties ```pageForMinute``` is not used. When you have a very long and complex tasks list, sooner or later, following the illustrated algorithm, the list of activities to be completed yet will contain fewer activities than the maximum you can manage in one day. It is also true that the number of pages / percentage of activity that you want to complete daily is related to the number of minutes available in your average day __and__ the maximum number of context switches (workingMaximumThemes) you are willing to do (if not, it should so fine tune your activity list). This is why I defined a __speed__ (```pageForMinute```) parameter for each activity.
 
 ### Adaptive effort
-I generally use to __decrease__ the workingMaximumThemes setting it to the ```max(workingMaximumThemes, len(pickedUpActivities[:workingMaximumThemes]))```, __increase__ the number [pageForDay to read / percentage of activity to complete] multiply this by a factor provided by the __speed__ (```pageForMinute```) parameter of each activities. 
+I generally use to __decrease__ the workingMaximumThemes setting it to the ```max(workingMaximumThemes, len(pickedUpActivities[:workingMaximumThemes]))```, __increase__ the number [pageForDay to read / percentage of activity to complete] multiply this by a factor provided by the __speed__ (```pageForMinute```) parameter of each activities.
 
 {% highlight python %}
 

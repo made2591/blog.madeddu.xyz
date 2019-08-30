@@ -1,13 +1,15 @@
 ---
+layout: post
 title: "Elasticsearch over My home Network Attached Storage"
-tags: [coding, elastic, kibana, search, nas, python]
+categories: [coding, python]
+tags: [coding, python, elastic, kibana, search, nas]
 ---
 
 ### Introduction
 I always owned a lot of hard drives: I don't know why, I always used and still use to look for space to save my data. In the years, I started using disks, then I assembled a HP Proliant to be a Synology Based System - I don't want to go the cloud because I'm stupid - and... in the last week, I decided to make order in a huge amount of files. The first thing you have to do when you are handling terabytes and terabytes of __both__ well-ordered __and__ _no-ordered-at-all_ data is literaly pray that someone else, like a magician, or druid comes to you with a magic wand and fixes all the mess for free, in a way you do not know but you will like.
 This article is the right one if you don't want to pray, you really don't believe in miracle but you still need to order your stuff. I have done it using elastisearch and kibana!
 
-<p align="center"><img src="http://craigconnects.org/wp-content/uploads/W-S-files.jpg" style="width: 100%; marker-top: -10px;"/></p>
+<div class="img_container"><img src="http://craigconnects.org/wp-content/uploads/W-S-files.jpg" style="width: 100%; marker-top: -10px;"/></div>
 
 In the next paragraphs, I will talk about how you can setup your envinroment locally, without losing too much time in configurations and start building what you need to explore your file systems.
 
@@ -106,7 +108,7 @@ If you click to the ```Dashboard``` menu in the left sidebar, you should see an 
 ##### Create a visualization
 Imagine you want to discover how many files you have for each extensions with a simple histogram. Click on ```Add``` and then on ```Add new visualization``` (both blue buttons): then select your index - the one you create with the command line (see below) or via Kibana ```Management``` section - then add a new Bucket on X-Axis. Select as aggregations from the select box, in this case ext.keyword (see documentations about that) and then click play in the upper part to see live your visualization!
 
-<p align="center"><img src="http://image.ibb.co/c5Ov1m/kibana.png" style="width: 100%; marker-top: -10px;"/></p>
+<div class="img_container"><img src="https://i.imgur.com/ac4H2FN.png" style="width: 100%; marker-top: -10px;"/></div>
 
 Here's mine: you can create whatever you want and save the visualizations to reused in different dashboard. Then, you can schedule a raspberry to run command over your attached storage in the night, and find a beautifull dashboard in the morning with all the stats you need.
 

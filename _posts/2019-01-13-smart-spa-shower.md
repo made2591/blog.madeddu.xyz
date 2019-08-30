@@ -1,6 +1,8 @@
 ---
+layout: post
 title: "Smart SPA Shower at home"
-tags: [smart, home, reverse-eng, life, shower, spa, relax]
+categories: [coding, js, miscellaneous, life]
+tags: [coding, js, smarthome, life, shower, spa]
 ---
 
 ### Preamble
@@ -14,7 +16,7 @@ I recently bought 4 small smart bulbs - the latest one you most probably decide 
 
 But most important you can build your small SPA in your bathroom. If you are interested, go ahead!
 
-<p align="center"><img src="http://www.centrobenesserebluspa.com/wp-content/uploads/2016/10/Panoramica_blu-spa.jpg" style="width: 100%; marker-top: -10px;"/></p>
+<div class="img_container"><img src="https://i.imgur.com/URCh7Qx.jpg" style="width: 100%; marker-top: -10px;"/></div>
 
 And no, I will not transform your bathroom in the one shown in the picture: and no, that is not my bathroom unfortunately XD
 
@@ -33,7 +35,7 @@ Before setup your node server, you need to discover some hidden information abou
 
 ### How to discover the colors
 I retrieved them by looking at the change of status after every click over the colors available in the Google Home application
-<p align="center"><img src="https://i.imgur.com/3mGarQf.jpg" style="width: 30%; marker-top: -10px;"/></p>
+<div class="img_container"><img src="https://i.imgur.com/azcDhAQ.jpg" style="width: 30%; marker-top: -10px;"/></div>
 
 The White color looks like that:
 

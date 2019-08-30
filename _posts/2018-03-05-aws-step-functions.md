@@ -1,15 +1,17 @@
 ---
+layout: post
 title: "Node.js, DynamoDB, and AWS Step Functions to collect <em>sentimented</em> movie reviews"
+categories: [coding, golang, aws]
 tags: [coding, aws, tmdb, news, step, functions, lambda, serverless, sentiment, analysis]
 ---
 
 ### Introduction
-Recently I worked with AWS Lambda and API Gateway to extend my set of personal APIs and collect information from several sources. I wrote an article on that (if you want to [have a look](https://made2591.github.io/posts/aws-lambda)). In this article I will talk about the AWS Step Functions service that enable create finite states machines to easy coordinate the components of distributed applications and microservices using visual workflows. Why AWS Step Functions? Because they let me create a tool to gather movie titles in teather, search for reviews about each of them and make a basic sentiment analysis over the review to help me decide what's worth watching at teather and what's worth waiting for on Netflix :D
+Recently I worked with AWS Lambda and API Gateway to extend my set of personal APIs and collect information from several sources. I wrote an article on that (if you want to [have a look](https://madeddu.xyz/posts/aws-lambda)). In this article I will talk about the AWS Step Functions service that enable create finite states machines to easy coordinate the components of distributed applications and microservices using visual workflows. Why AWS Step Functions? Because they let me create a tool to gather movie titles in teather, search for reviews about each of them and make a basic sentiment analysis over the review to help me decide what's worth watching at teather and what's worth waiting for on Netflix :D
 More in general, with AWS Step Functions, you can build applications made of individual components that each perform a discrete function: this lets you scale and change applications quickly. Step Functions is a reliable way to coordinate components and step through the functions of your application. They provides a graphical console to arrange and visualize the components of your application as a series of steps. This makes it simple to build and run multistep applications. Step Functions automatically triggers and tracks each step, and retries when there are errors, so your application executes in order and as expected. Step Functions logs the state of each step, so when things do go wrong, you can diagnose and debug problems quickly.
 
-<p align="center"><img src="http://image.ibb.co/m3LxJS/aws_step_functions.png" style="width: 100%; marker-top: -10px;"/></p>
+<div class="img_container"><img src="https://i.imgur.com/jhaTIev.png" style="width: 100%; marker-top: -10px;"/></div>
 
-### Ingredients 
+### Ingredients
 For this article, you will need the following:
 - [AWS account](http://aws.amazon.com) (free tier it's ok, but API Gateway is not included);
 - [Newsapi](http://newsapi.org) account to gather news from several sources (the free tier it's ok for our purpose);
@@ -24,7 +26,7 @@ __First point__: as I already said in a preview post on AWS Services, there are 
 __Second point__: please pay attention to the number of steps and infinity loop when you are working with AWS Step Functions, Iteration and Parallel Workflow. The following workflow is prepared to be a mix of some of the features exposed by the AWS service: despite it provides some example of _how effectively you can increase the efficience of a step functions workflow_, is not intended to be efficient, nor the smartest way to implement the workflow. The first 4000 transactions from one state to another - don't be scared by the output log of the workflow! It shows quite three/four times the number of effective transactions because it show you the scheduled state, the start state, the output state, etc. After that, the cost is billed in terms of thousands, something like 0.025 dollars for 1000 thousands (more [here](https://aws.amazon.com/en/step-functions/pricing/)).
 
 #### 1-2-3-4 Steps
-The first four steps are equal to the one described [here](https://made2591.github.io/posts/aws-lambda). The only things I added is the HasElements bool `json:"has_elements"` to the NewsApiResponse Object (see next step).
+The first four steps are equal to the one described [here](https://madeddu.xyz/posts/aws-lambda). The only things I added is the HasElements bool `json:"has_elements"` to the NewsApiResponse Object (see next step).
 
 #### 5 - Build MovieDB collector over AWS Lambda
 Lambda currently supports different languages: C#, Java, Node.js, Python and now Go. I wrote a GoLang wrapper around the API exposed by TheMovieDB [here](http://themoviedb.org): I am working on a front-end written in Angular to show the elements gathered by this workflow, so I created a parametric AWS Lambda to wrap (almost) all the routes exposed by TheMovieDB APIs and be able to fill my front-end in the future. AWS Lambda ready GoLang file is a single ```.go``` file with a function, the ```handler``` and a ```main``` function to link the handler function to the lambda. And that's all. The only dependencies you need to install, if you want to run your lambda locally, is the ```aws-lambda-go``` sdk provided by Amazon and available on Github.
@@ -198,18 +200,18 @@ zip TMDB.zip TMDB
 
 and upload from an S3 bucket or manually.
 
-<p align="center"><img src="http://image.ibb.co/mJqX9R/aws_lambda_2.png" style="width: 100%; marker-top: -10px;"/></p>
+<div class="img_container"><img src="https://i.imgur.com/BdIDvDr.png" style="width: 100%; marker-top: -10px;"/></div>
 
 #### 6 - Build an AWS Step Functions Workflow
-A finite state machine is an automata with really simple rule. Almost each states are Tasks that call AWS Lambda functions and are directly linked with one or more states. You provide an input to the workflow, the first(s) lambda are invoked, then the output of the execution is passed as the input to the next states (and eventually AWS Lambda(s) invoked by them). 
+A finite state machine is an automata with really simple rule. Almost each states are Tasks that call AWS Lambda functions and are directly linked with one or more states. You provide an input to the workflow, the first(s) lambda are invoked, then the output of the execution is passed as the input to the next states (and eventually AWS Lambda(s) invoked by them).
 
 The entire workflow of a step function is described by a JSON file and can be written directly in a console available in the AWS Step Function web page. You can view a preview of the worflow in the right part of the screen while you're defining it.
 
-<p align="center"><img src="http://image.ibb.co/dE5QNn/workflow_edit.png" style="width: 100%; marker-top: -10px;"/></p>
+<div class="img_container"><img src="https://i.imgur.com/LSa4tk7.png" style="width: 100%; marker-top: -10px;"/></div>
 
 The final workflow for our scope will look like the image below:
 
-<p align="center"><img src="http://image.ibb.co/nAk0Nn/workflow_empty.png" alt="perceptron" style="width: 100%; marker-top: -10px;"/></p>
+<div class="img_container"><img src="https://i.imgur.com/joyM3KW.png"  style="width: 100%; marker-top: -10px;"/></div>
 
 The respective workflow JSON description looks like the following code:
 
@@ -229,7 +231,7 @@ The respective workflow JSON description looks like the following code:
       "Resource": "arn:aws:lambda:your_region:your_code:function:MoviesTitleIterator",
       "ResultPath": "$",
       "Next": "MovieIterator"
-    },    
+    },
     "MovieIterator": {
       "Type": "Choice",
       "Choices": [
@@ -317,7 +319,7 @@ The respective workflow JSON description looks like the following code:
                "End": true
             }
           }
-        }, 
+        },
         {
           "StartAt": "NoOp",
           "States": {
@@ -366,7 +368,7 @@ A Task state ("Type": "Task") represents a single unit of work performed by a st
 A Task state must set either the End field to true if the state ends the execution, or must provide a state in the Next field that will be run upon completion of the Task state. For instance, the state ```GetMoviesInTheather```
 
 {% highlight json %}
-{   
+{
 	...
     "GetMoviesInTheather": {
       "Type": "Task",
@@ -414,7 +416,7 @@ exports.handler = (event, context, callback) => {
 
     // Log array elements (for demonstration purpose)
     console.log('Array has more elements: ' + structures.movies.has_elements);
-    
+
     callback(null, structures);
 };
 {% endhighlight %}
@@ -429,10 +431,10 @@ A Choice state ("Type": "Choice") adds branching logic to a state machine. In ad
 Choice states __do not support the End field__. In addition, they use Next only inside their Choices field. Choice type is particularly interesting when you need to process large files. Lambda functions have a couple of limitations namely memory and a 5 minute timeout. If you have some operation you need to perform on a very large dataset it may not be possible to complete this operation in a single execution of a lambda function. There are several ways to solve this problem: one of them is to use a Choice to create an Iterator pattern, loop over results provided by a first call to a AWS Lambda function - in this case ```PrepareStructures``` (that wrapps the input of the ```GetMoviesInTheather```). Let's have a look at the state below:
 
 {% highlight json %}
-{ 
+{
 	...
-	"PrepareStructures": { 
-		... 
+	"PrepareStructures": {
+		...
 		"Next": "MovieIterator"
 	},
 	"MovieIterator": {
@@ -468,7 +470,7 @@ __NOTE__: each branch must be self-contained. A state in one branch of a Paralle
 A Parallel state provides each branch with a copy of its own input data (subject to modification by the InputPath field). It generates output __which is an array with one element for each branch containing the output from that branch__. There is no requirement that all elements be of the same type. The output array can be inserted into the input data (and the whole sent as the Parallel state's output) by using a ResultPath field in the usual way (see Input and Output Processing in the official AWS Docs). Let's have a look at the ```MovieInformationExtraction``` code:
 
 {% highlight json %}
-{ 
+{
     ...
     "MovieInformationExtraction": {
       "Type": "Parallel",
@@ -501,7 +503,7 @@ A Parallel state provides each branch with a copy of its own input data (subject
 },
 {% endhighlight %}
 
-This state both call a Node.js AWS Lambda to persist the first movie in the data received from the ```MovieIterator``` step and looks for news about the movie. The input is the output provided by the ```PrepareStructures```: in fact the MovieIterator does NOT modify the input it receives. 
+This state both call a Node.js AWS Lambda to persist the first movie in the data received from the ```MovieIterator``` step and looks for news about the movie. The input is the output provided by the ```PrepareStructures```: in fact the MovieIterator does NOT modify the input it receives.
 
 ##### PersistMovie movie
 The ```PersistMovie``` calls an AWS Lambda function written in Node.js to persit the movie to a DynamoDB table previously created - it's really simply, you can start from [here](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/SampleData.CreateTables.html) and read more about how DynamoDB works in the official AWS Docs.
@@ -521,28 +523,28 @@ exports.handler = function (event, context, callback) {
 
         var insertion = event.movies.results[0];
         insertion.add_date = new Date(Date.now()).toString();
-        
+
         let movie = {
             TableName: process.env.MOVIES_TABLE,
             Item: insertion
         };
-    
+
         dynamodb.put(movie, (err, data) => {
             console.log("movie");
-            if (err) 
+            if (err)
                 console.log("dynamodb err: ", err, err.stack);
             else {
                 console.log("dynamodb data: ", data);
             }
             console.log("PUT end");
         });
-    
+
         event.movies.results.shift();
 
     } else {
         event.movies.has_elements = false;
     }
-    
+
     if (event.movies.results.length > 0) {
         event.movie_id = event.movies.results[0].id;
         event.q = event.movies.results[0].original_title;
@@ -554,13 +556,13 @@ exports.handler = function (event, context, callback) {
     }
 
     callback(null, event);
-    
+
 };
 {% endhighlight %}
 
 The Lambda put the first movie in DynamoDB - to prevent the overload of the lambda and of DynamoDB (even if you can specify auto scaling to provision more i/o units to your table). Then, it shift() the array of result (removing the first element and prepare the query to looking for news for the next movie for the next iteration). The BreakingNews Lambda, in parallel, is looking for news for the movie inserted by the PersistMovie Lambda.
 
-As said above, the Result of the parallel state is placed in an array of two element: so the entire return of the PersistMovie state - output of the PersistMovie Lambda - is placed in position 0 (because in the branches the state is defined first): the same for the BreakingNews state - output of the BreakingNews Lambda - that will be placed in the position 1 of the output. 
+As said above, the Result of the parallel state is placed in an array of two element: so the entire return of the PersistMovie state - output of the PersistMovie Lambda - is placed in position 0 (because in the branches the state is defined first): the same for the BreakingNews state - output of the BreakingNews Lambda - that will be placed in the position 1 of the output.
 
 ##### NewsIterator
 The next state is the ```NewsIterator```: have a look at the variable is looking for. Is exactly the second element of the output array, so the ouput of the BreakingNews-Lambda state, in particular the properties has_elements (this is what I said before about the modification done to the BreakingNews Lambda defined in my previous post).
@@ -639,7 +641,7 @@ If there are News to persist and analysize, then the NewsIterators move to the `
                "End": true
             }
           }
-        }, 
+        },
         {
           "StartAt": "NoOp",
           "States": {
@@ -688,7 +690,7 @@ The AylienSentiment is the weak part of the chain: I don't know why, but sometim
    } ]
 {% endhighlight %}
 
-The fields defined in the Retry properties are self-explained: with the BackoffRate, you can define the multiplier by which the retry interval increases during each attempt (2.0 by default). To learn more about error handling, have a look [here](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-error-handling.html). 
+The fields defined in the Retry properties are self-explained: with the BackoffRate, you can define the multiplier by which the retry interval increases during each attempt (2.0 by default). To learn more about error handling, have a look [here](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-error-handling.html).
 
 I don't persist the news gathered from the movie in the parallel step - this is done by the No-OP state of type Pass that simply ignore the input and place in output what it receives - because the last state ```PersistNews```, that calls the respective Lambda function ```PersistNews```, merges together the sentiment provided by Aylien for the specific news and persist all together.
 
@@ -715,13 +717,13 @@ function cleanEmptyField(obj) {
 exports.handler = function (event, context, callback) {
 
     console.log("PUT begins");
-    
+
     var sentiment = event[0];
     event = event[1];
     var article = event[1].articles[0];
     article.id = crypto.createHash('md5').update(JSON.stringify(article)).digest("hex");
     Object.assign(article, sentiment);
-    
+
     let news = {
         TableName: process.env.NEWS_TABLE,
         Item: cleanEmptyField(article)
@@ -732,7 +734,7 @@ exports.handler = function (event, context, callback) {
     console.log("news: ", article);
 
     dynamodb.put(news, (err, data) => {
-        if (err) 
+        if (err)
             console.log("dynamodb err: ", err, err.stack);
         else {
             console.log("dynamodb data: ", data);
@@ -745,7 +747,7 @@ exports.handler = function (event, context, callback) {
     event[1].has_elements = event[1].articles.length != 0;
 
     callback(null, event);
-    
+
 };
 
 {% endhighlight %}

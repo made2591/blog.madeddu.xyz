@@ -1,5 +1,7 @@
 ---
+layout: post
 title: "Go Erlangen!"
+categories: [coding, golang]
 tags: [coding, erlangen, bayern, germany]
 ---
 

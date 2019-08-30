@@ -1,12 +1,14 @@
 ---
+layout: post
 title: "A Quantum Experience"
+categories: [theory, quantum, miscellaneous]
 tags: [theory, quantum, q, informative, ibm]
 ---
 
 ### Much more than a post
-What is the quantum theory? As said by [quantumexperience](https://quantumexperience.ng.bluemix.net/) official site by IBM, it's _an elegant mathematical theory able to explain the counterintuitive behavior of subatomic particles, most notably the phenomenon of entanglement_. In the late twentieth century it was discovered that quantum theory applies not only to atoms and molecules, but to bits and logic operations in a computer. This realization has been bringing about a revolution in the science and technology of information processing: I decided to write some notes to better explain, from a physics-agnostic computer scientist's point of view XD, __what I understood__ - and it is certainly wrong - about Q until now and why I think it's an amazing field for computer science. For skilled guys, [here](https://github.com/made2591/quantum-notes) latex source (and [here](https://made2591.github.io/matteo_madeddu_quantum_notes.pdf) pdf pre-compiled version) that collect my personal notes about IBM Q platform, in general the quantum-computing world. I was also invited in Verona by the Quantum Research Group of the Department of Computer Science - why? don't know, maybe the coolest guys were sick 😂 - to talk about the platform and we had a really interesting brain-storming conversation about a quantum version of the Tris game I am working on 😎
+What is the quantum theory? As said by [quantumexperience](https://quantumexperience.ng.bluemix.net/) official site by IBM, it's _an elegant mathematical theory able to explain the counterintuitive behavior of subatomic particles, most notably the phenomenon of entanglement_. In the late twentieth century it was discovered that quantum theory applies not only to atoms and molecules, but to bits and logic operations in a computer. This realization has been bringing about a revolution in the science and technology of information processing: I decided to write some notes to better explain, from a physics-agnostic computer scientist's point of view XD, __what I understood__ - and it is certainly wrong - about Q until now and why I think it's an amazing field for computer science. For skilled guys, [here](https://github.com/made2591/quantum-notes) latex source (and [here](https://madeddu.xyz/matteo_madeddu_quantum_notes.pdf) pdf pre-compiled version) that collect my personal notes about IBM Q platform, in general the quantum-computing world. I was also invited in Verona by the Quantum Research Group of the Department of Computer Science - why? don't know, maybe the coolest guys were sick 😂 - to talk about the platform and we had a really interesting brain-storming conversation about a quantum version of the Tris game I am working on 😎
 
-<p align="center"><img src="https://d1o50x50snmhul.cloudfront.net/wp-content/uploads/2016/05/26093923343_1a9dea0cd2_o-1200x800.jpg" style="width: 100%; marker-top: -10px;"/></p>
+<div class="img_container"><img src="https://i.imgur.com/pP9YJAV.jpg" style="width: 100%; marker-top: -10px;"/></div>
 
 ### Introduction
 I should start by saying that my education background is in Computer Science. While I've read a couple of books on quantum mechanics, I don't have formal training as a physicist: that didn't deter me from learning the generalities about quantum mechanics and play with quantum computers. In this post, I reported an extract of my notes available [here]()
@@ -46,9 +48,9 @@ quantum circuits using a library of well-defined gates and measurements. You can
 When you first click on the "Composer\" tab above, you will have a choice between running a real quantum processor or a custom quantum
 processor. In the custom processor, gates can be placed anywhere, whereas in the real processor, the topology is set by the physical
 device running in our lab (note that this restricts the usability of some of the two-qubit gates). Once you are in the "Composer\" tab, you
-can start making your very own quantum circuits. The IBM quantum composer is shown in 
+can start making your very own quantum circuits. The IBM quantum composer is shown in
 
-<p align="center"><img src="https://github.com/made2591/quantum-notes/blob/master/images/ibmComposer.png?raw=true" style="marker-top: -10px;"/></p>
+<div class="img_container"><img src="https://github.com/made2591/quantum-notes/blob/master/images/ibmComposer.png?raw=true" style="marker-top: -10px;"/></div>
 
 With the composer, you can create a quantum score, which is analogous to a musical score in several respects. Time progresses from left to right. Each line represents a qubit (as well as what happens to that qubit over time). Each qubit has a different frequency, like a different musical note. The quantum composer's library (located to the right of the qubit stave) contains many different classes of gates: single-qubit gates, such as the yellow idle operation; the green class of **Pauli operators**, which represent bit-flips (X, equivalent to a classical NOT); phase-flips (Z); and a combined bit-flip and phase-flip (Y). There are others gates available that haven't been introduced yet. In general, quantum gates are represented by square boxes that play a frequency for different durations, amplitudes, and phases. Gates on just one line are called single-qubit gates. Before going on with esperiments, let's introduce these kind of gates.
 
@@ -73,11 +75,11 @@ $${|\beta|}^2$$.
 
 The execution of your circuit happens immediately (unless the number of qubits is large) and the output can then be viewed in the results. You can try the "single qubit measurement\" show in
 
-<p align="center"><img src="https://github.com/made2591/quantum-notes/blob/master/images/ibmComposerSimpleEmulated.png?raw=true" style="marker-top: -10px;"/></p>
+<div class="img_container"><img src="https://github.com/made2591/quantum-notes/blob/master/images/ibmComposerSimpleEmulated.png?raw=true" style="marker-top: -10px;"/></div>
 
 If you have chosen a real quantum processor, the composer will look like the one shown in
 
-<p align="center"><img src="https://github.com/made2591/quantum-notes/blob/master/images/ibmComposerSimpleReal.png?raw=true" style="marker-top: -10px;"/></p>
+<div class="img_container"><img src="https://github.com/made2591/quantum-notes/blob/master/images/ibmComposerSimpleReal.png?raw=true" style="marker-top: -10px;"/></div>
 
 In IBM quantum experience, the results from launching your quantum scores can be visualized in two different ways: a standard histogram/bar
 graph, and as a quantum sphere, or QSphere - the Block Sphere introduced before. The QSphere represents quantum circuit measurement outcomes in a visually striking and information-dense graphic.
@@ -171,11 +173,11 @@ $$H \begin{bmatrix}
 that is the state
 $$\frac{|0\rangle + |1\rangle}{\sqrt{2}}$$
 ![Display of Hadamard port applied to input
-$$|0\rangle$$: 
+$$|0\rangle$$:
 the output is
 $$|\psi\rangle = |0\rangle + |1\rangle$$
 
-<p align="center"><img src="https://github.com/made2591/quantum-notes/blob/master/images/ibmQuantumSphereHadamard.png?raw=true" style="marker-top: -10px;"/></p>
+<div class="img_container"><img src="https://github.com/made2591/quantum-notes/blob/master/images/ibmQuantumSphereHadamard.png?raw=true" style="marker-top: -10px;"/></div>
 
 The effect of
 $$H$$
@@ -220,7 +222,7 @@ $$H$$
 to qubit
 $$|0\rangle$$.
 
-<p align="center"><img src="http://image.ibb.co/eWLvOH/hfig.png" alt="perceptron" style="width: 70%; marker-top: -10px;"/></p>
+<div class="img_container"><img src="https://i.imgur.com/HIg0HyE.png"  style="width: 70%; marker-top: -10px;"/></div>
 
 You can try to visualize the effect of
 $$H$$
@@ -235,14 +237,14 @@ $$X$$,
 $$Z$$
 and
 $$H$$
-are represented graphically as in 
+are represented graphically as in
 
-<p align="center"><img src="http://image.ibb.co/mzSycc/qports.png" alt="perceptron" style="width: 70%; marker-top: -10px;"/></p>
+<div class="img_container"><img src="https://i.imgur.com/WYNOa3p.png"  style="width: 70%; marker-top: -10px;"/></div>
 
 #### Multiple qubits quantum logic gates
-Operations on quantum registers of two or more qubits are necessary to describe the transformations of compound states and in particular of the *so-called* **entangled states**. We have seen that a two-qubit register can not always be decomposed into the tensor product of the individual qubits components. Therefore we can not in such cases simulate an operation on the two qubits through operations on each qubit component. Also operations on qubit registers correspond to unit operations as in the case of a single qubit. The most important logic gates that implement operations on two classic bits are the `AND`, `OR`, `XOR`, `NAND` and `NOR` ports. The `NOT` and `AND` ports form a universal set, i.e. any boolean function can be accomplished by a combination of these two operations. For the same reason, the `NAND` constitutes a universal whole. Note that `XOR` alone or even together with `NOT` is not universal: since it preserves the total parity of the bits, only a subset of the boolean functions can be represented by this operation. The quantum analog of `XOR` is the `CNOT` gate (controlled-`NOT`) which operates on two qubits: the first is called the control qubit and the second is the qubit target. The `CNOT` gate is graphically represented by the circuit in 
+Operations on quantum registers of two or more qubits are necessary to describe the transformations of compound states and in particular of the *so-called* **entangled states**. We have seen that a two-qubit register can not always be decomposed into the tensor product of the individual qubits components. Therefore we can not in such cases simulate an operation on the two qubits through operations on each qubit component. Also operations on qubit registers correspond to unit operations as in the case of a single qubit. The most important logic gates that implement operations on two classic bits are the `AND`, `OR`, `XOR`, `NAND` and `NOR` ports. The `NOT` and `AND` ports form a universal set, i.e. any boolean function can be accomplished by a combination of these two operations. For the same reason, the `NAND` constitutes a universal whole. Note that `XOR` alone or even together with `NOT` is not universal: since it preserves the total parity of the bits, only a subset of the boolean functions can be represented by this operation. The quantum analog of `XOR` is the `CNOT` gate (controlled-`NOT`) which operates on two qubits: the first is called the control qubit and the second is the qubit target. The `CNOT` gate is graphically represented by the circuit in
 
-<p align="center"><img src="http://image.ibb.co/itUYAx/cnot.png" alt="perceptron" style="width: 40%; marker-top: -10px;"/></p>
+<div class="img_container"><img src="https://i.imgur.com/spOVDbR.png"  style="width: 40%; marker-top: -10px;"/></div>
 
 If the control is zero then the target is left unchanged; if the control is one, then the target is denied, that is
 $$|00\rangle \rightarrow{} |00\rangle, |01\rangle \rightarrow{} |01\rangle, |10\rangle \rightarrow{} |11\rangle, |11\rangle \rightarrow{} |10\rangle$$
@@ -286,7 +288,7 @@ $$\oplus$$-end of the gate is inverted (hence `controlled NOT`, or `CNOT`). Some
 #### SWAP operation
 A simple example of a quantum circuit is given in Fig. [\[circuit\]](#circuit){reference-type="ref" reference="circuit"}.
 
-<p align="center"><img src="http://image.ibb.co/gP4piH/circuit.png" alt="perceptron" style="width: 40%; marker-top: -10px;"/></p>
+<div class="img_container"><img src="https://i.imgur.com/Wf42oHU.png"  style="width: 40%; marker-top: -10px;"/></div>
 
 The circuit realizes the exchange of two qubits states. Given in input the register of two qubits
 $$|a, b\rangle$$, a `CNOT` is carried out with qubit of control a. As a result,
@@ -309,12 +311,12 @@ $$U$$. According to this convention the controlled-`NOT` is nothing more than a 
 with
 $$U = X$$.
 
-<p align="center"><img src="http://image.ibb.co/eLkUiH/mesured.png" alt="perceptron" style="width: 40%; marker-top: -10px;"/></p>
+<div class="img_container"><img src="https://i.imgur.com/dicSz6O.png"  style="width: 40%; marker-top: -10px;"/></div>
 
 Testing the swapping of the qubit is really simple. Let's prepare a simulated register with two qubit in the initial state
 $$|10\rangle$$, like the one shown in
 
-<p align="center"><img src="https://github.com/made2591/quantum-notes/blob/master/images/quantumSwap.png?raw=true" style="marker-top: -10px;"/></p>
+<div class="img_container"><img src="https://github.com/made2591/quantum-notes/blob/master/images/quantumSwap.png?raw=true" style="marker-top: -10px;"/></div>
 
 **NOTE**: in *IBM* platform the histogram will provide the result in the opposite order. For instance, in the figure, the unique bar on histogram is labelled
 $$10$$, where

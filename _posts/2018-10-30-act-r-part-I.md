@@ -1,5 +1,7 @@
 ---
+layout: post
 title: "ACT-R by John R. Anderson - Part I"
+categories: [theory, cognitive]
 tags: [theory, cognitive, architecture, reasoning, knowledge, representation]
 ---
 
@@ -9,7 +11,7 @@ I've always been fascinated about cognitive systems and all the theories about t
 ### ACT-R
 One of the most famous cognitive architecture is ACT-R: ACT-R a.k.a. "Adaptive Control of Thought—Rational" is a cognitive architecture mainly developed by John Robert Anderson at Carnegie Mellon University. If you don't know Anderson, no worries but from now on keep in mind that he obtained a B.A. from the University of British Columbia in 1968, a Ph.D. in Psychology from Stanford in 1972 to finally become an assistant professor at Yale in 1972. This in the first 25 years of his life. This is to say: if you don't understand anything about what you will read, it's most probably not your fault, neither mine's...and neither Anderson's actually - it seems there's a bug in Matrix.
 
-<p align="center"><img src="https://i.imgur.com/o9uif2Z.gif" alt="matrixbug" style="width: 100%; marker-top: -10px;"/></p>
+<div class="img_container"><img src="https://i.imgur.com/YNkVEk8.gif" alt="matrixbug" style="width: 100%; marker-top: -10px;"/></div>
 
 ACT-R aims to define the basic and irreducible cognitive and perceptual operations that enable the human mind. In theory, each task that humans can perform should consist of a series of these discrete operations. As a cognitive architecture, ACT-R is actually a *theory* about *how human cognition works*. On the exterior, ACT-R looks like a programming language; however, its constructs reflect *assumptions* about human cognition. These assumptions are based on numerous facts derived from psychology experiments.
 
@@ -52,7 +54,7 @@ The entire ACT-R architecture can be summarized in a set of *elements*:
 
 Is not a coincidence that this few things resemble a very simple *Wall-e*: in the end, we have eyes, we act in the worlds with hands, we decide by using the memory - of several kinds, in different ways - and we act to achieve a goal. As a - I would say complex - *Wall-e*.
 
-<p align="center"><img src="https://i.imgur.com/fF7SKST.png" alt="perceptron" style="width: 100%; marker-top: -10px;"/></p>
+<div class="img_container"><img src="https://i.imgur.com/MbLYQ6S.png"  style="width: 100%; marker-top: -10px;"/></div>
 
 Let's start from the tricky one: the production module.
 
@@ -84,7 +86,7 @@ The ```critical cycle``` in ACT–R is one in which the buffers hold representat
 
 <span style="color:#A04279; font-size: bold;">__NOTE__</span> This somehow resembles how an expert system works: have you ever worked with CLIPS, or any other logical language like Prolog? Hold on :)
 
-<p align="center"><img src="https://physicsworld.com/wp-content/uploads/2016/08/PW-2016-08-17-BALL-quantum-causality.jpg" alt="quantum" style="width: 100%; marker-top: -10px;"/></p>
+<div class="img_container"><img src="https://i.imgur.com/3FPMeoC.jpg" alt="quantum" style="width: 100%; marker-top: -10px;"/></div>
 
 ### Mixture of parallel and serial
 This is the coolest part of the system: within each module, there is a great deal of *parallelism*. For instance, the visual system is simultaneously processing the whole visual field, and the declarative system is executing a parallel search through many memories in response to a retrieval request. Also, the processes within different modules can go on in parallel and asynchronously.
@@ -101,7 +103,7 @@ However, there are also two levels of serial bottlenecks in the system:
 ### A declarative Chunk and Activation function
 The declarative memory system and the procedural system constitute the cognitive core of ACT–R. Let's have a look at a declarative chunk - or, a single declarative unit of knowledge. In the picture below there's a visual presentation of a declarative (again, see later) chunk with its subsymbolic quantities
 
-<p align="center"><img src="https://i.imgur.com/HbZZXwW.png" alt="perceptron" style="width: 75%; marker-top: -10px;"/></p>
+<div class="img_container"><img src="https://i.imgur.com/vNj5pSe.png"  style="width: 75%; marker-top: -10px;"/></div>
 
 where:
 - $$W_j$$ is the ```attentional weights```;
@@ -123,7 +125,7 @@ There are two equations mapping activation onto probability of retrieval and lat
 
 > The chunks will be retrieved only if their activation threshold is over a threshold.
 
-This is because activation values are noisy: there is only a certain probability that any chunk will be above threshold. This is somehow resemble ANN, am I wrong? Have a look [here](https://made2591.github.io/posts/neuralnetwork), I implemented and discussed a little bit a simple one of them here.
+This is because activation values are noisy: there is only a certain probability that any chunk will be above threshold. This is somehow resemble ANN, am I wrong? Have a look [here](https://madeddu.xyz/posts/neuralnetwork), I implemented and discussed a little bit a simple one of them here.
 
 The probability that the activation will be greater than a threshold is given by the following equation:
 
@@ -155,6 +157,6 @@ Both $$P_i$$ and $$C_i$$ are learned from experience with that production rule.
 
 I want to go more in depth with some more details about knowledge representation, so stay tuned :D
 
-UPDATE: [ACT-R - Part II](https://made2591.github.io/posts/act-r-part-II) available now
+UPDATE: [ACT-R - Part II](https://madeddu.xyz/posts/act-r-part-II) available now
 
 Thank you everybody for reading!

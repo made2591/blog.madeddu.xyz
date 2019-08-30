@@ -1,0 +1,20 @@
+---
+title: Categories
+layout: default
+permalink: "categories/"
+---
+
+<div class="well">
+{% capture categories %}{% for tag in site.categories %}{{ tag | first }}{% unless forloop.last %},{% endunless %}{% endfor %}{% endcapture %}
+{% assign tag = categories | split:',' | sort %}
+{% for item in (0..site.categories.size) %}{% unless forloop.last %}
+{% capture word %}{{ tag[item] | strip_newlines }}{% endcapture %}
+<h4 class="category" id="{{ word }}">{{ word }}</h4>
+<ul>
+{% for post in site.categories[word] %}{% if post.title != null %}
+<li><div class="archive-li-wrapper"><div class="archive-li-date"><span>{{ post.date | date: "%b %d" }}</span>»</div><div class="archive-li-a"><a href="{{ site.baseurl}}{{ post.url }}">{{ post.title }}</a></div></div></li>
+{% endif %}{% endfor %}
+</ul>
+{% endunless %}{% endfor %}
+<br/><br/>
+</div>

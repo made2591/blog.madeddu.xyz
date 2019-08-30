@@ -1,5 +1,7 @@
 ---
+layout: post
 title: "[Not completed yet] Implementing a Blockchain using Kafka"
+categories: [coding, python]
 tags: [coding, kafka, blockchain, experiment]
 ---
 
@@ -7,7 +9,7 @@ tags: [coding, kafka, blockchain, experiment]
 I recently started interesting about the concept of _streaming_ - not videos, of course - mainly because in the last months I collected several sources to be used as starting point: so, waiting for my Google Home Mini to be shipped, I decided to mix togheter two words I often see surfing the Web. The first is Kafka - that is a distributed streaming platform (ok but what exactly does that mean - _for real_? Be patience, I will try to introduce the tool in this article) and the second is Blockchain (I don't like this world, believe me or not I think it's like Big Data, in the sense that _everybody knows the principles but nobody wants to deal with the maths_): this two concepts have kind of _similarity_, I guess 🧐
 I have a problem with memory, so I first talk about how Kafka works just to remind me the key concepts for the next month, because I use to forget everything I learn - d\*\*\*q.
 
-<p align="center"><img src="https://s3-eu-west-1.amazonaws.com/spiked-online.com/kafka_review.jpg" style="width: 100%; marker-top: -10px;"/></p>
+<div class="img_container"><img src="https://i.imgur.com/73VQ5oO.jpg" style="width: 100%; marker-top: -10px;"/></div>
 
 ### Ingriedents
 - Kafka;
@@ -31,23 +33,23 @@ And these could be enough to implement the publish/subscribe mechanism, but ther
 
 The communication between the clients and the servers is done with a simple, high-performance, language agnostic TCP protocol. The picture below is directly from the Kafka website - thank you guys!
 
-<p align="center"><img src="https://image.ibb.co/juudSH/imageedit_9560608901.png" alt="perceptron" style="width: 100%; marker-top: -10px;"/></p>
+<div class="img_container"><img src="https://i.imgur.com/lCaWEZw.png"  style="width: 100%; marker-top: -10px;"/></div>
 
 #### Kafka: topics
 
     A topic is a category or feed name to which records are published.
 
-Topics are always multi-subscriber, thus a topic can have zero, one, or many consumers that subscribe to the data written to it. 
+Topics are always multi-subscriber, thus a topic can have zero, one, or many consumers that subscribe to the data written to it.
 
 __For each topic, the Kafka cluster maintains a partitioned log that looks like this__:
 
-<p align="center"><img src="https://image.ibb.co/njQ7Mc/imageedit_1_7046918343.png" alt="perceptron" style="width: 75%; marker-top: -10px;"/></p>
+<div class="img_container"><img src="https://i.imgur.com/9iy9uOu.png"  style="width: 75%; marker-top: -10px;"/></div>
 
 Each __partition__ is an ordered, immutable sequence of records that is continually appended to a structured commit log. The records in the partitions are each assigned a sequential id number called the __offset__ that uniquely identifies each record within the partition.
 
 The Kafka cluster durably persists all published records - whether or not they have been consumed — using a configurable retention period. For example, if the retention policy is set to 2 days, then for the 2 days after a record is published, it is available for consumption, after which it will be discarded to free up space. Kafka's performance is effectively constant with respect to data size so storing data for a long time is not a problem.
 
-<p align="center"><img src="http://image.ibb.co/iv7ySH/imageedit_4_8265886645.png" alt="perceptron" style="width: 75%; marker-top: -10px;"/></p>
+<div class="img_container"><img src="https://i.imgur.com/8QPrGgr.png"  style="width: 75%; marker-top: -10px;"/></div>
 
 The only metadata retained on a per-consumer basis is the offset or position of that consumer in the log: this offset is controlled by the consumer. Thus, normally a consumer will advance its offset linearly as it reads records, but, in fact, since the position is controlled by the consumer it can consume records in any order it likes and also, eventually, reprocess data from the past, or skip ahead to the most recent record.
 
@@ -57,7 +59,7 @@ The __partitions__ in the log serve several purposes. First, they allow the log 
 
 #### Kafka: partitions
 We already said but it's crucial to understand the meaning of the partition
-  
+
     A partition is an ordered, immutable sequence of records that is continually appended to—a structured commit log
 
 Ordered. Immutable. Sequence of records. Just keep these words in mind when you are thinking about a partition. Partitions are distributed over the servers in the Kafka cluster with each server handling data and requests for a share of the partitions. Each partition is replicated across a configurable number of servers for fault tolerance.
@@ -82,14 +84,14 @@ Consumers label themselves with a __consumer group name__, and each record publi
 #### Kakfa: example
 The picture from the Kafka doc shows a 2-server Kafka cluster hosting 4 partitions (named P0-P3) with 2 consumer groups. Consumer group A has 2 consumer instances and consumer group B has 4 four instances.
 
-<p align="center"><img src="http://image.ibb.co/jnppZx/imageedit_2_8366438504.png" alt="perceptron" style="width: 70%; marker-top: -10px;"/></p>
+<div class="img_container"><img src="https://i.imgur.com/5a6YNAZ.png"  style="width: 70%; marker-top: -10px;"/></div>
 
 A topic could be something like "news for a (fixed) neighborhood": let's say that there is a Consumer Group for those news - imagine this Consumer Group as a machine that, for instance, acts like a Telegram Bot sender on its behalf. The Consumer Group for this topic is unique so - eventually neighborhoods close to the given district may be interested too, but the reasoning I'm doing is to state _topics have a small number of consumer groups_. Of course, this dependes on the nature of the topic. In the example - actually, in real world - each Consumer Group is composed of many consumer instances, for scalability and fault tolerance. Think about this configuration as nothing more than publish-subscribe semantics where the subscriber is a cluster of consumers instead of a single process.
 
 ##### Kafka: consumption
 The way consumption is implemented in Kafka is by _dividing up_ - not literally - the partitions in the server over the consumer instances so that __each instance is the exclusive consumer of a "fair share" of partitions at any point in time__. This process of maintaining membership in the group is handled by the Kafka TCP protocol dynamically. If new instances join the Consumer Group they will take over some partitions from other instances of the Consumer Group; if an instance dies, its partitions will be distributed to the remaining instances.
 
-<span style="color:#A04279; font-size: bold;">__Note__</span>: Kafka only provides a total order over records within a partition, not between different partitions in a topic. Remember that __for each topic, the Kafka cluster maintains a partitioned log__, so records of 1 single topic are spread across 1 or more partitions. Per-partition ordering combined with the ability to partition data by key is sufficient for most applications. However, if you require a total order over records this can be achieved with a topic that has only 1 partition, though this will mean __only 1 consumer process per consumer group__. 
+<span style="color:#A04279; font-size: bold;">__Note__</span>: Kafka only provides a total order over records within a partition, not between different partitions in a topic. Remember that __for each topic, the Kafka cluster maintains a partitioned log__, so records of 1 single topic are spread across 1 or more partitions. Per-partition ordering combined with the ability to partition data by key is sufficient for most applications. However, if you require a total order over records this can be achieved with a topic that has only 1 partition, though this will mean __only 1 consumer process per consumer group__.
 
 #### Kafka: gains and guarantees
 Ok, why all these information about consumpation, topics, partitions, etc? Because Kafka provide us really interesting guarantees.
@@ -227,14 +229,14 @@ So with the valid_chain() method you can check if a chain is valid by looping th
 ### Let's build a Kafka-based Blockchain
 Again, I want first to thanks the author of this experiment so [Luc Russell](https://hackernoon.com/a-blockchain-experiment-with-apache-kafka-97ee0ab6aefc) for its incredible explanation about how a to use Kafka as transport layer for the Blockchain, so please have a look at his beautiful work: you can even check out the entire code he prepared in [its repository](https://github.com/lucrussell/kafka-blockchain). I followed its step to understand the basics, and extend its file to provide a complete example of multiple nodes interacting between each others.
 
-On startup, your Kafka consumer will try to do three things: initialize a new blockchain if one has not yet been created; build an internal representation of the current state of the blockchain topic; then begin reading transactions in a loop. The initialization step looks for the highest available offset on the blockchain topic. If nothing has ever been published to the topic, the blockchain is new, so it starts by creating and publishing the genesis block. 
+On startup, your Kafka consumer will try to do three things: initialize a new blockchain if one has not yet been created; build an internal representation of the current state of the blockchain topic; then begin reading transactions in a loop. The initialization step looks for the highest available offset on the blockchain topic. If nothing has ever been published to the topic, the blockchain is new, so it starts by creating and publishing the genesis block.
 
 The read_and_validate_chain() method does two things:
 
 - first, it creates a consumer to read from the blockchain topic;
 - second, it begins reading block messages from the blockchain topic;
 
-The initialization step setup the Consumer Group to the blockchain group to allow the broker to keep a reference of the offset the consumers have reached, for a given partition and topic. The auto_offset_reset=OffsetType.EARLIEST indicates that the node begins downloading messages from the start of the topic. The auto_commit_enable=True lets periodically notify the broker of the offset we've just consumed (as opposed to manually committing). The reset_offset_on_start=True is a switch which activates the auto_offset_reset for the consumer. 
+The initialization step setup the Consumer Group to the blockchain group to allow the broker to keep a reference of the offset the consumers have reached, for a given partition and topic. The auto_offset_reset=OffsetType.EARLIEST indicates that the node begins downloading messages from the start of the topic. The auto_commit_enable=True lets periodically notify the broker of the offset we've just consumed (as opposed to manually committing). The reset_offset_on_start=True is a switch which activates the auto_offset_reset for the consumer.
 
 #### Docker compose
 The Docker-compose

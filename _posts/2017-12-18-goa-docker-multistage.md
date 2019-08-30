@@ -1,6 +1,8 @@
 ---
+layout: post
 title: "Golang, Docker and multistage build"
-tags: [coding, golang, docker, goa, api, rest]
+categories: [coding, golang, docker]
+tags: [golang, docker, goa, api, rest]
 ---
 
 ### Recipe for a good meal
@@ -14,7 +16,7 @@ package (thank you [atosatto](https://github.com/atosatto) for your advise): I o
 
 If you want to find out how to start building with these tools, this is the right place for you!
 
-<p align="center"><img src="https://www.gopherguides.com/assets/images/logos/logo.svg" style="width: 70%; marker-top: -10px;"/></p>
+<div class="img_container"><img src="https://i.imgur.com/npPEvD5.png" style="width: 70%; marker-top: -10px;"/></div>
 
 #### goa.design
 goa is a _holistic approach for building microservices_ in Golang (cit). I don't want to go through all the features of the packages, you can read a _quite_ complete [overview](https://goa.design/design/overview/) of the project in the official site. What goa actually offers is a good starting point if you want to _design_ your microservices without losing time in the construction of the outline logic and focusing mainly on the definition of resources, actions and media types. Look at some piece of code from the [goa-cellar](https://github.com/goadesign/goa-cellar) example:
@@ -189,7 +191,7 @@ var Account = MediaType("application/vnd.account+json", func() {
 })
 {% endhighlight %}
 
-The goa design language ```MediaType``` function describes media types which represent the shape of response bodies. 
+The goa design language ```MediaType``` function describes media types which represent the shape of response bodies.
 You can define a ```MediaType``` as a ```Type``` (I didn't talk about that): there are similarities in features, for instance the definition of Collections of a particular MediaType (CollectionOf) and Type (ArrayOf), the function used to define ```Attributes```. There are two properties unique to media types: first, the ```views``` describe different _serialization_ of the same media type. You can create _short_ representation of a resource in listing requests, a more detailed one in requests that return a single resource. Second, the ```links``` that represents related media types that should be rendered embedded in the response[^views].
 
 After the creation of the design[^goa] file inside a _design_ package, the only thing you have to do is _bootstrapping_ your design (using the cli ```goagen```[^goagen])
@@ -218,7 +220,7 @@ FROM golang:latest as builder
 # create working directory
 WORKDIR /go/src/github.com/made2591/myproject/api
 
-# copy the content 
+# copy the content
 COPY . .
 
 # install dependencies
@@ -231,7 +233,7 @@ RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o myproject .
 ### STAGE 2: Setup ###
 
 # The runner node
-FROM alpine:latest as runner 
+FROM alpine:latest as runner
 
 # setup env
 RUN apk --no-cache add ca-certificates
@@ -245,7 +247,7 @@ CMD ["./myproject"]
 
 {% endhighlight %}
 
-What happens? With the statement ```as``` in the first stage of the build we create a sort of _label_, then with the option ```--from``` of the ```COPY``` command, Docker copies just the built artifact from the previous stage into this new stage. The Go SDK and any intermediate artifacts are left behind, and not saved in the final image. 
+What happens? With the statement ```as``` in the first stage of the build we create a sort of _label_, then with the option ```--from``` of the ```COPY``` command, Docker copies just the built artifact from the previous stage into this new stage. The Go SDK and any intermediate artifacts are left behind, and not saved in the final image.
 
 __NOTE__: I don't use to _bootstrap_ my goa APIs inside the build stage, because first) if you play a little bit with goa you find out that bootstrap process is done one time only to help you create procject structure - they have to work on incremental design because the cli doesn't support creation for new hooks if the core file are already modified - and second) you have to build your core file in any case. My advise is to create a dev env as much as possible confortable to work with goa. After that, use the dockerfile to create your multistage build!
 
@@ -298,4 +300,4 @@ Thank you everybody for reading!
 [^goa]: you can of course split info across multiple file belonging the same _design_ package.
 [^views]: ```Views``` may then use the special ```Links``` function to render all the links: if you don't define a link and the resource has a parent, then the compiler will arise an error during building.
 [^goagen]: the goagen is a tool the generate various artifacts from a goa design package - more info [here](https://goa.design/implement/goagen/)
-[^busybox]: if you want the SSL/TLS support, prefer the [busybox-curl](https://hub.docker.com/r/odise/busybox-curl/) image, even maybe it is good for a dev env, but I would prefer an alpine for production. 
+[^busybox]: if you want the SSL/TLS support, prefer the [busybox-curl](https://hub.docker.com/r/odise/busybox-curl/) image, even maybe it is good for a dev env, but I would prefer an alpine for production.

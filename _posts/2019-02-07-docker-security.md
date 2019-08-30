@@ -1,15 +1,16 @@
 ---
+layout: post
 title: "Security and Docker: tips and tricks"
+categories: [theory, docker]
 tags: [container, docker, security, informative, hacking]
 ---
 
 ### Introduction
 Everyone use Docker and normally when something is so diffused, there's always someone else that try to figure out how to leverage the diffusion to do bad things (you know what happened in Breaking Bad). Only [a few months ago](https://techcrunch.com/2018/06/15/tainted-crypto-mining-containers-pulled-from-docker-hub/) it happened that someone pushed some malicious software - cryptomining - over lot of images: this happened because, despite the fact that everyone use Docker, not so many people are really aware about security over Docker. Fortunately, during the years Docker put in place several tools and features to avoid (or at least drastically reduce) the damages that *bad attitude* could cause in your containerized systems or applications.
 
-<p align="center"><img src="https://i.imgur.com/EUj9qBm.png" alt="perceptron" style="width: 40%; marker-top: -10px;"/></p>
+<div class="img_container"><img src="https://i.imgur.com/syc0Wkn.png"  style="width: 40%; marker-top: -10px;"/></div>
 
 If you are interested in discover more about that, I will say something about:
-
 - Isolation: docker network, stop and diff;
 - Least Privilege, USER and Linux/Docker Namespaces;
 - Delete data, Segregation and Docker privileges;
@@ -34,7 +35,7 @@ Thus, even if the damage is huge, having traces will prevent you (or your replac
 - **Establish attack extension**. This for sure it's something important to enroll the right amount of time / resources in investigation during (and after) the attack: how urgent is this - which systems are impacted - etc;
 - **KEEP CALM**. At least, try to 😂;
 
-<p align="center"><img src="https://i.imgur.com/0iKlsKX.png" alt="perceptron" style="width: 40%; marker-top: -10px;"/></p>
+<div class="img_container"><img src="https://i.imgur.com/JkqnRZI.png"  style="width: 40%; marker-top: -10px;"/></div>
 
 ### Docker tools
 As we said, during the years Docker put in place different tools and features to deal with security of your containers: this start from the engineering of the images and include also the run time.
@@ -70,7 +71,7 @@ The well known Docker stop terminate your container: if your container is orches
 
 The point is: a stopped container is something you can work on to understand what happened (for instance by looking at the logs with `docker log` command) and in general is a good idea to avoid escalation of the problem.
 
-<p align="center"><img src="https://i.imgur.com/J8ZVlEw.png" style="width: 100%; marker-top: -10px;"/></p>
+<div class="img_container"><img src="https://i.imgur.com/wNTuPmp.png" style="width: 100%; marker-top: -10px;"/></div>
 
 ##### Docker diff
 Despite the Docker diff is a really powerful command, it doesn't seem to be always well known: what it does and why it's important?
@@ -95,7 +96,7 @@ The main goal of security is to make attacks difficult - ideally, impossible - t
 - **Run a read-only filesystem**: this could seem trivial, but we will see how much troubles could cause to the majority of the attackers, i.e. the more inexperienced ones;
 
 #### Why setting a USER
-By default, users are not namespaced in Docker. What does it means namespaced and why is this important to know? Well, because namespaces are a fundamental aspect of **containers on Linux** (yes, Docker didn't invent anything, I already wrote [about this](https://made2591.github.io/posts/jails) once). Thus, let's do a recall of this concept first.
+By default, users are not namespaced in Docker. What does it means namespaced and why is this important to know? Well, because namespaces are a fundamental aspect of **containers on Linux** (yes, Docker didn't invent anything, I already wrote [about this](https://madeddu.xyz/posts/jails) once). Thus, let's do a recall of this concept first.
 
 ##### Linux namespaces
 Namespaces are a feature of the Linux kernel[^namespaces] that partitions kernel resources such that one set of processes sees one set of resources while another set of processes sees a different set of resources. The feature works by having the same namespace for these resources in the various sets of processes, but those names referring to distinct resources. Examples of resource names that can exist in multiple spaces, so that the named resources are partitioned, are process IDs, hostnames, user IDs, file names, and some names associated with network access, and interprocess communication.
@@ -104,8 +105,8 @@ Thus, back to USER and Docker, this is what you should now:
 
 | Fact | Reaction |
 |---|---|
-| <span style="color:#FCD184; font-size: bold;">UIDs are the same on the host and in the container</span> | BOOOOOOOM; |
-| <span style="color:#FCD184; font-size: bold;">Root in the container is root on the host</span> | BOOOOOOOM^2; |
+| <span style="color:#A04279; font-size: bold;">UIDs are the same on the host and in the container</span> | BOOOOOOOM; |
+| <span style="color:#A04279; font-size: bold;">Root in the container is root on the host</span> | BOOOOOOOM^2; |
 | Consider the possibility of container breakout | yes, containers are not *jails* (ready: fight); |
 
 From this three fundamental information (practise examples in a while) you should learn that attackers should be constrained with the container, because you wouldn't run apps in VMs as root: and thus, you should not do it in a container even.
@@ -248,9 +249,9 @@ The flag `--privileged` let you run with almost all of them. The flag `--cap-add
 docker run --rm --cap-drop CHOWN debian chown 777 /tmp
 {% endhighlight %}
 
-<span style="color:#FCD184; font-size: bold;">we are preventing from changing ownership using the `chmod` command and we will obtain an error!!</span>
+<span style="color:#A04279; font-size: bold;">we are preventing from changing ownership using the `chmod` command and we will obtain an error!!</span>
 
-<p align="center"><img src="https://www.memesmonkey.com/images/memesmonkey/39/393846799a5e4218388978a89f3c6f8f.jpeg" style="width: 100%; marker-top: -10px;"/></p>
+<div class="img_container"><img src="https://i.imgur.com/prlZbUn.jpg" style="width: 100%; marker-top: -10px;"/></div>
 
 #### Secure computing mode
 Secure computing mode (`seccomp`) is a [Linux kernel feature](https://en.wikipedia.org/wiki/Seccomp). What it does? Shortly, seccomp allows a process to make a one-way transition into a secure state where it cannot make any system calls except exit(), sigreturn(), read() and write() to already-open file descriptors.

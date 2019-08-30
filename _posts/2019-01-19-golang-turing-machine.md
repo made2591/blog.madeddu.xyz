@@ -1,6 +1,8 @@
 ---
+layout: post
 title: "A Golang Turing machine library"
-tags: [busy-beaver, golang, tibor, computational, theory]
+categories: [coding, golang, miscellaneous, algorithms]
+tags: [coding, golang, busy-beaver, tibor, computational, theory]
 ---
 
 ### Preamble
@@ -8,7 +10,7 @@ In 1962, Hungarian mathematician Tibor Radó introduced the Busy Beaver competit
 
 I decided to use GoLang to implement a Turing machine library and accomplish three goals: first, having a Turing Machine model to play with for learning purpose; second, learning how to use interfaces and the factory pattern, other then testing package to test my code and let it be more flexible for future enhancement (at least I hope!); third, implement some Busy Beaver setup and verify that the model works with well known executions. If you want to discover more about Golang, 60's math games and beavers, go ahead with reading :D!
 
-<p align="center"><img src="https://i.imgur.com/RuYp5Y1.png" style="width: 70%; marker-top: -10px;"/></p>
+<div class="img_container"><img src="https://i.imgur.com/DJeK9E4.png" style="width: 70%; marker-top: -10px;"/></div>
 
 ### Theory first
 Before starting, let's define a Turing machine. A Turing machine is a mathematical model of computation that defines an abstract machine which manipulates symbols on a strip of tape according to a list of rules. Formally, we can image a infinite tape of 0 with a pointer (identified by square bracket) to one specific zero,

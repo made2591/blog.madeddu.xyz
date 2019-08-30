@@ -1,16 +1,18 @@
 ---
+layout: post
 title: "AWS Lambda, GoLang and Grafana to perform sentiment analysis for your company / business"
+categories: [coding, golang, aws]
 tags: [coding, aws, lambda, golang, grafana, sentiment, analysis]
 ---
 
 ### Introduction
-In this article I will talk about my experience with AWS Lambda + API Gateway, GoLang (of course) and Grafana to build a sentiment analysis tool over customizable topics. Who should you read this post? Don't know, maybe a CIO, a CTO, a CEO, a generic Chief or a MasterChef, for sure an AWS and GoLang fan like me. First of all: to better understand how to use Elasticsearch, read my previous post [Elasticsearch over My home Network Attached Storage](https://made2591.github.io/posts/elasticnas): it's not so exciting as it seems, but you will have a general idea about what is Elasticsearch and how can you use it. Second: if you don't know about AWS Lambda, study it. I personally believe that it represents one of the most interesting services currently offered by AWS: as they state, _AWS Lambda lets you run code without provisioning or managing servers_. You pay only for the compute time you consume and there is no charge when your code is not running. The amazing thing is that with a Free Tier trial you have 1 milions requests for free - O.O - to run code of any type of application or backend service - all with zero administration: you just upload your code - unfortunately the online editor for GoLang is not supported yet - and AWS Lambda[^lambda] takes care of everything required to run and scale your code with high availability. You can even set up your code to automatically trigger from other AWS services - as I have done with API Gateway - or call it directly from any web or mobile app. And...last but definetly not the least, why I'm writing this post!? Because starting from [15 January 2018](https://aws.amazon.com/it/blogs/compute/announcing-go-support-for-aws-lambda/), AWS Lambda support GoLang!!!
+In this article I will talk about my experience with AWS Lambda + API Gateway, GoLang (of course) and Grafana to build a sentiment analysis tool over customizable topics. Who should you read this post? Don't know, maybe a CIO, a CTO, a CEO, a generic Chief or a MasterChef, for sure an AWS and GoLang fan like me. First of all: to better understand how to use Elasticsearch, read my previous post [Elasticsearch over My home Network Attached Storage](https://madeddu.xyz/posts/elasticnas): it's not so exciting as it seems, but you will have a general idea about what is Elasticsearch and how can you use it. Second: if you don't know about AWS Lambda, study it. I personally believe that it represents one of the most interesting services currently offered by AWS: as they state, _AWS Lambda lets you run code without provisioning or managing servers_. You pay only for the compute time you consume and there is no charge when your code is not running. The amazing thing is that with a Free Tier trial you have 1 milions requests for free - O.O - to run code of any type of application or backend service - all with zero administration: you just upload your code - unfortunately the online editor for GoLang is not supported yet - and AWS Lambda[^lambda] takes care of everything required to run and scale your code with high availability. You can even set up your code to automatically trigger from other AWS services - as I have done with API Gateway - or call it directly from any web or mobile app. And...last but definetly not the least, why I'm writing this post!? Because starting from [15 January 2018](https://aws.amazon.com/it/blogs/compute/announcing-go-support-for-aws-lambda/), AWS Lambda support GoLang!!!
 
 Ingredients after the image.
 
-<p align="center"><img src="https://images.everyeye.it/img-notizie/tramite-gli-steam-awards-giocatori-chiedono-arrivo-half-life-3-v3-278335-1280x720.jpg" style="width: 100%; marker-top: -10px;"/></p>
+<div class="img_container"><img src="https://i.imgur.com/lDDWtbW.jpg" style="width: 100%; marker-top: -10px;"/></div>
 
-### Ingredients 
+### Ingredients
 For this article, you will need the following:
 - A Grafana + Elasticsearch setup (wherever you want: if you want to run both of them locally, go [here](https://github.com/ftes/grafana-elasticsearch-docker);
 - An [AWS account](http://aws.amazon.com) (free tier it's ok, but API Gateway is not included);
@@ -22,9 +24,9 @@ For this article, you will need the following:
 There are a lot of quite simple steps. I recommend you to pay a lot of attention with AWS. You always have to know exactly what are you doing, to avoid surprise in billing in the end of the month. Fortunately, there are a lot of documentations on Amazon official site, so you only have to read them.
 
 #### 1/7 Create an AWS Account
-Create an AWS Account is simple, you only need to have a credit cart and no fear of Amazon (what?!) :D You can start from [here](http://aws.amazon.com). After the creation, I strongly suggest to study a little more how the IAM Roles work. After you have created your account, you can start from the [IAM Dashboard](https://console.aws.amazon.com/iam/) by following the 5 points to ensure your account is secured. I am talking about 
+Create an AWS Account is simple, you only need to have a credit cart and no fear of Amazon (what?!) :D You can start from [here](http://aws.amazon.com). After the creation, I strongly suggest to study a little more how the IAM Roles work. After you have created your account, you can start from the [IAM Dashboard](https://console.aws.amazon.com/iam/) by following the 5 points to ensure your account is secured. I am talking about
 
-<p align="center"><img src="http://image.ibb.co/mL3POm/aws_iam.png" style="width: 100%; marker-top: -10px;"/></p>
+<div class="img_container"><img src="https://i.imgur.com/0M8vfbi.png" style="width: 100%; marker-top: -10px;"/></div>
 
 Following those steps you guarantee - in practise - to:
 - Create a secondary user with admin rights, possibly with MFA enabled (I use [2stp](http://thomasrzhao.com/2stp-support/) even if it is not supported anymore, because it works and it includes what I need - and nothing more - from a 2-step virtual authenticator device);
@@ -227,17 +229,17 @@ zip MyCompiledLambda.zip MyCompiledLambda
 
 and upload from an S3 bucket or manually.
 
-<p align="center"><img src="http://image.ibb.co/mJqX9R/aws_lambda_2.png" style="width: 100%; marker-top: -10px;"/></p>
+<div class="img_container"><img src="https://i.imgur.com/BdIDvDr.png" style="width: 100%; marker-top: -10px;"/></div>
 
-__NOTE__: the most important things is to setup the handler name to the name of the compiled binary inside your zip - exactly the same name. Otherwise, during testing a path error will be arised because AWS will look for the wrong file name to run your lambda. 
+__NOTE__: the most important things is to setup the handler name to the name of the compiled binary inside your zip - exactly the same name. Otherwise, during testing a path error will be arised because AWS will look for the wrong file name to run your lambda.
 
 As you can see from the code above, there are environment variables to setup API KEY and API Endpoint (whatever your want). From the Lambda setup page you can setup this environment variable to let your code gather the information from AWS, in a secure way.
 
-<p align="center"><img src="http://image.ibb.co/c3vh9R/aws_env.png" style="width: 100%; marker-top: -10px;"/></p>
+<div class="img_container"><img src="https://i.imgur.com/bkDyH0E.png" style="width: 100%; marker-top: -10px;"/></div>
 
-After you have succesfully setup your lambda with the right execution role (have a look at the documentation step, or follow the wizard to automatically create an execution role), you can test your Lambda configuring and using the test menu near to the save button in the right corner of the page. You can click on create your test (they will be available for each lambda separately), you can specify the same payload - you passed before as parameter - to the lambda as a request payload in the editor - using json format. 
+After you have succesfully setup your lambda with the right execution role (have a look at the documentation step, or follow the wizard to automatically create an execution role), you can test your Lambda configuring and using the test menu near to the save button in the right corner of the page. You can click on create your test (they will be available for each lambda separately), you can specify the same payload - you passed before as parameter - to the lambda as a request payload in the editor - using json format.
 
-<p align="center"><img src="http://image.ibb.co/mWus9R/aws_test.png" style="width: 100%; marker-top: -10px;"/></p>
+<div class="img_container"><img src="https://i.imgur.com/hkgoLJU.png" style="width: 100%; marker-top: -10px;"/></div>
 
 #### 4/7 Build Sentiment analyzer over AWS Lambda
 I build a second AWS Lambda to create a sentiment analyzer that take advantage of free tier plan kindly granted by [Aylien Team](http://aylien.com). The code below:
@@ -331,17 +333,17 @@ func main() {
 {% endhighlight %}
 
 #### 5/7 Setup API Gateway
-First, you need to create an API Endpoint. This is simple, you have to go [here](https://console.aws.amazon.com/apigateway/) and click on "Create API" button. 
+First, you need to create an API Endpoint. This is simple, you have to go [here](https://console.aws.amazon.com/apigateway/) and click on "Create API" button.
 
-<p align="center"><img src="http://image.ibb.co/ht88im/aws_api.png" style="width: 100%; marker-top: -10px;"/></p>
+<div class="img_container"><img src="https://i.imgur.com/Ecmgrmj.png" style="width: 100%; marker-top: -10px;"/></div>
 
-After that, you have to create a Resource clicking on the action menu and specifying your api endpoint. Then click on "Create Resource". 
+After that, you have to create a Resource clicking on the action menu and specifying your api endpoint. Then click on "Create Resource".
 
-<p align="center"><img src="http://image.ibb.co/dZzW3m/aws_resource.png" style="width: 100%; marker-top: -10px;"/></p>
+<div class="img_container"><img src="https://i.imgur.com/A2xFlC5.png" style="width: 100%; marker-top: -10px;"/></div>
 
-You can now create your "Action Method": as integration type choose "Lambda Function", then specify the region you deployed your lambda and the Lambda function (it should appear). 
+You can now create your "Action Method": as integration type choose "Lambda Function", then specify the region you deployed your lambda and the Lambda function (it should appear).
 
-<p align="center"><img src="http://image.ibb.co/bBzTG6/aws_method.png" style="width: 100%; marker-top: -10px;"/></p>
+<div class="img_container"><img src="https://i.imgur.com/AP871Qn.png" style="width: 100%; marker-top: -10px;"/></div>
 
 When you will click on create, a popup will appear to warn you that the action will setup the execution role for the API Gateway service - don't remember exactly the step, eventually you can create your onw policy for API Gateway following the [Build an API Gateway API with Lambda Integration](https://docs.aws.amazon.com/apigateway/latest/developerguide/getting-started-with-lambda-integration.html) tutorial.
 
@@ -393,7 +395,7 @@ curl -H "Content-Type: application/json" -XPOST "localhost:9200/news/sentimented
 #### 7/7 Setup your Grafana Dashboard
 And this is the most exiting part: with grafana you can setup Elasticsearch as Datasource (don't need to explain this, simply fill the host field). Then, playing with some graphs and lucene queries / aggregation, you can create for instance an Heat map that shows how much bad or good are the feedback of the topic you are looking for. You can discover who is the top influencer in term of _how much it talks about the topic_, or simply show the number of neutral / negative feedback from highlights and setup an alarm if they reach a huge number - this is only an idea. Look at my Grafana dashboard ^^
 
-<p align="center"><img src="http://image.ibb.co/ebriG6/grafana_sentiment.png" style="width: 100%; marker-top: -10px;"/></p>
+<div class="img_container"><img src="https://i.imgur.com/UuSj8Fl.png" style="width: 100%; marker-top: -10px;"/></div>
 
 Thank you everybody for reading!
 

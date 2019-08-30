@@ -1,12 +1,14 @@
 ---
+layout: post
 title: "GoLang vs Python: deep dive into the concurrency"
+categories: [coding, golang, python]
 tags: [coding, golang, python, goroutine, algorithms, benchmark]
 ---
 
 ### Introduction
 In the last months, I worked a lot with GoLang on several projects. Although I'm certainly not an expert, there are several things that I really appreciate about this language: first, it has a clear and simple syntax, and more than once I noticed that the style of the Github developers is very close to the style used in old C programs. From a theoretical point of view, GoLang seems to take the best of all worlds: there is the power of high-level languages, made simple by clear rules - even if sometime they are a little bit binding - that can impose a solid logic to the code. There is the simplicity of the imperative style, made of primitive types with the size in bits in their name, but without the boredom of manipulating strings as array of characters. However, two really useful and interesting features in my opinion are the goroutine and the channels.
 
-<p align="center"><img src="https://ksr-ugc.imgix.net/assets/013/579/935/cd53c61559974d1fa22a094ecff1f8a3_original.jpg?crop=faces&w=1552&h=873&fit=crop&v=1472824649&auto=format&q=92&s=e7e49d2e6d5bcf4ef3a486facef11cc3" style="width: 100%; marker-top: -10px;"/></p>
+<div class="img_container"><img src="https://i.imgur.com/MDMOE2M.jpg" style="width: 100%; marker-top: -10px;"/></div>
 
 ### Preamble
 To understand why GoLang handles concurrency better, you first need to know what concurrency exactly[^talk] is. Concurrency is the composition of independently executing computations: better, is a way to write clean code that interacts well with the real world. Often people confuse the concept of concurrency with the concept of parallelism, even if concurrency $$\neq$$ parallelism: yes, although it _enables_ parallelism. So, if you have only one processor, your program can still be concurrent but it cannot be parallel. On the other hand, a well-written concurrent program might run efficiently in parallel on a multiprocessor[^rob]. That property could be important.
@@ -88,14 +90,14 @@ func main() {
 {% endhighlight %}
 
 ##### More in details[^docc]
-As official documentation states, a channel _provides a mechanism for concurrently executing functions to communicate by sending and receiving values of a specified element type_. It's - quite - simple. What I didn't say yet, is that a channel as a type, different from the type of messages it admits: 
+As official documentation states, a channel _provides a mechanism for concurrently executing functions to communicate by sending and receiving values of a specified element type_. It's - quite - simple. What I didn't say yet, is that a channel as a type, different from the type of messages it admits:
 
     ChannelType = ( "chan" | "chan" "<-" | "<-" "chan" ) ElementType
 
 The optional ```<-``` operator specifies the channel direction, send or receive. If no direction is given, the channel is bidirectional. A channel may be constrained only to send or only to receive by conversion or assignment.
 
 {% highlight go %}
-    
+
     chan T          // can be used to send and receive values of type T
     chan<- float64  // can only be used to send float64s
     <-chan int      // can only be used to receive ints
@@ -164,7 +166,7 @@ func msort_merge(l []int, r []int) []int {
 I don't think it needs explanation: if you have any questions, don't hesitate write me in the comments! I will answer as soon as possible.
 
 ##### Concurrent Go Version
-Let's talk about the __concurrent version__. We could split the array and call go sub routine from the main routine, but how can we control the maximum number of concurrent go-routine - or workers - to run? Well, one way[^s1] to limit concurrency in Go is by using a buffered channel (semaphore). As I said, when you create a channel with a fixed dimension - or buffered - communication succeeds without blocking if the buffer is not full (sends) or not empty (receives), so you can implements a _semaphore_ to easily block execution based on the number of concurrent units of actions you want to have. Really cool but... there is a problem: a channel is a channel, and even if buffered, basic sends and receives on channels are ```blocking```. 
+Let's talk about the __concurrent version__. We could split the array and call go sub routine from the main routine, but how can we control the maximum number of concurrent go-routine - or workers - to run? Well, one way[^s1] to limit concurrency in Go is by using a buffered channel (semaphore). As I said, when you create a channel with a fixed dimension - or buffered - communication succeeds without blocking if the buffer is not full (sends) or not empty (receives), so you can implements a _semaphore_ to easily block execution based on the number of concurrent units of actions you want to have. Really cool but... there is a problem: a channel is a channel, and even if buffered, basic sends and receives on channels are ```blocking```.
 Fortunately, GoLang is simply awesome and let you create __explicit non-blocking channels__, using the ```select``` statement[^nbcs]: thus, you can use the select with default clause to implement non-blocking sends, receives, and even non-blocking multi-way selects. There are some others few statement to explain, after my _prefixed-maximum-number-of-concurrent-goroutine_ version of merge sort:
 
 {% highlight go %}
@@ -314,11 +316,11 @@ def merge_sort_parallel_golike(array, bufferedChannel, results):
         pass
 
 if __name__ == "__main__":
-    
+
     # manager to handle routine response
-    manager = Manager() 
+    manager = Manager()
     responses = manager.list()
-    
+
     sem = BoundedSemaphore(routinesNumber)
     merge_sort_parallel_golike(a, sem, responses)
     a = responses.pop(0)
@@ -366,14 +368,14 @@ def merge_sort_parallel_fastest(array, concurrentRoutine, threaded):
 
 And this perform better. The question is better using Threads or Processes? Well... look at my comparative graph!
 
-<p align="center"><img src="http://image.ibb.co/kHjz6w/mergesort.png" style="width: 100%; marker-top: -10px;"/></p>
+<div class="img_container"><img src="https://i.imgur.com/3Tl0YyN.png" style="width: 100%; marker-top: -10px;"/></div>
 
 Ok, because Python version is not so good, this is a graph with only GoLang series:
 
-<p align="center"><img src="http://image.ibb.co/gG7VDb/gomerge.png" style="width: 100%; marker-top: -10px;"/></p>
+<div class="img_container"><img src="https://i.imgur.com/QgZeDgt.png" style="width: 100%; marker-top: -10px;"/></div>
 
 ### Conclusion
-Python sucks. GoLang rulez. I'm sorry, Python: I loved you. The complete code is available here: [go-py-benchmark](https://made2591.github.io/posts/go-py-benchmark).
+Python sucks. GoLang rulez. I'm sorry, Python: I loved you. The complete code is available here: [go-py-benchmark](https://madeddu.xyz/posts/go-py-benchmark).
 
 Thank you everybody for reading!
 

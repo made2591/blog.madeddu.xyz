@@ -1,14 +1,16 @@
 ---
+layout: post
 title: "AWS Free Tier, Docker and Jenkins: smart resources handling with CloudWatch Events and Slack"
+categories: [coding, golang, js, aws]
 tags: [coding, aws, lambda, cloudwatch, rules, event, ec2, slack, docker, jenkins]
 ---
 
 ### Introduction
-If you have an [AWS account](http://aws.amazon.com) in Free Tier, you have (updated: March, 13th 2018) 750 hours/month to run EC2 (small ones) in your VPC. You also have a lot of other resources, such as AWS Lambda functions (I wrote about them [here](https://made2591.github.io/posts/aws-lambda) and [here](https://made2591.github.io/posts/aws-step-functions)) and CloudWatch Events. In this article, I talk about smart resources handling and some trick - actually, not so smart XD - I setup to take the best from the services. Attention!!! Picture Spoiler
+If you have an [AWS account](http://aws.amazon.com) in Free Tier, you have (updated: March, 13th 2018) 750 hours/month to run EC2 (small ones) in your VPC. You also have a lot of other resources, such as AWS Lambda functions (I wrote about them [here](https://madeddu.xyz/posts/aws-lambda) and [here](https://madeddu.xyz/posts/aws-step-functions)) and CloudWatch Events. In this article, I talk about smart resources handling and some trick - actually, not so smart XD - I setup to take the best from the services. Attention!!! Picture Spoiler
 
-<p align="center"><img src="http://image.ibb.co/hGzYvH/aws_clock.png" style="width: 100%; marker-top: -10px;"/></p>
+<div class="img_container"><img src="https://i.imgur.com/K9B0I3F.png" style="width: 100%; marker-top: -10px;"/></div>
 
-### Ingredients 
+### Ingredients
 For this article, you will need the following:
 - An [AWS account](http://aws.amazon.com) (free tier it's ok, but API Gateway is not included);
 - [AWS EC2](https://aws.amazon.com/ec2/?nc1=h_ls);
@@ -104,14 +106,14 @@ I want to start my docker-daemon and jenkins server both at 9am and stop them at
 
 - Finally, click on configure details and - it's just a suggest - write the Instance IDs involved in the request in your description. To test if the rule triggers you can setup cron to run after a few mitutes and then change to the desired time.
 
-<p align="center"><img src="http://image.ibb.co/eFU59c/rules_1.png" style="width: 100%; marker-top: -10px;"/></p>
+<div class="img_container"><img src="https://i.imgur.com/pPakEsW.png" style="width: 100%; marker-top: -10px;"/></div>
 
 To stop instances, create another rule with	0 20 * * ? * - remember that it is UTC time zone!!! - and invoke the same AWS Lambda function with action value equal to "stop" in your Constant JSON input.
 
 #### Step 3/5: Have always updated DNS
 The best way to deal with Public DNS is by assigning an Elastip IP to your instances, or setup a third-level-domain service inside each of your instance (like no-ip)...or use again Lambda (and Slack) to alert you whanever there is a change of status.
 
-This time, the IAM Policy System requires from you (actually, your Lambda function) something more: this function should be able to ask for instance details. To do that, it needs - at least - read access to EC2 Instances details (I think there is a policy to do that). In any case, you don't have to deal with super restrictive policy, because your Lambda is not exposed through API Gateway and is called only by a CloudWatch Event. Thus, you can add - at least, for this experiment - the _AmazonEC2FullAccess_ managed policy ([this](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_examples_ec2_region.html) is the description page, I guess) to your Role. 
+This time, the IAM Policy System requires from you (actually, your Lambda function) something more: this function should be able to ask for instance details. To do that, it needs - at least - read access to EC2 Instances details (I think there is a policy to do that). In any case, you don't have to deal with super restrictive policy, because your Lambda is not exposed through API Gateway and is called only by a CloudWatch Event. Thus, you can add - at least, for this experiment - the _AmazonEC2FullAccess_ managed policy ([this](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_examples_ec2_region.html) is the description page, I guess) to your Role.
 
 For this Lambda, I used Node.js (just to make things a little bit confusing for you). First, install ```slack-node``` in the folder you will upload to your AWS Lambda Console with the command
 
@@ -125,7 +127,7 @@ Then, create a ```index.js``` file in the folder and copy and paste the followin
 const Slack = require("slack-node");
 // Load the AWS SDK for Node.js
 const AWS = require("aws-sdk");
-// Set the region 
+// Set the region
 AWS.config.update({region: process.env.REGION});
 
 // Create EC2 service object
@@ -178,12 +180,12 @@ exports.handler = (event, context, callback) => {
         else {
             var count = 0;
             var infos = [];
-            
+
             data = JSON.parse(JSON.stringify(data));
-            
+
             // for each instance
             for (var reservartion of data["Reservations"]) {
-                
+
                 var instance = reservartion["Instances"][0];
                 infos.push({});
 
@@ -204,7 +206,7 @@ exports.handler = (event, context, callback) => {
                 // save dns and ip
                 infos[count]["dns"] = instance["PublicDnsName"];
                 infos[count]["ip"] = instance["PublicIpAddress"];
-                
+
                 count = count + 1;
 
             }
@@ -232,44 +234,44 @@ To create a Slack App, follow these steps:
 - Go [here](https://api.slack.com/apps?new_app=1);
 - Choose a name for your app, such as AWSStartAndStopBot, or whatever you want, then select the workspace (you should have at least one);
 
-<p align="center"><img src="http://image.ibb.co/bN42Nx/slack_1.png" style="width: 100%; marker-top: -10px;"/></p>
+<div class="img_container"><img src="https://i.imgur.com/qNc50Fc.png" style="width: 100%; marker-top: -10px;"/></div>
 
 - Click on the Create App button. You should be redirect to the page of your application a Add features and functionality section;
 
-<p align="center"><img src="http://image.ibb.co/d8ndvH/slack_2.png" style="width: 100%; marker-top: -10px;"/></p>
+<div class="img_container"><img src="https://i.imgur.com/oA64Ipp.png" style="width: 100%; marker-top: -10px;"/></div>
 
 - Click on the Incoming Weebhooks below, then setup to ON the switch button in right corner;
 
-<p align="center"><img src="http://image.ibb.co/d5TkaH/slack_3.png" style="width: 100%; marker-top: -10px;"/></p>
+<div class="img_container"><img src="https://i.imgur.com/As2lD6c.png" style="width: 100%; marker-top: -10px;"/></div>
 
 - Go to the bottom of the page and click on the Add new webhook to workspace button. You should be redirected to a page with a select box with a Post to label. Select the private channel created in the preamble, then click on Authorize button;
 
-<p align="center"><img src="http://image.ibb.co/dCPQaH/slack_4.png" style="width: 100%; marker-top: -10px;"/></p>
+<div class="img_container"><img src="https://i.imgur.com/ZWlrfO0.png" style="width: 100%; marker-top: -10px;"/></div>
 
 - You should be redirected to a previous page with the webhook url (you have to update your SLACK_AWS_WEBHOOK env variable for your AWS Lambda, the Node.js one);
 
 #### Step 5/5: CloudWatch Event to sent Slack Message
-The last step is create a CloudWatch Rule - a new one, keep the start and stop previously created rule untouched - triggered: this time, the trigger is not a Schedule event at fixed time, but a an Event Pattern.  
+The last step is create a CloudWatch Rule - a new one, keep the start and stop previously created rule untouched - triggered: this time, the trigger is not a Schedule event at fixed time, but a an Event Pattern.
 
 - First, open [CloudWatch Console](https://console.aws.amazon.com/cloudwatch/), then click on __Rules__ on the left;
 - Click on the blue button Create Rule, select Event Pattern, then select EC2 from Service Name select box;
 - Click on EC2 Instance State-change Notification, then choose the involved state (you can exlude pending, if you want);
 - On the left, click on Add trigger, then select the AWS Lambda (Node.js) function and configure input as matched event (it will be ignored);
 
-<p align="center"><img src="http://image.ibb.co/g3jGFH/rules_2.png" style="width: 100%; marker-top: -10px;"/></p>
+<div class="img_container"><img src="https://i.imgur.com/F7Nlupl.png" style="width: 100%; marker-top: -10px;"/></div>
 
 To test the setup, try to stop and start your instances, and you should see something appear on your slack channel!
 
-<p align="center"><img src="http://image.ibb.co/kSQFaH/slack_bot.png" style="width: 100%; marker-top: -10px;"/></p>
+<div class="img_container"><img src="https://i.imgur.com/siw2Tnw.png" style="width: 100%; marker-top: -10px;"/></div>
 
 ### Other possible scenario
 I think I will work on Slack features like button to handle my VPC with a sort of question-answer event-driven bot. But...what if you want to add more worker node to Jenkins? For instance, using a 9-17 setup, you can have a three machine running at time.
 
-<p align="center"><img src="http://image.ibb.co/fAOFQH/aws_clock_2.png" style="width: 100%; marker-top: -10px;"/></p>
+<div class="img_container"><img src="https://i.imgur.com/RHaXqi4.png" style="width: 100%; marker-top: -10px;"/></div>
 
 But I think this setup is more interesting :D. In the end, having a 4 node k8s cluster with a Jenkins for deploy, for 4 hours each day for one year....for free, is not so bad. I will try, I think performance are around 1980 :D
 
-<p align="center"><img src="http://image.ibb.co/eYM25H/aws_clock_3.png" style="width: 100%; marker-top: -10px;"/></p>
+<div class="img_container"><img src="https://i.imgur.com/O5PHV4Z.png" style="width: 100%; marker-top: -10px;"/></div>
 
 Thank you everybody for reading!
 

@@ -1,6 +1,8 @@
 ---
+layout: post
 title: "Predix Machine and how to configure them"
-tags: [theory, network, angular, predix, brilliant, factory, iot]
+categories: [coding, js]
+tags: [coding, theory, network, angular, predix, brilliant, factory, iot]
 ---
 
 ### Predix Machine and how to configure them
@@ -26,7 +28,7 @@ The tool is intended for both Predix dev / common users. I prepared two differen
 
 The only script you need is the python script under the folder ```cli/``` named ```predix-configurator.py```. The script has only one dependency to pretty print xml to file.
 You can run it from your command line simply following this step:
- 
+
  ```
  git clone https://github.com/made2591/predix-configurator
  cd predix-configurator
@@ -35,7 +37,7 @@ You can run it from your command line simply following this step:
  pip install requirements.txt
  python predix-configurator.py
  ```
- 
+
 When ```predix-configurator``` starts, it looks for a configuration file under the folder ```schema``` called ```your-factory.json``` (you can change the name of the file and update the const value in the header of the script with the new name / path as well).
 
 A ```your-factory.json``` schema is already available in ```schema``` folder: for obvious reasons, I can't provide more details using real parameters instances XD.

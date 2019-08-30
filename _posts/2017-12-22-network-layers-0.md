@@ -1,5 +1,7 @@
 ---
+layout: post
 title: "A journey through the network - Introduction"
+categories: [theory, network]
 tags: [theory, network, iso/osi, tcp/ip, saga]
 ---
 
@@ -15,7 +17,7 @@ Let's start from the first!
 ### The __ISO/OSI__ reference model
 The __ISO/OSI__ is the Open Systems Interconnection (__OSI__) reference model for connecting open systems, __based on a proposal__ originally developed by the International Standards Organization (__ISO__): __OSI__ (for short) consists of a stack of protocols through which the implementation complexity of a communication system for networking is reduced. The __OSI__ model has seven layers.
 
-<p align="center"><img src="https://image.ibb.co/jpZKUm/isoosi.png" alt="perceptron" style="width: 100%; marker-top: -10px;"/></p>
+<div class="img_container"><img src="https://i.imgur.com/EZFTYiO.png"  style="width: 100%; marker-top: -10px;"/></div>
 
 <span style="color:#A04279; font-size: bold;">__NOTE__</span> the __OSI__ model itself is not a network architecture: it just tells what each layer should do. But the International Standards Organization (__ISO__) has also produced standards for all the OSI layers, although these are not part of the reference model itself. Each one has been published as a separate international standard. What is a layer?
 
@@ -26,7 +28,7 @@ A layer identifies a communication protocol of the same level. __ISO/OSI__ perfo
 The <span style="color:#A04279; font-size: bold;">physical layer</span> is concerned with transmitting raw bits over a communication channel of low-level networking equipment, such as some hubs, cabling, and repeaters. Examples of hardware in this layer are network adapters, repeaters, network hubs, modems, and fiber media converters. The design issues have to do with making sure that when one side sends a 1 bit it is received by the other side as a 1 bit, not as a 0 bit. Typical questions here are:
 - what _electrical signals_ should be used to represent a 1 and a 0?
 - how many _nanoseconds_ a bit last?
-- whether transmission may proceed simultaneously _in both directions_? 
+- whether transmission may proceed simultaneously _in both directions_?
 - how the initial connection is established?
 - how it is torn down when both sides are finished?
 - how many _pins_ the network connector has?
@@ -49,7 +51,7 @@ The _IEEE 802_ standard divides the data link layer into two __sublayers__:
 ##### The network layer - 3 of 7
 To define _where_ the network layer operates, let's first introduce two definition.
 
-	A datagram is a basic transfer unit typically structured in two components, a header and a payload section. 
+	A datagram is a basic transfer unit typically structured in two components, a header and a payload section.
 
 The header contains all the information sufficient for routing from the originating equipment to the destination without relying on prior exchanges between the equipment and the network: they may include source and destination addresses as well as a type field. The payload is the data to be transported. This process of nesting data payloads in a tagged header is called encapsulation.
 
@@ -63,7 +65,7 @@ When a packet has to travel from one network to another to get to its destinatio
 
 Sometimes too many packets are present in the network at the same time: handling congestion is also a responsibility of the network layer, in conjunction with higher layers that adapt the load they place on the network. More generally, the quality of service provided (delay, transit time, jitter, etc.) is also a network layer issue. Routing protocols, multicast group management, network-layer information and error, and network-layer address assignment are all layer-management protocols that belong to the network layer.
 
-Message delivery at the network layer is not necessarily guaranteed to be reliable; a network layer protocol may provide reliable message delivery, but it need not do so. 
+Message delivery at the network layer is not necessarily guaranteed to be reliable; a network layer protocol may provide reliable message delivery, but it need not do so.
 
 #### Chained vs end-to-end layers
 In the layers seen until now, each protocols is between a machine and its immediate neighbors, and not between the ultimate source and destination machines, which may be separated by many routers. This is why layers 1 through 3, which are chained, are shown with a communication subnet boundary in the first figure. The layers from 4 through 7 are called end-to-end layers: they carries data all the way from the source to the destination. In other words, a program on the source machine carries on a conversation with a similar program on the destination machine, using the message headers and control messages.
@@ -119,7 +121,7 @@ The __TCP/IP__ model's link layer corresponds to the Open Systems Interconnectio
 The <span style="color:#A04279; font-size: bold;">internet layer</span> corresponding (quite) to the __OSI__ network layer and permit hosts to inject packets into any network and have them travel independently to the destination (potentially on a different network). They may even arrive in a completely different order than they were sent, in which case it is the job of higher layers to rearrange them, if in-order delivery is desired. The internet layer defines an official packet format and protocol called IP (Internet Protocol), plus a companion protocol called ICMP (Internet Control Message Protocol) that helps it function. The job of the internet layer is to deliver IP packets where they are supposed to go. Packet routing is clearly a major issue here, as is congestion (though IP has not proven effective at avoiding congestion).
 
 ##### The transport layer - 3 of 4
-The <span style="color:#A04279; font-size: bold;">transport layer</span> is designed to allow peer entities on the source and destination hosts to carry on a conversation, just as in the __OSI__ transport layer. Two end-to-end transport protocols have been defined here: 
+The <span style="color:#A04279; font-size: bold;">transport layer</span> is designed to allow peer entities on the source and destination hosts to carry on a conversation, just as in the __OSI__ transport layer. Two end-to-end transport protocols have been defined here:
 - the __TCP__ (Transmission Control Protocol) is a reliable connection-oriented protocol that allows a byte stream originating on one machine to be delivered without error on any other machine in the internet; it segments the incoming byte stream into discrete messages and passes each one on to the internet layer; at the destination, the receiving __TCP__ process reassembles the received messages into the output stream. __TCP__ also handles flow control to make sure a fast sender cannot swamp a slow receiver with more messages than it can handle;
 - the __UDP__ (User Datagram Protocol) is an unreliable connectionless protocol for applications that do not want __TCP__'s sequencing or flow control and wish to provide their own. It is also widely used for one-shot, client-server-type request-reply queries and applications in which prompt delivery is more important than accurate delivery, such as transmitting speech or video;
 
@@ -127,7 +129,7 @@ The <span style="color:#A04279; font-size: bold;">transport layer</span> is desi
 The <span style="color:#A04279; font-size: bold;">application layer</span> contains all the higher-level protocols. The early ones included virtual terminal (_TELNET_), file transfer (_FTP_)and electronic mail (_SMTP_). Many other protocols have been added to these over the years.
 
 ### Conclusion
-We talked a lot about the roles of each layers in __OSI__ reference models. Let's talk about 
+We talked a lot about the roles of each layers in __OSI__ reference models. Let's talk about
 
 \# | Layer        | OSI  | TCP                                   |
 ---|--------------|------|---------------------------------------|
@@ -139,6 +141,6 @@ We talked a lot about the roles of each layers in __OSI__ reference models. Let'
  2 | Data link    | MAC  | PPP / SBTV / SLIP                     |
  1 | Physical     | [..] |  /                                    |
 
-<span style="color:#A04279; font-size: bold;">UPDATE 05/01/2018</span>: you can now read the second part of the Network Saga at the post [A journey through the network - Layer 1](https://made2591.github.io/posts/network-layers-1). Enjoy the reading!
+<span style="color:#A04279; font-size: bold;">UPDATE 05/01/2018</span>: you can now read the second part of the Network Saga at the post [A journey through the network - Layer 1](https://madeddu.xyz/posts/network-layers-1). Enjoy the reading!
 
 Thank you everybody for reading!

@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang='en' class=''>
+
+<head>
+
+    <style class="cp-pen-styles">
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            height: 100%;
+        }
+
+        body {
+            min-height: 100%;
+            background: #eee;
+            font-family: 'Lato', sans-serif;
+            font-weight: 400;
+            color: #222;
+            font-size: 12px;
+            line-height: 16px;
+            padding-bottom: 50px;
+            text-align: justify;
+        }
+
+        .container {
+            max-width: 700px;
+            background: #fff;
+            margin: 0px auto 0px;
+            box-shadow: 1px 1px 2px #DAD7D7;
+            border-radius: 3px;
+            padding: 40px;
+            margin-top: 50px;
+        }
+
+        .header {
+            margin-bottom: 30px;
+            margin-top: 20px;
+        }
+
+        .header .full-name {
+            font-size: 40px;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+            margin-top: 30px;
+        }
+
+        .header .first-name {
+            font-weight: 700;
+        }
+
+        .header .last-name {
+            font-weight: 300;
+        }
+
+        .header .contact-info {
+            margin: 15px auto 20px;
+        }
+
+        .header .email,
+        .header .phone {
+            color: #999;
+            font-weight: 300;
+        }
+
+        .header .separator {
+            height: 10px;
+            display: inline-block;
+            border-left: 2px solid #999;
+            margin: 0px 10px;
+        }
+
+        .header .position {
+            font-weight: bold;
+            display: inline-block;
+            margin-right: 10px;
+            text-decoration: underline;
+        }
+
+        .details {
+            line-height: 16px;
+        }
+
+        .details .section {
+            margin-bottom: 20px;
+        }
+
+        .details .section:last-of-type {
+            margin-bottom: 0px;
+        }
+
+        .details .section__title {
+            letter-spacing: 2px;
+            color: #54AFE4;
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .details .section__list-item {
+            margin-bottom: 20px;
+        }
+
+        .details .section__list-item:last-of-type {
+            margin-bottom: 0;
+        }
+
+        .details .left,
+        .details .right {
+            vertical-align: top;
+            display: inline-block;
+        }
+
+        .details .left {
+            width: 30%;
+        }
+
+        .details .right {
+            tex-align: right;
+            width: 65%;
+            margin-left: 4%;
+        }
+
+        .details .workexp-left,
+        .details .workexp-right {
+            vertical-align: top;
+            display: inline-block;
+        }
+
+        .details .workexp-left {
+            width: 35%;
+            margin-top: 0px;
+        }
+
+        .details .workexp-right {
+            tex-align: right;
+            width: 64%;
+        }
+
+        .section__list-item-spec .speclogo-left,
+        .section__list-item-spec .speclogo-right {
+            vertical-align: top;
+            display: inline-block;
+            margin-top: 21px;
+        }
+
+        .section__list-item-spec .speclogo-left {
+            width: 13%;
+        }
+
+        .section__list-item-spec .speclogo-right {
+            tex-align: right;
+            width: 75%;
+            margin-left: 8%;
+            margin-top: 24px;
+            text-align: left;
+        }
+
+        .section__list-item .complogo-left,
+        .section__list-item .complogo-right {
+            vertical-align: top;
+            display: inline-block;
+        }
+
+        .section__list-item .complogo-left {
+            width: 24%;
+            margin-top: 2px !important;
+        }
+
+        .section__list-item .complogo-right {
+            tex-align: right;
+            width: 72%;
+        }
+
+        .section__list-item .name {
+            font-weight: bold;
+        }
+
+        .details a {
+            text-decoration: none;
+            font-weight: bold;
+            color: #103a89;
+        }
+
+        .details a:hover {
+            text-decoration: underline;
+            color: #000;
+        }
+
+        .details .skills__item {
+            margin-bottom: 10px;
+        }
+
+        .details .skills__item .right input {
+            display: none;
+        }
+
+        .details .skills__item .right label {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            background: #C3DEF3;
+            border-radius: 20px;
+            margin-right: 3px;
+        }
+
+        .details .skills__item .right input:checked+label {
+            background: #79A9CE;
+        }
+
+        .certification {
+            margin-top: -5px;
+        }
+
+        .section__list {
+            margin-top: 15px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <link href='https://fonts.googleapis.com/css?family=Lato:400,300,700' rel='stylesheet' type='text/css'>
+
+    <div class="container">
+        <div class="header">
+            <div class="full-name">
+                <span class="first-name">Matteo</span>
+                <span class="last-name">Madeddu</span>
+            </div>
+            <div class="contact-info">
+                <span class="email">Email: </span>
+                <span class="email-val"><a href="mailto:matteo.madeddu@gmail.com">matteo.madeddu@gmail.com</a></span>
+                <span class="separator"></span>
+                <span class="phone">Site: </span>
+                <span class="phone-val"><a href="https://madeddu.xyz/posts/" style="color: rgb(0, 0, 238);">https://madeddu.xyz</a></span>
+                <span class="separator"></span>
+                <span class="phone">Github/Twitter: </span>
+                <span class="phone-val"><a href="https://github.com/made2591" style="color: rgb(0, 0, 238);">@made2591</a></span>
+            </div>
+
+            <div class="about">
+                <span class="position">Platform Engineer </span>
+                <span class="desc"> I am a platform engineer with a bachelor and a master degree in computer science - focused on artificial intelligence. I'm an AWS Certified Solution Architect, AWS Certified Developer, and AWS Certified Machine Learning Specialist. I love <strong>Golang</strong>, <strong>Docker</strong>, serverless architecture and <strong>quantum</strong> computing/mechanics. In my free time, I'm a software developer - you can find me on Github at <a href="https://github.com/made2591" style="color: rgb(0, 0, 238);">@made2591</a>, an <a href="https://github.com/awslabs/aws-cdk" style="color: rgb(0, 0, 238);">AWS Cloud Development Kit</a> contributor, a <strong>blogger</strong> at <a href="https://madeddu.xyz/posts/" style="color: rgb(0, 0, 238);">https://madeddu.xyz/</a>, a juggler, a skier, a skater, a guitarist (sometimes) and a dreamer (always). I'm looking for new cool things to <strong>learn</strong>, for a team of <strong>passionate</strong> people to work with, in a company that wants to make the difference.
+                </span>
+            </div>
+        </div>
+        <div class="details">
+            <div class="section">
+                <div class="section__title">Work experiences</div>
+                <div class="section__list">
+                    <div class="section__list-item">
+                        <div class="workexp-left">
+                            <div class="section__list-item">
+                                <div class="complogo-left">
+                                    <img src="adidas.png" alt="AWS Certified Solutions Architect - Associate" height="42" width="42">
+                                </div>
+                                <div class="complogo-right">
+                                    <div class="name">adidas</div>
+                                    <div class="addr">Herzogenaurach, Germany</div>
+                                    <div class="duration">Jun 2018 - Now</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="workexp-right">
+                            <div class="name">Platform Engineer</div>
+                            <div class="desc">Build the new <strong>AWS</strong>-based platform for data a/e/s, dealing with infrastructure design and application migration/development. Worked on: <strong>serverless architecture</strong> design and implementation, <strong>image recognition</strong> at scale, <strong>social media</strong> scraping. Techs: <strong>CDK</strong> and Cloudformation, ECS, <strong>Lambda</strong>, Step Functions, <strong>Docker</strong>, Terraform, Python, [Java/Type]script, Golang.</div>
+                        </div>
+                    </div>
+                    <div class="section__list-item">
+                        <div class="workexp-left">
+                            <div class="section__list-item">
+                                <div class="complogo-left">
+                                    <img src="ge_aviation.png" alt="GE Aviation" height="42" width="42">
+                                </div>
+                                <div class="complogo-right">
+                                    <div class="name">GE Aviation</div>
+                                    <div class="addr">Torino, Italy</div>
+                                    <div class="duration">Feb 2017 - Jun 2018</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="workexp-right">
+                            <div class="name">Internship / Platform Engineer</div>
+                            <div class="desc">Leverage AWS services, design and develop applications - <strong>web-based</strong> - and systems integration/migration. Worked also on: <strong>Predix</strong>, as an internal contributor of GE Digital Store,
+                                scheduling of distributed systems workload running on-premise. Techs: <strong>Golang</strong>, <strong>Vue.js</strong>, Python, Sqoop.</div>
+                        </div>
+                    </div>
+                    <div class="section__list-item">
+                        <div class="workexp-left">
+                            <div class="section__list-item">
+                                <div class="complogo-left">
+                                    <img src="list.png" alt="GE Aviation" height="42" width="42">
+                                </div>
+                                <div class="complogo-right">
+                                    <div class="name">List s.p.a</div>
+                                    <div class="addr">Torino, Italy</div>
+                                    <div class="duration">Sep 2016 - Dec 2016</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="workexp-right">
+                            <div class="name">Software Engineer</div>
+                            <div class="desc">Maintenance and <strong>development</strong> of software - <strong>web based</strong> - for banks and insurance companies. Techs: Spring, <strong>Java</strong>, several front-end web frameworks, Python, Oracle.</div>
+                        </div>
+                    </div>
+                    <div class="section__list-item">
+                        <div class="workexp-left">
+                            <div class="section__list-item">
+                                <div class="complogo-left">
+                                    <img src="universita.png" alt="University of Torino" height="42" width="42">
+                                </div>
+                                <div class="complogo-right">
+                                    <div class="name">University of Torino</div>
+                                    <div class="addr">Torino, Italy</div>
+                                    <div class="duration">Apr 2016 - Sep 2016</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="workexp-right">
+                            <div class="name">Research Fellowship</div>
+                            <div class="desc">Collaboration with the University data-oriented research group and CRIT to study the <strong>temporal evolution</strong> and structural properties of communities in complex networks. Worked also on: development of part of a probabilistic model. Techs: <strong>Java</strong>, <strong>MATLAB</strong>, Python.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section certification">
+                <div class="section__title">Certifications</div>
+                <table>
+                    <tr>
+                        <td>
+                            <div class="section__list" style="margin-top: -12px !important; width: 108%;">
+                                <div class="section__list-item-spec">
+                                    <div class="speclogo-left">
+                                        <a href="https://goo.gl/PA7Evc"><img src="solution_architect.png" alt="AWS Certified Solutions Architect - Associate" height="55" width="55"></a>
+                                    </div>
+                                    <div class="speclogo-right">
+                                        <div class="name"><strong>AWS Certified Solutions Architect Associate</strong></div>
+                                        <div class="text">Released in date: March 25th, 2019.<br />Follow the link: <a href="https://goo.gl/PA7Evc">https://goo.gl/PA7Evc</a></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="section__list" style="margin-top: -12px !important; width: 108%; margin-left: 29px;">
+                                <div class="section__list-item-spec">
+                                    <div class="speclogo-left">
+                                        <a href="http://bit.ly/2WvYOK5"><img src="developer.png" alt="AWS Certified Developer - Associate" height="55" width="55"></a>
+                                    </div>
+                                    <div class="speclogo-right" style="margin-left: 8%">
+                                        <div class="name"><strong>AWS Certified Developer Associate</strong></div>
+                                        <div class="text">Released in date: May 29th, 2019.<br />Follow the link: <a href="http://bit.ly/2WvYOK5">http://bit.ly/2WvYOK5</a></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="section__list" style="margin-top: 0px !important; width: 108%;">
+                                <div class="section__list-item-spec">
+                                    <div class="speclogo-left">
+                                        <a href="https://goo.gl/yLwQUA"><img src="machine_learning.png" alt="AWS Certified Solutions Architect - Associate" height="55" width="55"></a>
+                                    </div>
+                                    <div class="speclogo-right">
+                                        <div class="name"><strong>AWS Certified Machine Learning Specialty</strong></div>
+                                        <div class="text">Released in date: December 20th, 2018.<br />Follow the link: <a href="https://goo.gl/yLwQUA">https://goo.gl/yLwQUA</a></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                        </td>
+                    <tr>
+                </table>
+            </div>
+            <br />
+            <br />
+            <div class="section">
+                <div class="section__title">Education</div>
+                <div class="section__list">
+                    <div class="section__list-item">
+                        <div class="left">
+                            <div class="name">University of Torino, Italy</div>
+                            <div class="addr">Department of Computer Science. Final Vote: <strong>110/110 summa cum laude and distinction</strong></div>
+                            <div class="duration">2013 - 2015</div>
+                        </div>
+                        <div class="right">
+                            <div class="name">Master's Degree in Artificial Intelligence and Software Engineering</div>
+                            <div class="desc">My thesis consists of the study and the development of a visual-auditory model realized through <strong>neural networks</strong>, to explain the formation of the <strong>taxonomic response</strong> and the fast-mapping abilities
+                                of children in early childhood. Involved techs: MATLAB. I <strong>won the AI*IA special mention</strong> for the best Italian Thesis in Artificial Intelligence for the year 2016. An article extracted from this work was
+                                <strong>published in the Journal of Cognitive System Research in 2018</strong>.</div>
+                        </div>
+                    </div>
+                    <div class="section__list-item">
+                        <div class="left">
+                            <div class="name">University of Torino, Italy</div>
+                            <div class="addr">Department of Computer Science. Final Vote: <strong>108/110</strong></div>
+                            <div class="duration">2010 - 2013</div>
+                        </div>
+                        <div class="right">
+                            <div class="name">Bachelor's Degree in Networks and computer systems</div>
+                            <div class="desc">My thesis consists in the design and the <strong>development of a web application</strong> according to the specifications of a <strong>research project</strong> of the ARCS group for the creation of a <strong>recommendation system</strong> that uses gamification techniques in order to solve the cold start problem. Involved techs: <strong>Symfony (PHP framework)</strong>, Git, front-end Javascript / CSS libraries and tools.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br />
+			<br />
+            <div class="section">
+                <div class="section__title">Publications & Seminars</div>
+                <div class="section__list">
+                    <div class="section__list-item">
+                        <div class="name">Journal of Cognitive Systems Research: 2018</div>
+                        <div class="text"><em>A visual auditory model based on <strong>Growing Self-Organizing Maps</strong> to analyze the taxonomic response in early childhood</em> was published by Cognitive System Research. The article is available: <a href="https://goo.gl/sFPTGm">https://goo.gl/sFPTGm</a>.
+                        </div>
+                    </div>
+                    <div class="section__list-item">
+                        <div class="name">Bootstrap 3.0: 2014</div>
+                        <div class="text">Seminar personally led on the <strong>Twitter's front-end CSS framework</strong>, during the "Web Technologies" course held in the Department of Computer Science of Turin. The slides are available: <a href="https://goo.gl/CSEpSF">https://goo.gl/CSEpSF</a>.
+                        </div>
+                    </div>
+                    <div class="section__list-item">
+                        <div class="name">Symfony: 2013</div>
+                        <div class="text">Seminar personally led on the <strong>Symfony PHP framework</strong>, in particular on the template engine (focus on <strong>Twig</strong>) and ORM (focus on <strong>Doctrine</strong>), for the "Web Technologies" course held in the Department of Computer Science of Turin.</div>
+                    </div>
+                </div>
+            </div>
+			<br />
+            <br />
+            <div class="section">
+                <div class="section__title">I'm proud of</div>
+                <div class="section__list">
+                    <div class="section__list-item">
+                        <div class="name">AWS CDK contributions</div>
+                        <div class="text">I like Github, opensource software and work on them, mainly to learn from passionate guys all over the world and to improve my skills: this is the reason I'm proud to say that I started contributing to the <a href="https://github.com/awslabs/aws-cdk">AWS Cloud Development Kit</a> repository, by both extending the framework and fix minor bugs. I truly believe this library can change the way you can provision infrastructure, and these contributions gave me the right motivation to believe in my capabilities and also the opportunities to help the community. 
+                            </a>
+                        </div>
+                    </div>
+                    <div class="section__list-item">
+                        <div class="name">Quantum computing notes</div>
+                        <div class="text">From time to time, I like studying and reading about the quantum world. After reading some books, a few time ago I started to collect some <strong>quantum-notes</strong>: in this document, I write my personal notes about <strong>IBM Q platform</strong> and the quantum-computing world in general. I received very good feedback regarding this work and I was invited to talk about the IBM Platform at the University of Verona. I usually provide a (not super updated) pre-compiled version of this document at this link: <a href="https://goo.gl/aUSrpz">https://goo.gl/aUSrpz</a>.
+                            </a>
+                        </div>
+                    </div>
+					<br />
+					<br />
+					<br />
+		            <br />
+					<br />
+		            <br />
+		            <br />
+                    <div class="section__list-item">
+                        <div class="name">The go-perceptron-go library</div>
+                        <div class="text">This is <strong>my most starred Github repository</strong>: it's a parametric multi-layer perceptron classifier with weights estimated using stochastic gradient descent written in <strong>Golang</strong>. It also provides <strong>parametric network topology</strong> - only one array of integers - and validation package with k-fold cross-validation. The repository was originally created for the perceptron only, then I also introduced a recurrent neural network model. This repository was linked as <strong>top-ranked on Hacker News</strong> for a couple of days and <strong>shared on HN social</strong> official pages! The link to the repo: <a href="https://goo.gl/qV7fmL">https://goo.gl/qV7fmL</a>.
+                        </div>
+                    </div>
+                    <div class="section__list-item">
+                        <div class="name">The immutable project & CDK templates</div>
+                        <div class="text"><em>immutable</em> aims to be - it's still becoming - my best implementation of a completely immutable, opinionated and DRY-driven repository. In a few words, the idea behind immutable is to provide a <strong>one-command deployable repository</strong> that contains everything needed to deploy itself: above the infrastructure, which is provisioned by <strong>terragrunt</strong> and <strong>terraform</strong>, there are some actor(s) (i.e. Jenkins, but I'm already moved serverless) coded to be redeployed and start redeployment of the applications - in the future, even pieces of infrastructure. I also <strong>wrote an article</strong> on my blog about it: (<a href="https://goo.gl/4dqqkZ">https://goo.gl/4dqqkZ</a>). The link to the repo: <a href="https://goo.gl/p7inY3">https://goo.gl/p7inY3</a>. Some CDK templates at: <a href="http://bit.ly/2Ry8P4G">http://bit.ly/2Ry8P4G</a>.
+                        </div>
+                    </div>
+                    <div class="section__list-item">
+                        <div class="name"> The Coppeliaperladanza website</div>
+                        <div class="text">This is a <strong>static website</strong> realized for the sports association Coppelia a.s.d. I designed, created and I actively maintain the website: this is nothing special from a technological perspective, but it still helped my sister to gain some new students in her ballet school! You can have a look: <a href="https://goo.gl/gu9Qhp">https://goo.gl/gu9Qhp</a>.
+                        </div>
+                    </div>
+                    <div class="section__list-item">
+                        <div class="name">My Github page</div>
+                        <div class="text">Some other projects I collected over the years: <a href="https://goo.gl/Yaya9z">https://goo.gl/Yaya9z</a>.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="section">
+                <div class="section__title">
+                    Interests
+                </div>
+                <div class="section__list">
+                    <div class="section__list-item">
+                        Golang, Docker, orchestration, networking, quantum computing, vintage, 80s-computer science, Apple, Linux. And yes,<br/>traveling, of course.
+                    </div>
+                </div>
+            </div>
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+        </div>
+    </div>
+    </div>
+    <script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+</body>
+
+</html>

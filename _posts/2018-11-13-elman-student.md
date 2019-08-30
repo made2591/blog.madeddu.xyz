@@ -1,21 +1,23 @@
 ---
+layout: post
 title: "How my Elman network learnt to count"
+categories: [coding, golang, theory, algorithms]
 tags: [coding, golang, ann, elman, adding, neural, networks]
 ---
 
 ### Introduction
 This is actually a sort of back-to-the-future post because it's related to something I completed one year ago: I built this Elman network and it learnt to count. What I shame, I forgot it, now it's kind of its first birthday so let's celebrate :D
 
-<p align="center"><img src="https://static1.squarespace.com/static/550ca181e4b00ab6c2a10330/t/55afd73be4b0ba2638779743/1437587260614/boy-going-back-to-school.jpg?format=750w" alt="matrixbug" style="width: 100%; marker-top: -10px;"/></p>
+<div class="img_container"><img src="https://i.imgur.com/Sftxnds.jpg" alt="matrixbug" style="width: 100%; marker-top: -10px;"/></div>
 
 This is Elman, the best in class in adding int32 numbers. For everybody who already knows what I will talk about (what?!), [here](https://github.com/made2591/go-perceptron-go)'s the Github repo. I'm sorry for the name, it's still go-perceptron-go but that repo contains my GoLang ANN.
 
 ### Let's start from
-You were wondering what the f\*\*k is an Elman network: to be honest, I didn't understand exactly but [this](https://made2591.github.io/posts/neuralnetwork) post related to the perceptron could be a good starting point - at least, somehow linked cause in the end this network share a lot with multilayer perceptron. Ignored? Perfect. In one sentence: an Elmann network is a MFNN with an extra context layer. That is a Multilayer Feedforward Neural Network with an extra context layer: the point is that, unfortunately, this context layer create a closed circle in the network - thus, in the way the information is progated.
+You were wondering what the f\*\*k is an Elman network: to be honest, I didn't understand exactly but [this](https://madeddu.xyz/posts/neuralnetwork) post related to the perceptron could be a good starting point - at least, somehow linked cause in the end this network share a lot with multilayer perceptron. Ignored? Perfect. In one sentence: an Elmann network is a MFNN with an extra context layer. That is a Multilayer Feedforward Neural Network with an extra context layer: the point is that, unfortunately, this context layer create a closed circle in the network - thus, in the way the information is progated.
 
 That means that Elman network are actually RNN, or Recurrent Neural Network even. That are...wait. Let's make a step back.
 
-<p align="center"><img src="https://i.imgur.com/GbUJP5R.png" alt="matrixbug" style="width: 40%; marker-top: -10px;"/></p>
+<div class="img_container"><img src="https://i.imgur.com/CGfE215.png" alt="matrixbug" style="width: 40%; marker-top: -10px;"/></div>
 
 #### RNNs vs Standard ANNs
 As you know an ANN can be described as a set of neuron units (read perceptron), organized in layers, linked together in several ways to achieve specific - mainly classification - jobs. What it came out is that by changing the links used to attach the neural network layers you can expect different behaviour. What does it mean changing the way the information flow?
@@ -76,7 +78,7 @@ Again, every neuron of Elmann is a neuron in our neural child (what?!). Next ste
 ##### Again perceptrons?
 As you know, the single perceptron schema is implemented by a single neuron. The easiest way to implement this simple classifier is to establish a threshold function, insert it into the neuron, combine the values (eventually using different weights for each of them) that describe the stimulus in a single value, provide this value to the neuron and see what it returns in output. The schema show how it works:
 
-![perceptron](https://upload.wikimedia.org/wikipedia/commons/6/60/ArtificialNeuronModel_english.png)
+![perceptron](https://i.imgur.com/uu0iNCC.png)
 
 We know that multilayer neural networks are a combo of element like the one shown above etc. Thus, in what is different an Elman network? Actually, as we said the only difference is the presence of a context layer - yes, the training algorithm is the back propagation as the one explained for perceptron (**almost**). Let's say that an Elmann network is a three-layer network with the addition of this set of *context units*. The middle (hidden) layer is connected to these context units fixed with a weight of one. At each time step, the input is fed-forward and a learning rule is applied. The fixed back-connections save a copy of the previous values of the hidden units in the context units (since they propagate over the connections before the learning rule is applied). Thus the network can maintain a sort of state, allowing it to perform such tasks as *sequence-prediction* that are beyond the power of a standard multilayer perceptron.
 

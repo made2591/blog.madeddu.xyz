@@ -1,16 +1,18 @@
 ---
+layout: post
 title: "My first UniKernel image for sequence prediction"
-tags: [coding, unik, cpt, ml, sequence, prediction]
+categories: [coding, golang, algorithms]
+tags: [coding, golang, unik, cpt, ml, sequence, prediction]
 ---
 
 ### Introduction
 Predicting the next item of a sequence over a finite alphabet has important applications in many domains. Since I always wanted to implemented something like that, while I was looking for an interesting approach I found this interesting idea based on tree. And you don't deal with trees since a lot, be prepared because as usual it seams simple, but it not. Moreover, since I like Golang and I always wanted to try [UniK](https://github.com/solo-io/unik), I decided to implement my version of the CPT using Golang and use this exercise as a source to build my first unikernel image.
 
-<p align="center">
-    <img src="https://i.imgur.com/fBN2q8z.png" alt="golang" style="width: 28%; marker-top: -10px;"/>
-    <img src="https://i.imgur.com/c7wzYDI.png" alt="sequenceprediction" style="width: 25%; marker-top: -10px; margin-left:15px"/>
-    <img src="https://i.imgur.com/suaVhnM.png" alt="unik" style="width: 20%; marker-top: -10px;"/>
-</p>
+<div class="img_container">
+    <img src="https://i.imgur.com/nVJ5wka.png" alt="golang" style="width: 28%; marker-top: -10px;"/>
+    <img src="https://i.imgur.com/uwHt83s.png" alt="sequenceprediction" style="width: 25%; marker-top: -10px; margin-left:15px"/>
+    <img src="https://i.imgur.com/fsx2vqS.png" alt="unik" style="width: 20%; marker-top: -10px;"/>
+</div>
 
 The entire code is available in the Github repo [here](https://github.com/made2591/go-cpt).
 
@@ -38,7 +40,7 @@ This is the reason a Prediction Tree is basically a trie data structure which co
 
 Then, the respective Prediction Tree will be like the one below:
 
-<p align="center"><img src="https://i.imgur.com/N8FKLFq.png" alt="perceptron" style="width: 30%; marker-top: -10px;"/></p>
+<div class="img_container"><img src="https://i.imgur.com/SHCcMzE.png"  style="width: 30%; marker-top: -10px;"/></div>
 
 #### Inverted Index Table
 The Inverted Index Table maintain a reference for each symbol to respective sequences it belongs to. Let's say you have 4 difference sequence that contains a set of symbol predefined, like the one below:
@@ -133,7 +135,7 @@ unik instances
 {% endhighlight %}
 
 You should get something like this:
-<p align="center"><img src="https://github.com/made2591/go-cpt/blob/master/unik.png?raw=true" alt="golang" style="width: 100%; marker-top: -10px;"/></p>
+<div class="img_container"><img src="https://github.com/made2591/go-cpt/blob/master/unik.png?raw=true" alt="golang" style="width: 100%; marker-top: -10px;"/></div>
 
 You can see IP assigned to instances in the last column of the output. To see the logs of the running instances run:
 
@@ -149,7 +151,7 @@ curl http://<YOUR_RUNNING_INSTANCES>:8080/initcpt
 {% endhighlight %}
 
 You should see predictions for the first 10 sequences :-)
-<p align="center"><img src="https://github.com/made2591/go-cpt/blob/master/predictions.png?raw=true" alt="golang" style="width: 100%; marker-top: -10px;"/></p>
+<div class="img_container"><img src="https://github.com/made2591/go-cpt/blob/master/predictions.png?raw=true" alt="golang" style="width: 100%; marker-top: -10px;"/></div>
 
 #### Conclusion
 Many thanks to [UniK contributors](https://github.com/solo-io/unik/graphs/contributors) for sure, to [NeerajSarwan](https://github.com/NeerajSarwan) for his work over CPT and all who want to contribute

@@ -1,28 +1,14 @@
-# My personal Github page
+# Jekyll-Pithy
 
-My personal [github page](https://made2591.github.com). Build with [Jekyll](http://jekyllrb.com/) and [Autm-rb](https://github.com/kirqe/autm-rb). Thanks to [kirqe](https://github.com/kirqe).
+Jekyll-Pithy is a theme for Jekyll. Here is [my blog](http://wenva.github.io) which use this theme.
 
-## Screens
+![image](https://raw.githubusercontent.com/smallmuou/Jekyll-Pithy/master/images/Jekyll-Pithy.png)
 
-## Homepage
+### Usage
+* Clone it.
+* cd Jekyll-Pithy, and Run "jekyll serve"(You must install [jekyll](http://jekyllrb.com/) first)
+* Open web browser and enter "http://127.0.0.1:4000/", you can see the web page like snapshot above.
+* If you want to host you blog on Github Page, you can follow the steps provide by Github.
 
-![](screenshots/home.png)
-
-## About page
-
-![](screenshots/about.png)
-
-## Thanks
-
-[pages](http://pages.github.com)
-
-[idea](https://github.com/kirqe)
-
-## Licensing
-
-[MIT](https://github.com/railsr/autm-rb/blob/master/LICENSE)
-
-
-[fork](https://github.com/railsr/autm-rb/fork)
-
-[demo](http://kirqe.github.io/autm-rb/)
+### License
+The code follows MIT License.

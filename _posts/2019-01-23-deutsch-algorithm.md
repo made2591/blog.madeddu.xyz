@@ -1,17 +1,19 @@
 ---
+layout: post
 title: "The Deutsch Algorithm"
+categories: [theory, quantum, algorithms]
 tags: [theory, quantum, parallelism, q, informative, ibm, deutsch, algorithm]
 ---
 
 ### Much more than a post (again)
-What is the quantum theory? As said by [quantumexperience](https://quantumexperience.ng.bluemix.net/) official site by IBM, it's _an elegant mathematical theory able to explain the counterintuitive behavior of subatomic particles, most notably the phenomenon of entanglement_. In the late twentieth century it was discovered that quantum theory applies not only to atoms and molecules, but to bits and logic operations in a computer. This realization has been bringing about a revolution in the science and technology of information processing: I decided to write some notes to better explain, from a physics-agnostic computer scientist's point of view XD, __what I understood__ - and it is certainly wrong - about Q until now and why I think it's an amazing field for computer science. More on this story in [my previous post](https://made2591.github.io/posts/quantum-computing).
+What is the quantum theory? As said by [quantumexperience](https://quantumexperience.ng.bluemix.net/) official site by IBM, it's _an elegant mathematical theory able to explain the counterintuitive behavior of subatomic particles, most notably the phenomenon of entanglement_. In the late twentieth century it was discovered that quantum theory applies not only to atoms and molecules, but to bits and logic operations in a computer. This realization has been bringing about a revolution in the science and technology of information processing: I decided to write some notes to better explain, from a physics-agnostic computer scientist's point of view XD, __what I understood__ - and it is certainly wrong - about Q until now and why I think it's an amazing field for computer science. More on this story in [my previous post](https://madeddu.xyz/posts/quantum-computing).
 
 So - back to the origins - why am I writing this post? Because I recently came over my quantum notes again and YES, I'M CONTINUING THEM (clap clap clap), even if, unfortunately, I don't have a lot of time to dedicate to it - you know, the always-valid excuse of life *I don't have time*.
 This post is about a specific algorithm - one of the basic reasoning to be done about *quantum parallelism* (more on this in a few lines): I'm gonna talk about the Deutsch Algorithm, the reason behind it, how it works and I will literally vomit what I collected (a sort of preview XD) in the last crazy Sunday of study as a mathematical demonstration of its component.
 
 But... before going into details, let's make some reasoning over classical computation first.
 
-<p align="center"><img src="https://i.imgur.com/PHANF7S.jpg" style="width: 100%; marker-top: -10px;"/></p>
+<div class="img_container"><img src="https://i.imgur.com/qmFWYIi.jpg" style="width: 100%; marker-top: -10px;"/></div>
 
 ### Agenda
 
@@ -48,7 +50,7 @@ can be actually seen as a permutation on the $$n$$ bits in input or, equivalentl
 #### Toffoli gate
 Any irreversible classical computation can be transformed into an equivalent *but reversible* computation using the [Toffoli gate](https://en.wikipedia.org/wiki/Toffoli_gate). This is a classic reversible operation, represented by the circuit shown below, which operates on three input bits: two are *control bits* and the third is the target bit that is exchanged if the control bits are both 1, as show in the truth table.
 
-<p align="center"><img src="https://i.imgur.com/j4DI00J.png" alt="perceptron" style="width: 40%; marker-top: -10px;"/></p>
+<div class="img_container"><img src="https://i.imgur.com/XKgkF81.png"  style="width: 40%; marker-top: -10px;"/></div>
 
 |   |In |  | |   |Out |    |
 |---|---|---||----|----|----|
@@ -71,7 +73,7 @@ So the operation itself coincides with its inverse. It is equally easy to verify
 #### NAND and FANOUT operation
 Toffoli's gate is universal for the classic reversible computations, that is, every classical computation can be built in a reversible way through the Toffoli gate. This result follows from the universality of the operations of ```NAND``` and ```FANOUT``` (the operation of copying a classic bit) for the classical computations and from the fact that both these operations can be expressed through the Toffoli circuit. In fact, by applying the operation with $$c = 1$$, we obtain $$a^{'} = a$$, $$b^{'} = b$$ and $$c^{'} = 1 \oplus ab = \neg ab$$, i.e. we obtained the simulation of ```NAND``` and it is also a reversible operation because Toffoli port is. The reversible ```FANOUT``` is instead obtained as shown in the picture above: by applying the Toffoli gate with $$a = 1$$ and $$c = 0$$ the result is the copy of bit $$b$$ (remember that this copy operation is not possible for a qubit!!!).
 
-<p align="center"><img src="https://i.imgur.com/GKhUQmu.png" alt="perceptron" style="width: 30%; marker-top: -10px;"/></p>
+<div class="img_container"><img src="https://i.imgur.com/Rhk2aKZ.png"  style="width: 30%; marker-top: -10px;"/></div>
 
 As for ```NAND}``` and ```FANOUT``` the construction of a reversible circuit for any classical operation $$f$$ by means of the Toffoli port involves the use of some service bits in input (or *ancilla bits*) and in output (or *garbage*). After deleting these service bits, the resulting circuit performs the transformation:
 
@@ -88,7 +90,7 @@ In particular, the Toffoli gate can be implemented as quantum circuit. In this c
 
 .... BOOOOOM
 
-<p align="center"><img src="https://i.imgur.com/oOPahkD.gif" style="width: 100%; marker-top: -10px;"/></p>
+<div class="img_container"><img src="https://i.imgur.com/OsZZs0h.gif" style="width: 100%; marker-top: -10px;"/></div>
 
 Let's go ahead by exploring how a quantum Toffoli gate can be used.
 
@@ -104,7 +106,7 @@ $$f : \{0, 1\} \mapsto \{0, 1\}$$
 
 To calculate $$f(x)$$ by means of a quantum computation the transformation $$f(x)$$ must be defined as a unit transformation $$U_f$$. As seen previously, this can be done by applying on the input state $$\vert x,y\rangle$$, let's say our data register[^dataregister], an appropriate sequence of quantum logic gates (which we will indicate with a black box called $$U_f$$) that transform $$\vert x,y\rangle$$ into the state $$\vert x,y \oplus f(x)\rangle$$, called the target register. If $$y = 0$$ then the final state of the second qubit will accurately contain the value of $$f(x)$$, because of the $$\oplus$$'s (```XOR```) true table.
 
-<p align="center"><img src="https://i.imgur.com/Wkjxsh1.png" alt="perceptron" style="width: 60%; marker-top: -10px;"/></p>
+<div class="img_container"><img src="https://i.imgur.com/pFzHTwK.png"  style="width: 60%; marker-top: -10px;"/></div>
 
 In the circuit in shown above, the input is
 
@@ -120,7 +122,7 @@ This state contains information both on the value $$f(0)$$ and on the value $$f(
 
 This type of parallelism is deeply different from the classical one where multiple circuits (each of which calculates $$f(x)$$ for a single value of $$x$$) are executed simultaneously.
 
-<p align="center"><img src="https://i.imgur.com/yksZid5.jpg" style="width: 100%; marker-top: -10px;"/></p>
+<div class="img_container"><img src="https://i.imgur.com/pcbb5sv.jpg" style="width: 100%; marker-top: -10px;"/></div>
 
 Please take some time to reflect on this if you are not convinced before going ahead - *mentalist trick n°2*.
 
@@ -151,7 +153,7 @@ For example, by exploiting in an appropriate manner the interference between the
 ### The Deutsch Algorithm
 The Deutsch algorithm shows how, through the parallel evaluation of a function on all its inputs, global properties of the function can be determined, such as, for example, that of being a constant or balanced function[^expl2]. Using a classical algorithm, in the worst case we need to evaluate the function on at least $$2^{n-1} + 1$$ (am I wrong?) values in order to be able to establish with certainty whether $$f$$ is constant or balanced.
 
-<p align="center"><img src="https://i.imgur.com/54sZUra.png" alt="perceptron" style="width: 60%; marker-top: -10px;"/></p>
+<div class="img_container"><img src="https://i.imgur.com/5sjQuH5.png"  style="width: 60%; marker-top: -10px;"/></div>
 
 The implementation of the Deutsch algorithm is shown in the quantum circuite above. The input of the circuit that calculates the function $$f$$ is now the qubits resulting from the application of Hadamard to the $$\vert 0\rangle$$ and $$\vert 1\rangle$$ states. This input is therefore:
 
