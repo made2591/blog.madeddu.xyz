@@ -37,7 +37,7 @@ I recently bought a TCP/IP book to study and learn a little bit more about compu
   }
 {% endhighlight %}
 
-| Option         | Description |
+| Option         | Description                                                                              |
 | -------------- | ---------------------------------------------------------------------------------------- |
 | totalPage      | Total page of the book / Total _amount_of_time_ you need to complete the activity        |
 | pageForDay     | Number of page you want to read each day (you have to be honest with you, do not overdo) |

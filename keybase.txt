@@ -1,0 +1,69 @@
+==================================================================
+https://keybase.io/made2591
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://madeddu.xyz
+  * I am made2591 (https://keybase.io/made2591) on keybase.
+  * I have a public key with fingerprint 465F 151A 2CB3 B5E3 3A13  83ED D623 0745 6844 BE6C
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "01016462c9183da88afac54076505e1ffc3164b0c57af8c71f5ce95f50929f37fcb50a",
+      "fingerprint": "465f151a2cb3b5e33a1383edd62307456844be6c",
+      "host": "keybase.io",
+      "key_id": "d62307456844be6c",
+      "kid": "01016462c9183da88afac54076505e1ffc3164b0c57af8c71f5ce95f50929f37fcb50a",
+      "uid": "f4bfc79869e4fb16f99dd3e49438af19",
+      "username": "made2591"
+    },
+    "service": {
+      "hostname": "madeddu.xyz",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 1
+  },
+  "ctime": 1565683946,
+  "expire_in": 157680000,
+  "prev": "6b8d2811eaa8539dd2d09b5fde011049da7142f629a8a08f58925facecd7d3e4",
+  "seqno": 8,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: Keybase OpenPGP v2.1.3
+Comment: https://keybase.io/crypto
+
+yMIpAnicrVJbSFRBGN7N1mxhqegC0YWY6C5y5pwz55xZEqKwew9ZqA/WMufMzHpS
+z667Z81tzaiM6PogZTe6GF0IErtgttqDhiUkFGZQvUQUREiRRUFBVHOkoIcem5dh
+/v/7vvm/j783lOML+o+FlnRGv1X2+Pt7mlO+TcXxoQwwYzQNwhlQyUYuVkVZ0o1U
+2hSEgQQlqKmabGFoKJQYBuHEQqqka0hCDHJuKaJvShbSCTcsHXJkMYw4krCMuaJz
+y0QSAfmA206UJeIJ23GFrKohDhEksmUqJmKKQqBiKIxSTVYkXUWaoaom0yxBrIgl
+PYYYziRJVmDHRE08IiPj/QP/n+dOjchx1eSWjg0NM5WbUOMYU6owFauKUIbYAyZZ
+wiHVTKCrCWUywhBszweiWmtbzAvWc/IXgtJUQV16m6DGEzE3ZsWqRKPCdePJsEd0
+03EPuZWZkd8aEdN2qIhRMGpZImnHHBCGAmm5ticKkSZyULCq5QNWF7cTLGJ7CKRr
+hiSO9w+rFZKaaVDZgJARYiBFGJGphE3EKZMglFRMiQ5VmWsyJgaRDI4MLCMRH7Oo
+7pkGnqsaJwbChhiTRIVk0o46xE0lGNh+t7t8tM8f9OUGRnnr5QuOHf9n6XLbx/yY
+t2jwTt2RD0O8/vv3mx2NeR8nBw+6uK1QOjb+3bp9ITAnd/Tz/sKycaeWt28uamju
+2/2sb/nMKe/Aw3tHw7uUGeuz6fiOWXsOrRoqHl44e9amwM/mCTVdBVtb1qx+CfxF
+75320oEDAw+W/izvH+zNlM+dHhluC9YWle3+cH6Z8oZtO7lz4vzGjv0rSvPXtmzM
+OdPZVlpYfqSp9dGGz5fvn1lwqnFG9kfpm4uHn0g1DTBjdrROLbn29um5xaePDi26
+EfDz3qtXthx/7Bxv2nuyc1I01HAp+/XLi1uBgW4T1DfVp/N2DJ+92L/ywts1Vdnb
+zuCnV9Os88V9r0v273x/Ipvz6npdV+svcVhDhQ==
+=BMvQ
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/made2591
+
+==================================================================
+
