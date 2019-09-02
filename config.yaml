@@ -1,0 +1,102 @@
+baseurl: "http://blog.madeddu.xyz.s3-website-eu-west-1.amazonaws.com/"
+languageCode: en-us
+title: madeddu.xyz
+theme: hugo-strata-theme
+disqusShortname: made2591
+googleAnalytics: UA-111283556-2
+paginate: 10
+taxonomies:
+  category: categories
+  tag: tags
+params:
+  name: Matteo Madeddu
+  description: "Platform Engineer, Software Developer, DevOps"
+  date_format: "2006-01-02"
+  custom_js: []
+  custom_css: []
+  sidebar:
+    avatar: avatar.svg
+    bio: If at first you don't succeed<br/>call it version 1.0
+    twitter: made2591
+    github: made2591
+    dribbble: ""
+    facebook: matteo.madeddu
+    googleplus: ""
+    flickr: ""
+    linkedin: mmadeddu
+    copyright:
+      - "&copy; Matteo Madeddu"
+  about:
+    hide: false
+    title: Hi!
+    content: >-
+      <br/>I'm Matteo Madeddu, a Platform Engineer that works mainly with Amazon
+      Web Services. I love **Golang**, **Docker**, serverless architecture and
+      **quantum computing**/mechanics.<br/><br/>In my free time, I'm a software
+      developer - you can find me on Github at (<a
+      href="https://github.com/made2591/">@made2591</a>), a blogger, a juggler,
+      a skier, a skater, a guitarist (sometimes) and a dreamer (always). You can
+      read more about my interest in my <a href="blog/">blog</a> in the <a
+      href="about/">about</a> section.<br/><br/>Have
+      fun!<br/><br/><strong>Matteo</strong>
+  portfolio:
+    hide: true
+    title: Recent work
+    gallery:
+      - image: fulls/01.jpg
+        thumb: thumbs/01.jpg
+        title: Lorem ipsum dolor.
+        description: Lorem ipsum dolor sit amet.
+      - image: fulls/02.jpg
+        thumb: thumbs/02.jpg
+        title: Lorem ipsum dolor.
+        description: Lorem ipsum dolor sit amet.
+      - image: fulls/03.jpg
+        thumb: thumbs/03.jpg
+        title: Lorem ipsum dolor.
+        description: Lorem ipsum dolor sit amet.
+      - image: fulls/04.jpg
+        thumb: thumbs/04.jpg
+        title: Lorem ipsum dolor.
+        description: Lorem ipsum dolor sit amet.
+      - image: fulls/05.jpg
+        thumb: thumbs/05.jpg
+        title: Lorem ipsum dolor.
+        description: Lorem ipsum dolor sit amet.
+      - image: fulls/06.jpg
+        thumb: thumbs/06.jpg
+        title: Lorem ipsum dolor.
+        description: Lorem ipsum dolor sit amet.
+  contact:
+    hide: true
+    title: Contact me!
+    content: >-
+      Accumsan pellentesque commodo blandit enim arcu non at amet id arcu magna.
+      Accumsan orci faucibus id eu lorem semper nunc nisi lorem vulputate lorem
+      neque lorem ipsum dolor.
+    address:
+      - 1234 Somewhere Rd.
+      - "Nashville, TN 00000"
+      - United States
+    phone: 000-000-0000
+    email: matteo.madeddu@gmail.com
+    form:
+      name: Name
+      email: Email
+      message: Message
+      submit: Send message
+menu:
+  main:
+    - name: Home
+      url: /
+      weight: -100
+    - name: Blog
+      url: post/
+      weight: -90
+    - name: Quotes
+      url: quotes/
+      weight: -80
+    - name: About
+      url: about/
+      weight: -70
+      pygmentsuseclasses: true

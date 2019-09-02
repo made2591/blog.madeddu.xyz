@@ -1,0 +1,35 @@
+variables:
+  GIT_SUBMODULE_STRATEGY: recursive
+
+stages:
+  - build
+  - deploy
+
+variables:
+  AWS_DEFAULT_REGION: $AWS_DEFAULT_REGION # set your aws region
+  BUCKET_NAME: $BUCKET_NAME # change your bucket name
+  # CLOUDFRONT_DIST_ID: {ID} # paste your cloudFront distribution id
+  GIT_SUBMODULE_STRATEGY: recursive
+
+build:
+  image: registry.gitlab.com/pages/hugo:latest
+  stage: build
+  script:
+  - hugo
+  artifacts:
+    paths:
+    - public
+  only:
+  - master
+
+deploy:
+  image: mesosphere/aws-cli
+  stage: deploy
+  dependencies:
+    - build
+  script:
+    # - aws configure set preview.cloudfront true
+    - aws s3 sync ./public s3://$BUCKET_NAME --delete;
+    # - aws cloudfront create-invalidation --distribution-id $CLOUDFRONT_DIST_ID  --paths "/*";
+  only:
+  - master
