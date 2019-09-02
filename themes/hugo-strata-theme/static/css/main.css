@@ -3214,3 +3214,7 @@
     -moz-border-radius: 150px;
     margin-bottom: 15px;
   }
+
+.MathJax_Message {
+	display: none !important;
+}

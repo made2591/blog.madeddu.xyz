@@ -38,7 +38,7 @@ params:
       developer - you can find me on Github at (<a
       href="https://github.com/made2591/">@made2591</a>), a blogger, a juggler,
       a skier, a skater, a guitarist (sometimes) and a dreamer (always). You can
-      read more about my interest in my <a href="post/">blog</a> and in the <a
+      read more about my interest in my <a href="posts/">blog</a> and in the <a
       href="about/">about</a> section.<br/><br/>Have
       fun!<br/><br/><strong>Matteo</strong>
   portfolio:
@@ -93,7 +93,7 @@ menu:
       url: /
       weight: -100
     - name: Blog
-      url: post/
+      url: posts/
       weight: -90
     - name: Quotes
       url: quotes/
@@ -101,4 +101,5 @@ menu:
     - name: About
       url: about/
       weight: -70
-      pygmentsuseclasses: true
+
+pygmentsuseclasses: true
