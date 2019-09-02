@@ -23,10 +23,12 @@ build:
   - master
 
 deploy:
-  image: mesosphere/aws-cli
+  image: "python:latest"
   stage: deploy
   dependencies:
     - build
+  before_script:
+    - pip install awscli
   script:
     # - aws configure set preview.cloudfront true
     - aws s3 sync ./public s3://$BUCKET_NAME --delete;
