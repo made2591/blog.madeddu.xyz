@@ -12,31 +12,33 @@ tags:
 - thoughts
 - life
 - graph
+katex: true
+markup: "mmark"
 ---
 
 ### Prelude
 This is a twin post of - I guess - [a good one](https://madeddu.xyz/posts/doing-vs-learning/) that I wrote a long time ago: I was just *surfing the blog* thinking about all I would like to do, and I came to my old thoughts. I was curious, you know? so I read it, and read it once again, I reflected a bit on it - and I found it *inspiring* in a sense: even better, I would say I found myself *surprised* to agree with myself of almost 1 year and a half ago, in most of the things I wrote. For me, it was an important moment because it has been like a kind of *retrospective*. This is the reason I wanted to give this new *lifestyle-kind-of post* just the same title as his father. Like: *I'm still learning*. Or even better: *I'm still learning - Revenge of the Fallen* but I wanna warn you, once again - this is a deeply full-of-truth-and-complaints post - ok no, just kidding. This is more kind of a story, in five Chapters.
 
-<div class="img_container"><img src="https://i.imgur.com/HeQ1mYo.png" style="width: 100%; marker-top: -10px;"/></div>Z
+<div class="img_container"><img src="https://i.imgur.com/HeQ1mYo.png"/></div>
 
 ### Chapter I - About companies
 In the last year, I still fought against the processes. But this time, let's analyze the things from a mathematical perspective - because today if you don't speak about data and models, nobody hears you. Let's give the theoretical machine learning definition of a modern AI company: a modern AI company is a WUG - a.k.a. an Weighted Undirected Graph - that links at least three different families of nodes - Employees, Processes and Projects - in a chain of skills, troubles, goals, beers, prizes, achievements, careers, promotions, pizza, parties, lies and God only knows what else, with the overall goal to solve (or introduce) dependencies, investigate (or ignore) consequences but, by the end of the day, feed the so hungry desire to "change something" - also referred to as "bring something in production". Unfortunately, before going ahead we need to provide a formal definition of a WUG - sorry, a Company. Thus...
 
 Formally, we define a Company as a pair:
 
-\\(C = (V, E)\\)
+$$C = (V, E)$$
 
 where:
 
-1. \\(V = \{Pj_A, ..., Pj_Z, Pr_1, ..., Pr_n, E_1, ..., E_m\}\\) is the set whose elements are called vertices or nodes, that can be of three kind, with:
+1. $$V = \{Pj_A, ..., Pj_Z, Pr_1, ..., Pr_n, E_1, ..., E_m\}$$ is the set whose elements are called vertices or nodes, that can be of three kind, with:
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- \\(\{Pj_i \mid \forall\: Pj_i \equiv Pj_{[A-Z]}\}\\) refers to Projects with cardinality \\(\propto\\) the budget of the year;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- $$\{Pj_i \mid \forall\: Pj_i \equiv Pj_{[A-Z]}\}$$ refers to Projects with cardinality $$\propto$$ the budget of the year;
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- \\(\{Pr_i \mid \forall\: Pr_i \equiv Pr_{[1-n]}\}\\) refers to Processes with cardinality \\(\propto\\) the cost of Service Now;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- $$\{Pr_i \mid \forall\: Pr_i \equiv Pr_{[1-n]}\}$$ refers to Processes with cardinality $$\propto$$ the cost of Service Now;
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- \\(\{E_i \mid \forall\: E_i \equiv E_{[1-m]}\}\\) refers to Employees with cardinality \\(\propto\\) the headcount allowed by HR;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- $$\{E_i \mid \forall\: E_i \equiv E_{[1-m]}\}$$ refers to Employees with cardinality $$\propto$$ the headcount allowed by HR;
 
-1. \\(E = \{[1\: of\: (Pj_{A..Z} \mid Pr_{1..n} \mid E_{1..m})] \leftrightarrow [1\: of\: (Pj_{A..Z} \mid Pr_{1..n} \mid E_{1..m})], ...\}\\) is the set of two-sets (set with two distinct elements) of vertices, whose elements are called edges, that link together the nodes (Employees, Processes and Projects). Even if there's no formal demonstration, some studies suggest the cardinality of \\(E\\) is strongly influenced by the cardinality of \\(V\\), the budget, the headcount, and *God only knows what else*;
+1. $$E = \{[1\: of\: (Pj_{A..Z} \mid Pr_{1..n} \mid E_{1..m})] \leftrightarrow [1\: of\: (Pj_{A..Z} \mid Pr_{1..n} \mid E_{1..m})], ...\}$$ is the set of two-sets (set with two distinct elements) of vertices, whose elements are called edges, that link together the nodes (Employees, Processes and Projects). Even if there's no formal demonstration, some studies suggest the cardinality of $$E$$ is strongly influenced by the cardinality of $$V$$, the budget, the headcount, and *God only knows what else*;
 
 Furthermore, our Company is a WUG and in a *Weighted Graph* a number, the weight, is assigned to each edge. For the moment, it's sufficient for you to have in mind that such weights, in graph theory, might represent for example costs, lengths or capacities, depending on the problem at hand. Also, we can *ignore* the formalization of the three different kinds of nodes, but not completely, because I will get back on it later. There's a name for structures that are *almost like this* and it's funny because are called *Forests*. Confused? No worries, it's because you're still not a good Employee 👀
 
@@ -117,16 +119,16 @@ while(visited_nodes != minimum_spanning_tree)
 
 {{< / highlight >}}
 
-Back to the structure, now that the Company \\(C\\) is formalized, the vertices \\(V\\) are defined, the links \\(E\\) between them are weighted, and the algorithm is presented, I think we can make an example and hopefully we will start the light at the end of this crazy tunnel. Let's draw a Company \\(C\\).
+Back to the structure, now that the Company $$C$$ is formalized, the vertices $$V$$ are defined, the links $$E$$ between them are weighted, and the algorithm is presented, I think we can make an example and hopefully we will start the light at the end of this crazy tunnel. Let's draw a Company $$C$$.
 
 <div class="img_container"><img src="https://i.imgur.com/sQKw0pT.png" style="width: 75%; marker-bottom: -10px;"/></div>
 
-Ok, to keep things simple, since we have a Company \\(C\\), let's *isolate* some entities as shown in picture below. We choose an Employee node: let's take the Employee n.3 (`Emp_3`). (S)he knows that work on Project B (`Pj_B`) could change his/her career in better (*weight_ID*: 07 \\(\rightarrow\\) `Careers`. It's...how much? -30 (+20)? Or +30 (+70)? I think it depends on Employee n.3's life priorities) but (s)he has to accept (s)he will need to go through the Process n.2 (`Pr_2`), that will cause a lot of troubles (*weight_ID*: 02 \\(\rightarrow\\) `Troubles`). (S)He also knows that *collaboration* with Employee 1 (`Emp_1`) will require a lot of meetings (*weight_ID*: 12 \\(\rightarrow\\) `Meetings`) and *God only knows what else* will happen if (s)he will go for the Project A (`Pj_A`) (*weight_ID*: 14 \\(\rightarrow\\) `God only knows what else`) instead of Project B (`Pj_B`). Since each good Employee populate his/her Company with weights the overall idea should be clear.
+Ok, to keep things simple, since we have a Company $$C$$, let's *isolate* some entities as shown in picture below. We choose an Employee node: let's take the Employee n.3 (`Emp\_3`). (S)he knows that work on Project B (`Pj\_B`) could change his/her career in better (*weight\_ID*: 07 $$\rightarrow$$ `Careers`. It's...how much? -30 (+20)? Or +30 (+70)? I think it depends on Employee n.3's life priorities) but (s)he has to accept (s)he will need to go through the Process n.2 (`Pr\_2`), that will cause a lot of troubles (*weight\_ID*: 02 $$\rightarrow$$ `Troubles`). (S)He also knows that *collaboration* with Employee 1 (`Emp\_1`) will require a lot of meetings (*weight\_ID*: 12 $$\rightarrow$$ `Meetings`) and *God only knows what else* will happen if (s)he will go for the Project A (`Pj\_A`) (*weight\_ID*: 14 $$\rightarrow$$ `God only knows what else`) instead of Project B (`Pj\_B`). Since each good Employee populate his/her Company with weights the overall idea should be clear.
 
 <div class="img_container"><img src="https://i.imgur.com/3hOJK3H.png" style="width: 75%; marker-bottom: -10px;"/></div>
 
 ### Chapter IV - About the Employee n.15
-Now let's create an agnostic example and put some random weights: I also put some integer labels to all the nodes... because I'm not a good Employee and I need help in executing the Prim's Algorithm. This time, let's play the role of `Employee n.15`: (s)he has to find this *minimum spanning tree* inside this piece of Company \\(C\\) to make things work.
+Now let's create an agnostic example and put some random weights: I also put some integer labels to all the nodes... because I'm not a good Employee and I need help in executing the Prim's Algorithm. This time, let's play the role of `Employee n.15`: (s)he has to find this *minimum spanning tree* inside this piece of Company $$C$$ to make things work.
 
 <div class="img_container"><img src="https://i.imgur.com/vS4ZO4Q.png" style="width: 62%; marker-bottom: -10px;"/></div>
 
@@ -187,7 +189,7 @@ Ok so, let's analyze the goodness of the `Employee n.15` step by step.
 </tr>
 <tr>
 <td markdown="span">5</td>
-<td markdown="span">To respect mandatory company policies, the intern `n.13` has to follow the `Process n.3` that is long, useless, and time-consuming. What a shame: (s)he will really like to join the Company \\(C\\(?</td>
+<td markdown="span">To respect mandatory company policies, the intern `n.13` has to follow the `Process n.3` that is long, useless, and time-consuming. What a shame: (s)he will really like to join the Company $$C$$?</td>
 <td markdown="span"><img src="https://i.imgur.com/rTscJq0.png" style="width: 100%; marker-top: -10px;"/></td>
 </tr>
 <tr>
@@ -204,11 +206,11 @@ Ok so, let's analyze the goodness of the `Employee n.15` step by step.
 </table>
 
 ### Chapter V - About the minimum spanning tree
-We spoke a lot about the minimum spanning tree, but it's actually the only entity I didn't explain inside the Company \\(C\\). If you didn't get it, I already defined even this one... remember the definition of the modern AI company, that is a WUG - a.k.a. an Weighted Undirected Graph - that links at least three different families of nodes - Employees, Processes and Projects - in a chain of skills, troubles, [..] and God only knows what else, with the overall goal to solve (or introduce) dependencies, investigate (or ignore) consequences but, by the end of the day, feed the so hungry desire to "change something" - also referred to as "bring something in production". The latter is exactly the meaning of the minimum spanning tree: the "*let's work on something*", that drives every good Employee in the hard path of solving or introducing dependencies (like SAP), investigating by ignoring consequences (it works, don't touch it) but, by the end of the day, being able to say "I brought some changes" - that is translated in *(S)He brought something in production*.
+We spoke a lot about the minimum spanning tree, but it's actually the only entity I didn't explain inside the Company $$C$$. If you didn't get it, I already defined even this one... remember the definition of the modern AI company, that is a WUG - a.k.a. an Weighted Undirected Graph - that links at least three different families of nodes - Employees, Processes and Projects - in a chain of skills, troubles, [..] and God only knows what else, with the overall goal to solve (or introduce) dependencies, investigate (or ignore) consequences but, by the end of the day, feed the so hungry desire to "change something" - also referred to as "bring something in production". The latter is exactly the meaning of the minimum spanning tree: the "*let's work on something*", that drives every good Employee in the hard path of solving or introducing dependencies (like SAP), investigating by ignoring consequences (it works, don't touch it) but, by the end of the day, being able to say "I brought some changes" - that is translated in *(S)He brought something in production*.
 
 And in a moment, somehow, I understood how every employee finds her/himself in this network of entities, and has to deal with all of them in a sense, better, (s)he has to take a real *direction*, building *the spanning tree*, that it's *minimum*, and this is... well, bad. I have this feeling every good Employee of every good Company is not so a good Employee by acting like this: yes, some of them apply [Djistrka](https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm) (the original one, be careful) to go straight to the point, but by the end of the day they just wanna execute, avoid, survive, conquer, always by respecting the majority of the beliefs, but first always having someone or something else taking care of their shit. I think a Company should act by taking into consideration this *good Employees*' attitude. Because, the result is that nobody is able to deal with a world that is changing to fast, but is super good in graph exploration. Moreover, there is always someone who knows more than someone else, on this, on the other, who is more suitable than someone else.
 
-This state of confusion leads to the fear of hiring people who are not expert in something, that is not able to solve company's actual problem: that problem arose yesterday, come out months before, without nobody looking in the right direction, because the _minimum_spanning_tree_ rules them all. Year after year. Again, maybe I am a dreamer, but I think it's more interesting having someone with some interests and put him/her in the condition of learning how to solve problems in his/her field of competencies, instead of having people teaching or delegating all the time. Someone with the will of change (her)himself, instead of someone only able to *explore the graph* and yes, by the way, once again, this basically concerns how the people are chosen.
+This state of confusion leads to the fear of hiring people who are not expert in something, that is not able to solve company's actual problem: that problem arose yesterday, come out months before, without nobody looking in the right direction, because the _minimum\_spanning\_tree_ rules them all. Year after year. Again, maybe I am a dreamer, but I think it's more interesting having someone with some interests and put him/her in the condition of learning how to solve problems in his/her field of competencies, instead of having people teaching or delegating all the time. Someone with the will of change (her)himself, instead of someone only able to *explore the graph* and yes, by the way, once again, this basically concerns how the people are chosen.
 
 Ok, recruiters, you could be or not part of The company, but you are of course part of A company, I guess. Listen to me: it's not a matter of what a candidate can do, what he has done or he's actually doing: the employee should be evaluated more on how much they can learn and how fast they are in doing it than on how much they know and how much they can already do. Even my professor of Maths was not able to resolve the problems - at least, not so fast as its students - that he proposed to us after so many years of teaching. He has an incredible background, plenty of logic, theorems, fundamentals, etc. But he's not a machine: people forget things. The point is: how much fast are you in re-learning something? This what you should look for: evaluate people to hire - but also, and mostly (I guess) __already in__ the company - to find out if they are still interested in learning, in what they do for the company, and eventually why, if they are not anymore. The willingness to learn should be the ONLY choosing driver because the knowledge is ephemeral, the curiosity is not.
 

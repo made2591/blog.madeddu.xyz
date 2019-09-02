@@ -26,15 +26,15 @@ I decided to use GoLang to implement a Turing machine library and accomplish thr
 ### Theory first
 Before starting, let's define a Turing machine. A Turing machine is a mathematical model of computation that defines an abstract machine which manipulates symbols on a strip of tape according to a list of rules. Formally, we can image a infinite tape of 0 with a pointer (identified by square bracket) to one specific zero,
 
-\\) ... 0 0 0 0 0 [0] 0 0 0 0 0  ... \\)
+$$ ... 0 0 0 0 0 [0] 0 0 0 0 0  ... $$
 
 a set of states identified by letters (or numbers),
 
-\\({A, B, C}\\)
+$${A, B, C}$$
 
 and a list of transactions, like the one
 
-\\((A, 0, B, 1, R);\\)
+$$(A, 0, B, 1, R);$$
 
 where a single transaction like *(A, 0, B, 1, R)* has to been read as
 
@@ -282,33 +282,33 @@ Or, in a more user friendly format:
 with an initial transaction from INITIAL to 21 with symbol 0 scanned, that does nothing and ports to state 21.
 Let's have a look at the evolution of the BB-2 Turing machine: first apply first transaction from INITIAL to A - it a sort of 0° Step that just change the state of the machine from INITIAL to 21, in such a way that the init tape looks like this
 
-\\) ... 0 0 0 0 0 [0] 0 0 0 0 0 0 0 ... \\)
+$$ ... 0 0 0 0 0 [0] 0 0 0 0 0 0 0 ... $$
 
 ### BB-2 Beaver Execution
 
 <span style="color:#A04279; font-size: bold;">1° Step</span>: apply 1R22 transaction from A in 0 to B by writing 1, evolve in state B and move the cursor one step in the right direction
 
-\\) ... 0 0 0 0 0 1 [0] 0 0 0 0 0 0 ... \\)
+$$ ... 0 0 0 0 0 1 [0] 0 0 0 0 0 0 ... $$
 
 <span style="color:#A04279; font-size: bold;">2° Step</span>: apply 1L21 transaction from B in 0 to A by writing 1, evolve in state A and move the cursor one step in the left direction
 
-\\) ... 0 0 0 0 0 [1] 1 0 0 0 0 0 0 ... \\)
+$$ ... 0 0 0 0 0 [1] 1 0 0 0 0 0 0 ... $$
 
 <span style="color:#A04279; font-size: bold;">3° Step</span>: apply 1L22 transaction from A in 1 to B by writing 1 (this will result in an overwrite) and move the cursor one step in the left direction
 
-\\) ... 0 0 0 0 [0] 1 1 0 0 0 0 0 0 ... \\)
+$$ ... 0 0 0 0 [0] 1 1 0 0 0 0 0 0 ... $$
 
 <span style="color:#A04279; font-size: bold;">4° Step</span>: apply 1L21 transaction from B in 0 to A by writing 1, evolve in state A and move the cursor one step in the left direction
 
-\\) ... 0 0 0 [0] 1 1 1 0 0 0 0 0 0 ... \\)
+$$ ... 0 0 0 [0] 1 1 1 0 0 0 0 0 0 ... $$
 
 <span style="color:#A04279; font-size: bold;">5° Step</span>: apply 1R22 transaction from A in 0 to B by writing 1, evolve in state B and move the cursor one step in the right direction
 
-\\) ... 0 0 0 1 [1] 1 1 0 0 0 0 0 0 ... \\)
+$$ ... 0 0 0 1 [1] 1 1 0 0 0 0 0 0 ... $$
 
 <span style="color:#A04279; font-size: bold;">6° Step</span>: finally, apply 1RFINAL transaction from B in 1 to FINAL by writing 1 (this will result in an overwrite), evolve in state B and move the cursor one step in the right direction
 
-\\) ... 0 0 0 1 1 [1] 1 0 0 0 0 0 0 ... \\)
+$$ ... 0 0 0 1 1 [1] 1 0 0 0 0 0 0 ... $$
 
 And the execution is finished! Four *1*s, six steps, as promised!
 

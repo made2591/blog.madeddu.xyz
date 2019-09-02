@@ -9,7 +9,7 @@
 	<head>
 		<title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} &middot; {{ .Site.Title }}{{ end }}</title>
 		<meta charset="utf-8" />
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+		{{ partial "katex.html" . }}
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		{{ with .Site.Params.name }}<meta name="author" content="{{ . }}">{{ end }}
 		{{ with .Site.Params.description }}<meta name="description" content="{{ . }}">{{ end }}

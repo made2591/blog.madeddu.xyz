@@ -19,7 +19,7 @@ tags:
 ### History
 We can date the birth of artificial neural networks in 1958, with the introduction of Perceptron [^rosen] by Frank Rosenblatt. It was the first algorithm created to reproduce the biological neuron. Conceptually, the easier perceptron that you might think of is made of a single neuron: when it's exposed to a stimulus, it provides a binary response, just as would a biological neuron.
 
-![ann](https://i.imgur.com/uUZ5vyF.jpg)
+<div class="img_container"><img src="https://i.imgur.com/uUZ5vyF.jpg"/></div>
 
 This model differs greatly from the neural network involving billions of neurons in a biological brain. Shortly after his birth, the researchers showed the world the problems of Perceptron: in fact, it was quickly proved that perceptrons could not be trained to recognize many classes of input patterns. To get a more powerful network, it was necessary to take advantage of multiple level of units and create a multilayers perceptron, with more intermediates neurons used to solve linearly separable[^linsep] subproblems, whose outputs were combined together by the final level to provide a concrete response to original input problem. Even though the Perceptron was just a simple but severely limited binary classifier, it introduced a great innovation: the idea to simulate the basic computational unit of a complex biological system that exists in nature.
 
@@ -70,7 +70,7 @@ A neuron corresponds to the simple binary perceptron originally proposed by Rose
 ##### Perceptron
 As I said, the single perceptron schema is implemented by a single neuron. The easiest way to implement this simple classifier is to establish a threshold function, insert it into the neuron, combine the values (eventually using different weights for each of them) that describe the stimulus in a single value, provide this value to the neuron and see what it returns in output. The schema show how it works:
 
-![perceptron](https://i.imgur.com/uu0iNCC.png)
+<div class="img_container"><img src="https://i.imgur.com/uu0iNCC.png"/></div>
 
 ##### Metric
 Why _weights_? What does it mean the expression _dimension modulation_ of the the input? Well, training conceptually is "the process of learning the skills you need to do a particular job or activity". But how do you know if you're getting better, or if you are learning the skills you need? Of course, you need a metric of how good or bad you're doing. Also in ANN there's a metric generally called _cost function_. Suppose we want to change a certain _wi_ weight of the network. More or less, the cost function looks at the function the network has inferred and uses it to estimate values for the data points in the training set. The difference between the outputs of the network and the training set data points are the main values for the cost function. When training your network, the goal is to get the value of this cost function as low as possible. The most basic of the training algorithms is the _gradient descent_.
@@ -119,7 +119,7 @@ where:
 
 Inside the ```MultiLayerNetwork``` struct there's an algorithm to create multilayer perceptron: if you pass a struct with ```NeuralLayers``` [4, 3, 3], you can define a network struct with 3 layer: input, hidden, output, with respectively 4, 3 and 3 neurons, as shown in the figure below.
 
-![perceptron](https://i.imgur.com/vcxtFKD.png)
+<div class="img_container"><img src="https://i.imgur.com/vcxtFKD.png"/></div>
 
 The piece of code that handle network creation is the following:
 

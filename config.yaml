@@ -1,4 +1,4 @@
-baseurl: "http://blog.madeddu.xyz.s3-website-eu-west-1.amazonaws.com/"
+baseurl: "http://madeddu.xyz/"
 languageCode: en-us
 title: madeddu.xyz
 theme: hugo-strata-theme

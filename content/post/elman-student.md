@@ -90,7 +90,7 @@ Again, every neuron of Elmann is a neuron in our neural child (what?!). Next ste
 ##### Again perceptrons?
 As you know, the single perceptron schema is implemented by a single neuron. The easiest way to implement this simple classifier is to establish a threshold function, insert it into the neuron, combine the values (eventually using different weights for each of them) that describe the stimulus in a single value, provide this value to the neuron and see what it returns in output. The schema show how it works:
 
-![perceptron](https://i.imgur.com/uu0iNCC.png)
+<div class="img_container"><img src="https://i.imgur.com/uu0iNCC.png"/></div>
 
 We know that multilayer neural networks are a combo of element like the one shown above etc. Thus, in what is different an Elman network? Actually, as we said the only difference is the presence of a context layer - yes, the training algorithm is the back propagation as the one explained for perceptron (**almost**). Let's say that an Elmann network is a three-layer network with the addition of this set of *context units*. The middle (hidden) layer is connected to these context units fixed with a weight of one. At each time step, the input is fed-forward and a learning rule is applied. The fixed back-connections save a copy of the previous values of the hidden units in the context units (since they propagate over the connections before the learning rule is applied). Thus the network can maintain a sort of state, allowing it to perform such tasks as *sequence-prediction* that are beyond the power of a standard multilayer perceptron.
 

@@ -127,7 +127,7 @@ The condition of the preceding production specifies a pattern to match in the go
     second      =num2
 {{< / highlight >}}
 
-A pattern starts by naming which buffer is to be tested followed by \\(>\\). The names *goal* and *retrieval* specify the goal buffer and the retrieval buffer. It is also required to prefix the name of the buffer with \\(=\\) - more details on this later. After naming a buffer, the first test must specify the chunk-type using the *isa* test and the name of a chunk-type. That may then be followed by any number of tests on the slots for that chunk-type. A slot test consists of an optional modifier (which is not used in any of these tests), the slot name and a specification of the value it must have. The value may be either a specific constant value or a variable.
+A pattern starts by naming which buffer is to be tested followed by $$>$$. The names *goal* and *retrieval* specify the goal buffer and the retrieval buffer. It is also required to prefix the name of the buffer with $$=$$ - more details on this later. After naming a buffer, the first test must specify the chunk-type using the *isa* test and the name of a chunk-type. That may then be followed by any number of tests on the slots for that chunk-type. A slot test consists of an optional modifier (which is not used in any of these tests), the slot name and a specification of the value it must have. The value may be either a specific constant value or a variable.
 
 Thus, this part of the first pattern:
 

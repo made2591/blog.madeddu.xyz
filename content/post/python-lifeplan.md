@@ -15,7 +15,7 @@ tags:
 ### The problems of life
 Each of us has dreams, aspirations, hobbies, interests, but also hundreds of deadlines, a thousand commitments, ten thousand thoughts, a hundred thousand different problems to cope with every day. I am a computer scientist and personally all these things in my life translate into a huge pile of [things/books/articles/guide/blogs] to read, which by the way are very often interrelated. The situation is more or less this:
 
-![books](https://i.imgur.com/ojx9vzi.jpg)
+<div class="img_container"><img src="https://i.imgur.com/ojx9vzi.jpg"/></div>
 
 The problem is that often in the presence of many things to do we lose more time deciding how to do them and when to decide to start them. I formalized a simple method to handle all my stuff.
 

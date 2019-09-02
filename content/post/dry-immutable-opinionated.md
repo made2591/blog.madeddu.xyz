@@ -35,7 +35,7 @@ For everybody who simply want to jump to the related git repository I used to ex
 #### Opinionated
 Several universities make the claim that, when deciding where to put sidewalks, they first let students wear paths through the grass. This told them where to pave and ensured the best use of their walkways: like in the picture below.
 
-![opinionated](https://i.imgur.com/2gd1GU3.jpg)
+<div class="img_container"><img src="https://i.imgur.com/2gd1GU3.jpg"/></div>
 
 Thus you can think of these well worn paths in cloud architecture as a procedure, or design, that gets repeated over and over again, to the point that it should just become a boilerplate. Rather than everyone composing the same 99% of code, we can generate that code, and focus on the 1% that is unique. Opinionated tooling is designed to guide you down a path that is considered a best practice. Additionally, since best practice is the default, the amount of unique code we maintain is dramatically reduced. Opinionated tooling doesn't eliminate options, however, it simply assumes some sensible defaults and relies on the user to understand when it makes sense to deviate from those defaults.
 
@@ -50,7 +50,7 @@ Even if I didn't found a set of opinionated terraforms[^opin], I will collect th
 #### Immutable
 The immutable concept is something coming from the functional programming paradigm: if you look on Internet about, the best definition you get of an immutable object (*unchangeable* object) is *an object whose state cannot be modified after it is created*. This is in contrast to a mutable object (changeable object), which can be modified after it is created. Why immutable? It's super simple: because everything that is immutable is *still working and will work forever* - (or not, but is irrelevant from a logical point view), by design, cause it was built and released, full stop - in 80s' we all would say compiled in a *binary*. Think about the old 80s' bank applications running around the world: they still work because they are *binary* objects - at least conceptually - running on mainframes and relying on TCP/IP. It's not a coincidence that binaries, mainframes and TCP/IP are still the only things working (I mean, for real) since 80s', the best gifts we received from our ancestors - that often are our olds collegues or parents, in this just born world made of cables :-)
 
-![immutable](https://i.imgur.com/j3wTGqn.jpg)
+<div class="img_container"><img src="https://i.imgur.com/j3wTGqn.jpg"/></div>
 
 Thus, the infrastructure should be immutable, the applications as much as possible serverless, taking advantage of services - in strict sense, like queues and identity management. The machines should be avoided in favour of containers, but when they are needed should be packered and traited like real containers.
 
@@ -61,7 +61,7 @@ This is similar to what I'm building in [immutable](https://github.com/made2591/
 #### DRY
 In software engineering, don't repeat yourself (DRY) is a principle of software development aimed at reducing repetition of software patterns, replacing it with abstractions or using data normalization to avoid redundancy[^wiki]. In IaaC, this implies defining resources, configuration, environment, provider and states once, separately, and avoid as much as possible writing twice what you can write once. This starting from the common environment variables shared across different setup to the resource definition that should use parameters, built-in functions and the maximum expressive power of the language you are using to avoid repetition. The code is clearer, more robust, more safe, and we all like formalism - hopefully. More specifically, the DRY principle is stated as "Every piece of knowledge must have a single, unambiguous, authoritative representation within a system".
 
-![dry](https://i.imgur.com/WPObHIq.jpg)
+<div class="img_container"><img src="https://i.imgur.com/WPObHIq.jpg"/></div>
 
 In my immutable experiment, the [infrastructure folder](https://github.com/made2591/immutable/tree/master/infrastructure) contains two folder inside, ```live``` and ```modules```. To build the infrastructure, I mainly made use of ansible, packer, terraform and terragrunt. The latter let my terraform code be as DRY-driven as possible: unfortunately, this is tricky to achieve especially because dialogue between modules is complicated and not always *plannable* without a real run. To define the folder structure at infrastructure level, I created two folder (see the [official doc](https://www.gruntwork.io/) for more information): from high level perspective, the live folder contains the configurations patterns and values for two staging enviroment, called dev and prod. The modules folder my *.tf* files to setup the AWS infrastructure. Both the two folder are configured as much as possible to follow the DRY approach, mostly thanks to terragrunt: unfortunately, there are still some repetition I would like to remove as soon as I understand how :)
 
@@ -71,9 +71,9 @@ Above the infrastructure, which is provisioned by terragrunt and terraform, one 
 I started looking at Terraform as more than just a simple provisioner that allows you to safely and predictably create, change, and improve infrastructure.
 From a purely practical point of view, Terraform is nothing but an open source tool that codifies APIs into declarative configuration files that can be shared among team members, treated as code, edited, reviewed, and versioned. So why one should decide to use terraform, given a cloud provider that provides its own language? Let's say the latter is AWS, you could directly use CloudFormation (beware! CloudFormation stays here for *any other language provided by your cloudprovider*, whatever the cloudprovider is). What do these two languages ​​share?
 
-![agnostic](https://i.imgur.com/GH4oRhO.jpg)
+<div class="img_container"><img src="https://i.imgur.com/GH4oRhO.jpg"/></div>
 
-They are both languages, with an expressive power. Let's say that the language provided by your cloud provider is based on a \\(L_p\\) language and has an expressive power \\(x\\). Terraform is powerful \\(\leq x\\), because it relies on sdk so it could be *equal* or, at least, *as powerful as* \\(L_p\\). What happens for real is that everyone sees it as *less powerful* and takes advantage of CloudFormation, because in the end it can not chase the expressive power of the language of the cloudprovider - still to verify how much greater this expressive power drive you to produce spaghetti, but this is another argument of discussion.
+They are both languages, with an expressive power. Let's say that the language provided by your cloud provider is based on a $$L_p$$ language and has an expressive power $$x$$. Terraform is powerful $$\leq x$$, because it relies on sdk so it could be *equal* or, at least, *as powerful as* $$L_p$$. What happens for real is that everyone sees it as *less powerful* and takes advantage of CloudFormation, because in the end it can not chase the expressive power of the language of the cloudprovider - still to verify how much greater this expressive power drive you to produce spaghetti, but this is another argument of discussion.
 But, at least conceptually, if you act to pursue as much as possible decoupling between you and your IaaS, the more you describe your world with an agnostic dialet, the more tomorrow you will be able to easily move or start integrate with other environments, provided by some other providers. That's the reason why - imho - is better being friends of nobody that provider-addicted for laziness.
 
 ### Conclusion

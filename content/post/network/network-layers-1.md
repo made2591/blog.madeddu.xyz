@@ -39,35 +39,35 @@ In the figure you can see the spectra and reconstructed functions for higher-ban
 
 #### Bit rate, data rate and channels example
 There is much confusion about bandwidth because it means different things to electrical engineers and to computer scientists.
-- To electrical engineers, (analog) bandwidth is a quantity measured in \\(Hz\\) (as we described below in the next example).
+- To electrical engineers, (analog) bandwidth is a quantity measured in $$Hz$$ (as we described below in the next example).
 - To computer scientists, (digital) bandwidth is the maximum data rate of a channel, a quantity measured in bits/sec.
-Let's make an example: given a bit rate (a sort of velocity \\(v\\)) mesured in \\(\; \frac{bits}{sec} \;\\), the time required to send the \\(8\\) bits (a sort of space quantity \\(q\\)) is given by
+Let's make an example: given a bit rate (a sort of velocity $$v$$) mesured in $$\; \frac{bits}{sec} \;$$, the time required to send the $$8$$ bits (a sort of space quantity $$q$$) is given by
 
-\\(time = \frac{space}{velocity}, \; \; \rightarrow \; \; time = \frac{q}{v} seconds\\)
+$$time = \frac{space}{velocity}, \; \; \rightarrow \; \; time = \frac{q}{v} seconds$$
 
-In our example \\(v = 1\\) bit at a time, so the _frequency_ of the first harmonic of this signal is \\(v/8 \; Hz\\). Limiting the bandwidth limits the data (bits) rate (even for perfect channels completly noiseless). So what is the data rate? The data rate, as Tanenbaum says, "_is the end result of using the analog bandwidth of a physical channel for digital transmission_". If you want to know more about waveform, look [here](https://en.wikipedia.org/wiki/Waveform) and [here](https://en.wikipedia.org/wiki/Sine_wave).
+In our example $$v = 1$$ bit at a time, so the _frequency_ of the first harmonic of this signal is $$v/8 \; Hz$$. Limiting the bandwidth limits the data (bits) rate (even for perfect channels completly noiseless). So what is the data rate? The data rate, as Tanenbaum says, "_is the end result of using the analog bandwidth of a physical channel for digital transmission_". If you want to know more about waveform, look [here](https://en.wikipedia.org/wiki/Waveform) and [here](https://en.wikipedia.org/wiki/Sine_wave).
 
 ##### Nyquist
 Henry Nyquist, AT&T engineer, in 1924 realized that even a perfect channel has a finite transmission capacity. He derived an equation expressing the maximum data rate for a finite-bandwidth noiseless channel.
 
 <span style="color:#A04279; font-size: bold;">Difficult explanation</span>
-Sampling is the first step in the analog-to-digital conversion process of a signal. It consists of taking samples (samples) from an analogue signal and continuing over time each \\(\Delta t\\) seconds.
+Sampling is the first step in the analog-to-digital conversion process of a signal. It consists of taking samples (samples) from an analogue signal and continuing over time each $$\Delta t$$ seconds.
 
 <div class="img_container">
     <img src="https://i.imgur.com/SawzzZX.png"  style="width: 35%;  margin: 0 auto; marker-top: -10px;"/>
     <img src="https://i.imgur.com/fgc0UPZ.png"  style="width: 35%; margin: 0 auto; marker-top: -10px;"/>
 </div>
 
-The value \\(\Delta t\\) is called sampling interval, while \\(f_s = \frac{1}{\Delta t}\\) is the sampling rate. The result is an analog signal in discrete time, which is then quantized, coded and made accessible to any digital computer. The Nyquist-Shannon theorem (or signal sampling theorem) states that, given an analog signal \\(s(t)\\) whose frequency band is limited by the frequency \\(f_M\\) and given \\(n \in \mathbb{Z}\\), the signal \\(s(t)\\) can be uniquely reconstructed from its samples \\(s(n \Delta t)\\) taken at frequency \\(f_s = \frac{1}{\Delta t}\\) if \\(f_s > 2f_M\\) using the following formula:
+The value $$\Delta t$$ is called sampling interval, while $$f_s = \frac{1}{\Delta t}$$ is the sampling rate. The result is an analog signal in discrete time, which is then quantized, coded and made accessible to any digital computer. The Nyquist-Shannon theorem (or signal sampling theorem) states that, given an analog signal $$s(t)$$ whose frequency band is limited by the frequency $$f_M$$ and given $$n \in \mathbb{Z}$$, the signal $$s(t)$$ can be uniquely reconstructed from its samples $$s(n \Delta t)$$ taken at frequency $$f_s = \frac{1}{\Delta t}$$ if $$f_s > 2f_M$$ using the following formula:
 
-\\({\displaystyle{\displaystyle s(t) = \sum_{k=-\infty}^{+\infty}s(k \Delta t){\textrm{sinc}} \left ({\frac{t}{\Delta t}} -k\right) \; \forall t \in \mathbb{R}}}\\)
+$${\displaystyle{\displaystyle s(t) = \sum_{k=-\infty}^{+\infty}s(k \Delta t){\textrm{sinc}} \left ({\frac{t}{\Delta t}} -k\right) \; \forall t \in \mathbb{R}}}$$
 
 expressed in terms of the normalized sync function[^sf]. What the f**k I said?! Don't know.
 
 <span style="color:#A04279; font-size: bold;">Simpler explanation</span>
-The only thing you have to remember is that _if the signal consists of \\(V\\) discrete levels (wait for example), Nyquist's theorem states that the maximum data rate = \\(2B * log_2(V) \; bits/sec\\). For example, a noiseless \\(3 \; kHz\\) channel cannot transmit binary (i.e., two-level) signals at a rate exceeding 6000 bps, because \\(2 * 3000 * log_2(2) \; bits/sec = 6000\\).
+The only thing you have to remember is that _if the signal consists of $$V$$ discrete levels (wait for example), Nyquist's theorem states that the maximum data rate = $$2B * log_2(V) \; bits/sec$$. For example, a noiseless $$3 \; kHz$$ channel cannot transmit binary (i.e., two-level) signals at a rate exceeding 6000 bps, because $$2 * 3000 * log_2(2) \; bits/sec = 6000$$.
 
-If random noise is present, the situation deteriorates rapidly. Let be \\(S\\) the signal power, and \\(N\\) the noise power. Than, the signal-to-noise ratio is \\(S/N\\). Usually, this ratio is expressed on a log scale as the quantity \\(10 * log_10(S/N)\\), because it can vary over a tremendous range. The units of this log scale are called __decibels__ (dB). Another genius, Shannon, derived an important result in this field: the maximum data rate or capacity of a noisy channel whose bandwidth is \\(B \; Hz\\) and whose signal-to-noise ratio is \\(S/N\\) is = \\(B * log_2(1 + S/N) \; bits/sec\\)
+If random noise is present, the situation deteriorates rapidly. Let be $$S$$ the signal power, and $$N$$ the noise power. Than, the signal-to-noise ratio is $$S/N$$. Usually, this ratio is expressed on a log scale as the quantity $$10 * log_10(S/N)$$, because it can vary over a tremendous range. The units of this log scale are called __decibels__ (dB). Another genius, Shannon, derived an important result in this field: the maximum data rate or capacity of a noisy channel whose bandwidth is $$B \; Hz$$ and whose signal-to-noise ratio is $$S/N$$ is = $$B * log_2(1 + S/N) \; bits/sec$$
 
 ### Part 2 of 4 - Media types
 Various physical media can be used for the actual transmission. Each one has its own niche in terms of bandwidth, delay, cost, and ease of installation and maintenance. Media are roughly grouped into guided media, such as copper wire and fiber optics, and unguided media, such as terrestrial wireless, satellite, and lasers through the air.
@@ -127,9 +127,9 @@ An optical transmission system has three key components: the light source, the t
 At the center is the glass core through which the light propagates. What happens inside the core? The light ray incident on the boundary above the critical angle will be reflected internally: this implies that many different rays will be bouncing around at different angles. Each ray is said to have a different mode, so a fiber having this property is called a __multimode fiber__. If the fiber's diameter is reduced to a few wavelengths of light the fiber acts like a wave guide and the light can propagate only in a straight line, without bouncing, yielding a __single-mode__ fiber. Single-mode fibers are more expensive but are widely used for longer distances.
 
 #### Wireless Transmission
-When electrons move, they create electromagnetic waves that can propagate through space. The number of oscillations per second of a wave is called frequency, \\(f\\), and is measured in Hz. The distance between two consecutive maxima (or minima) is called the wavelength, which is universally designated by the Greek letter \\(\lambda\\). The fundamental relation between \\(f\\), \\(\lambda\\), and \\(c\\) (in a vacuum) is:
+When electrons move, they create electromagnetic waves that can propagate through space. The number of oscillations per second of a wave is called frequency, $$f$$, and is measured in Hz. The distance between two consecutive maxima (or minima) is called the wavelength, which is universally designated by the Greek letter $$\lambda$$. The fundamental relation between $$f$$, $$\lambda$$, and $$c$$ (in a vacuum) is:
 
-\\(\lambda * f = c\\)
+$$\lambda * f = c$$
 
 The amount of information that a signal such as an electromagnetic wave can carry depends on the received power and is proportional to its bandwidth. Most transmissions use a relatively narrow frequency band. They concentrate their signals in this narrow band to use the spectrum efficiently and obtain reasonable data rates by transmitting with enough power.
 
@@ -160,7 +160,7 @@ The most straightforward form of digital modulation is to use a positive voltage
 All these schemes are called __line codes__. Different line codes help you with bandwidth efficiency, clock recovery, and balancing in different ways.
 
 ##### Bandwidth efficiency
-Look at the first (ok, the second) stream NRZ: the signal may cycle between the positive and negative levels up to every \\(2\\) bits (in the case of alternating 1s and 0s). Because of Nyquist, this means that we need a bandwidth of at least \\(B/2 \; Hz\\) when the bit rate is \\(B \; bits/sec\\(: to go faster, we need more bandwith and we already said it is often a limited resource. One strategy for using limited bandwidth more efficiently is to use more than two signaling levels. What do I mean? It's simple: by using 4 different voltages, for instance, we can send 2 bits at once as a single symbol but... of course, the receiver needs to be sufficiently _strong_ to distinguish the 4 levels of signal - considering also the noise. We call the _rate_ at which the signal _changes_ the __symbol rate__ to distinguish it from the __bit rate__, that is the number of bits we transmit in time unit. This implies that
+Look at the first (ok, the second) stream NRZ: the signal may cycle between the positive and negative levels up to every $$2$$ bits (in the case of alternating 1s and 0s). Because of Nyquist, this means that we need a bandwidth of at least $$B/2 \; Hz$$ when the bit rate is $$B \; bits/sec$$: to go faster, we need more bandwith and we already said it is often a limited resource. One strategy for using limited bandwidth more efficiently is to use more than two signaling levels. What do I mean? It's simple: by using 4 different voltages, for instance, we can send 2 bits at once as a single symbol but... of course, the receiver needs to be sufficiently _strong_ to distinguish the 4 levels of signal - considering also the noise. We call the _rate_ at which the signal _changes_ the __symbol rate__ to distinguish it from the __bit rate__, that is the number of bits we transmit in time unit. This implies that
 
 	The bit rate is equal to symbol rate multiplied by the number of bits per symbol.
 
@@ -178,8 +178,8 @@ Signals that have as much positive voltage as negative voltage even over short p
 
 #### Passband Transmission
 Both for regulatory constraints (which frequencies you can use) and the need to avoid interference, specially for wireless (antenna dimensions are related to frequencies transmission) but even for wires, placing a signal in a given frequency band is useful to let different kinds of signals coexist on the channel. This kind of transmission is called passband transmission because an arbitrary band of frequencies is used to pass the signal. There are several ways to make a passband transmission.
-- __Amplitude Shift Keying__ (ASK): two different amplitudes are used to represent 0 and 1: further, more than two levels can be used to represent more symbols (change \\(\lambda\\));
-- __Frequency Shift Keying__ (FSK): two or more different tones are used (change \\(f\\), high frequency low frequency);
+- __Amplitude Shift Keying__ (ASK): two different amplitudes are used to represent 0 and 1: further, more than two levels can be used to represent more symbols (change $$\lambda$$);
+- __Frequency Shift Keying__ (FSK): two or more different tones are used (change $$f$$, high frequency low frequency);
 - __Phase Shift Keying__ (PSK): the wave is systematically shifted 0 or 180 degrees at each symbol period;
 
 These schemes all change one _natural_ characteristic of a fixed signal: maybe could be used together to transmit more bits per symbol (increasing the baud rate). This is exactly what happened whit __costellation diagram__. This are made of dots used to combine all togheter the methods described (QPSK): imagine cartesian plane, the phase of a dot is indicated by the angle a line from it to the origin makes with the positive x-axis. The amplitude of a dot is the distance from the origin.
@@ -190,7 +190,7 @@ This kind of multiplexing tricks I exposed have been developed by bad companies 
 <span style="color:#A04279; font-size: bold;">CDMA</span>
 There is also a third variation called __CDMA__ (Code Division Multiple Access). I didn't understand how it works, but I found interesting this analogy, directly from Computer Networks: you are in an airport lounge with many pairs of people conversing. __TDM__ is comparable to pairs of people in the room taking turns speaking. __FDM__ is comparable to the pairs of people speaking at different pitches, some high-pitched and some low-pitched such that each pair can hold its own conversation at the same time as but independently of the others. __CDMA__ is comparable to each pair of people talking at once, but in a different language. The French-speaking couple just hones in on the French, rejecting everything that is not French as noise. Thus, the key to __CDMA__ is to be able to extract the desired signal while rejecting everything else as random noise. How it works?
 
-Each bit time is subdivided into m short intervals called chips. To transmit a 1 bit, a station sends its chip sequence. To transmit a 0 bit, it sends the negation of its chip sequence. No other patterns are permitted. Thus, for m = 8, if station A is assigned the chip sequence (+1 −1 +1 +1 -1 −1 +1 +1), it can send a 1 bit by transmiting the chip sequence and a 0 by transmitting (-1 +1 -1 −1 +1 +1 −1 −1). Thus, CDMA permits the stations to use the entire channels, without using only a single portion of the frequency spectrum (as FDM does). Wait a minute: what does it happen when more than one station begin to transmit? The signals adds to each others: so if three stations output +1 V and one station outputs −1 V, 2 V is received. To recover the bit stream of an individual station, if the received chip sequence is \\(S\\) and the receiver is trying to listen to a station whose chip sequence is \\(C\\), the normalized inner product, \\(S \cdot C\\), is computed by the receiver.
+Each bit time is subdivided into m short intervals called chips. To transmit a 1 bit, a station sends its chip sequence. To transmit a 0 bit, it sends the negation of its chip sequence. No other patterns are permitted. Thus, for m = 8, if station A is assigned the chip sequence (+1 −1 +1 +1 -1 −1 +1 +1), it can send a 1 bit by transmiting the chip sequence and a 0 by transmitting (-1 +1 -1 −1 +1 +1 −1 −1). Thus, CDMA permits the stations to use the entire channels, without using only a single portion of the frequency spectrum (as FDM does). Wait a minute: what does it happen when more than one station begin to transmit? The signals adds to each others: so if three stations output +1 V and one station outputs −1 V, 2 V is received. To recover the bit stream of an individual station, if the received chip sequence is $$S$$ and the receiver is trying to listen to a station whose chip sequence is $$C$$, the normalized inner product, $$S \cdot C$$, is computed by the receiver.
 
 ### Part 4 of 4 - The dark side of multiplexing
 If you are still alive and you arrived here without becoming crazy, you certainly know the story of telephone. Bell, in the beginning a few phones, then offices, with operators that manually switch cables, etc. But the number of users continued growing and, in the end, by 1890 the three major parts of the telephone system were in place: the switching offices, the wires between the customers and the switching offices (by now balanced, insulated, twisted pairs instead of open wires with an earth return), and the long-distance connections between the switching offices.
@@ -200,8 +200,8 @@ This model has remained essentially intact for over 100 years. A simple descript
 - each telephone has two copper wires coming out of it that go directly to the telephone company's nearest end office called __local central office__[^^lcod];
 - the two-wire connections between each subscriber's telephone and the end office are known in the trade as the __local loop__.
 
-If a user \\(U_a\\) attached to a given __end office__ \\(O_1\\) calls another user \\(U_b\\) attached to \\(O_1\\), the switching mechanism of the office sets up a __direct electrical connection__ between the two __local loops__. This connection remains intact for the duration of the call.
-If the \\(U_b\\)'s telephone is attached to another __end office__ \\(O_2\\), there's a different procedure: each end office has a number of __outgoing lines__ to one or more nearby switching centers, called __toll offices__ (or, if they are within the same local area, tandem offices).
+If a user $$U_a$$ attached to a given __end office__ $$O_1$$ calls another user $$U_b$$ attached to $$O_1$$, the switching mechanism of the office sets up a __direct electrical connection__ between the two __local loops__. This connection remains intact for the duration of the call.
+If the $$U_b$$'s telephone is attached to another __end office__ $$O_2$$, there's a different procedure: each end office has a number of __outgoing lines__ to one or more nearby switching centers, called __toll offices__ (or, if they are within the same local area, tandem offices).
 
 The cables that connect end office to toll office are colled __toll connecting trunks__: topology of these offices and disposition change from country to country. The toll offices communicate with each other via high-bandwidth __intertoll trunks__ and. Even today, the telephone system consists of:
 - Local loops (analog twisted pairs going to houses and businesses);
@@ -219,7 +219,7 @@ The xDSL services have all been designed with certain goals in mind:
 - be much faster than 56 kbps;
 - should be always on, with just a monthly charge and no per-minute charge;
 
-The trick that makes xDSL (Asymmetric DSL is the most popular, but there are many of them) work is that when a customer subscribes to it, the incoming line is connected to a different kind of switch, one that does not have the filter imposed in the end office for voice lines, thus making the entire capacity of the local loop available. The limiting factor then becomes the physics of the local loop - which supports roughly 1 MHz - and not anymore the artificial 3100 \\(Hz\\) bandwidth created by the filter at the point where each local loop terminates in the end office.
+The trick that makes xDSL (Asymmetric DSL is the most popular, but there are many of them) work is that when a customer subscribes to it, the incoming line is connected to a different kind of switch, one that does not have the filter imposed in the end office for voice lines, thus making the entire capacity of the local loop available. The limiting factor then becomes the physics of the local loop - which supports roughly 1 MHz - and not anymore the artificial 3100 $$Hz$$ bandwidth created by the filter at the point where each local loop terminates in the end office.
 Unfortunately, the capacity of the local loop falls rather quickly with distance from the end office as the signal is increasingly degraded along the wire. ADSL use OFDM (also called DMT): this is a sort of FDM applied to digital transmission: pratically, each subcarriers' signal is packed with the others. It is implemented using a Fourier transform over the signal. One channel is used for the telephone, the others for downstream and upstream with different numbers.
 
 ##### Fiber To The Home
@@ -239,6 +239,6 @@ In the book of Tanenbaum, before the chapter about the datalink layer, many more
 
 Thank you everybody for reading. For those who missed the introduction, [here](https://madeddu.xyz/posts/network-layers-0) the link.
 
-[^sf]: In mathematics, physics and engineering, \\(sinc(x)\\) denotes the cardinal sine function or [sync function](https://en.wikipedia.org/wiki/Sinc_function)
+[^sf]: In mathematics, physics and engineering, $$sinc(x)$$ denotes the cardinal sine function or [sync function](https://en.wikipedia.org/wiki/Sinc_function)
 [^rr]: In science, always [here](https://en.wikipedia.org/wiki/Round-robin)
 [lcod]: The distance is typically 1 to 10 km, being shorter in cities than in rural areas. In the United States alone there are about 22,000 end offices.

@@ -115,9 +115,9 @@ The declarative memory system and the procedural system constitute the cognitive
 <div class="img_container"><img src="https://i.imgur.com/vNj5pSe.png"  style="width: 75%; marker-top: -10px;"/></div>
 
 where:
-- \\(W_j\\) is the ```attentional weights```;
-- \\(S_{ji}\\) is the ```strenghts of association```;
-- \\(B_i\\) is the ```base level activation```;
+- $$W_j$$ is the ```attentional weights```;
+- $$S_{ji}$$ is the ```strenghts of association```;
+- $$B_i$$ is the ```base level activation```;
 
 These are no more than values: keep them apart for a minute. Imagine that access to information in declarative memory is not instantaneous and **an important component of the ACT–R theory concerns the activation processes that control this access**. A set of equations and parameters have been devised in ACT–R that controls this activation process.
 
@@ -126,9 +126,9 @@ These are no more than values: keep them apart for a minute. Imagine that access
 #### Activation function
 For the base-level activation, it rises and falls with practice and delay according to the equation:
 
-\\(B_i = ln(\sum_{j=1}^{n}t_j^{-d})\\)
+$$B_i = ln(\sum_{j=1}^{n}t_j^{-d})$$
 
-where \\(t_j is the time since the j_{th} practice of an item.\\) This equation reflects the log odds an item will reoccur as a function of *how it has appeared in the past*. This is to say, each presentation has an impact on odds that decays away as a power function (production the power law of forgetting) and different presentations add up (it turns out producing the power law of practice). Fair enough? Fri, in the ACT-R community, \\).5\\) has emerged as the default value for the parameter *d over a range* of applications.
+where $$t_j is the time since the j_{th} practice of an item.$$ This equation reflects the log odds an item will reoccur as a function of *how it has appeared in the past*. This is to say, each presentation has an impact on odds that decays away as a power function (production the power law of forgetting) and different presentations add up (it turns out producing the power law of practice). Fair enough? Fri, in the ACT-R community, $$.5$$ has emerged as the default value for the parameter *d over a range* of applications.
 
 There are two equations mapping activation onto probability of retrieval and latency. With respect to probability of retrieval, the assumption is
 
@@ -138,29 +138,29 @@ This is because activation values are noisy: there is only a certain probability
 
 The probability that the activation will be greater than a threshold is given by the following equation:
 
-\\(P_i = \frac{1}{1 + e^{\frac{\tau-A_i}{s}}}\\)
+$$P_i = \frac{1}{1 + e^{\frac{\tau-A_i}{s}}}$$
 
-where \\(\\) controls the noise in the activation levels and is typically set at about \\).4\\). If a chunk is successfully retrieved, the latency of retrieval will reflect the activation of a chunk. The time to retrieve the chunk is given as:
+where $$$$ controls the noise in the activation levels and is typically set at about $$.4$$. If a chunk is successfully retrieved, the latency of retrieval will reflect the activation of a chunk. The time to retrieve the chunk is given as:
 
-\\(T_i = Fe^{-A_i}\\)
+$$T_i = Fe^{-A_i}$$
 
-with \\(F \approx 0.35e^{\tau}\\)
+with $$F \approx 0.35e^{\tau}$$
 
-Although we have a narrow range of values for the noise parameter \\(s\\), the retrieval threshold, and latency factor, \\(F\\), are parameters that have varied substantially from model to model.
+Although we have a narrow range of values for the noise parameter $$s$$, the retrieval threshold, and latency factor, $$F$$, are parameters that have varied substantially from model to model.
 
 #### Procedural Memory
 As we already said, the production system can detect the patterns that appear in the buffers and decide what to do next to achieve coherent behavior: in a sense, the production system achieves the control and adaptiveness of thought. The key idea is that at any point in time multiple production rules might apply, but because of the seriality in production rule execution, only one can be selected, and this is the one with the highest utility - that is somehow related to experience even. Production rule utilities are noisy, continuously varying quantities just like declarative activations and play a similar role in production selection as activations play in chunk selection.
 
 The utility of a production rule $i$ is defined as:
 
-\\(U_i = P_iG - C_p\\)
+$$U_i = P_iG - C_p$$
 
 where:
-- \\(P_i\\) is an estimate of the probability that if production rule \\(i\\) is chosen the current goal will be achieved;
-- \\(G\\) is the value of that current goal;
-- \\(C_i\\) is an estimate of the cost (typically measured in time) to achieve that goal;
+- $$P_i$$ is an estimate of the probability that if production rule $$i$$ is chosen the current goal will be achieved;
+- $$G$$ is the value of that current goal;
+- $$C_i$$ is an estimate of the cost (typically measured in time) to achieve that goal;
 
-Both \\(P_i\\) and \\(C_i\\) are learned from experience with that production rule.
+Both $$P_i$$ and $$C_i$$ are learned from experience with that production rule.
 
 ### Conclusion
 

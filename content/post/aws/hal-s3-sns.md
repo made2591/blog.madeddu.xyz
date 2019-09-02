@@ -50,17 +50,17 @@ Or
 
 This sentences both invoke particular predefined actions in your VPC, but if you you want a bot able to understand them, you have no choice: you need something able to understand natural language. This is tricky because even if you can do this efficiently - I mean, recognize instances, actions, contexts, retrieve ids of resources and so on - in the end you have to deal with the mapping between what you (actually, your bot) understood and what you effectively want to do in your VPC (or house, etc). But...if you think about it, why should you use natural language? I mean, you use regular language to talk to machines every day, without any problems: git add, docker-compose up, ps aux, etc are all specific commands precisely understood by machines, like clicks in web applications are able to reach specific url. The _parameters_ and parametric thinking solve - in a sense - the problems of create something as much as possible generic, durable, but...in the end, formally defined. Regular.
 
-And that's why I decided to implement a grammar - the old style way. Imagine to have two sets: \\(C\\), the set of contexts (ec2, Lambda, etc) and \\(A_c\\) the set of action for the specific context \\(c \in C\\). You can invoke one single command with one or more specified context, each of them followed by one or more actions available in the specific context, each of them followed by 0 or more parameters - if needed. It seems difficult to create something like this, but - believe me - it is not. The grammar is really simple:
+And that's why I decided to implement a grammar - the old style way. Imagine to have two sets: $$C$$, the set of contexts (ec2, Lambda, etc) and $$A_c$$ the set of action for the specific context $$c \in C$$. You can invoke one single command with one or more specified context, each of them followed by one or more actions available in the specific context, each of them followed by 0 or more parameters - if needed. It seems difficult to create something like this, but - believe me - it is not. The grammar is really simple:
 
 - S := /hal (C;)+
-- C := \\(c \in C\\) (-> A(c)) \| \\(c \in C\\) (-> A(c),)+;
-- A(c) := \\(a \in A_c\\) (a-zA-Z0-9)\*;
+- C := $$c \in C$$ (-> A(c)) \| $$c \in C$$ (-> A(c),)+;
+- A(c) := $$a \in A_c$$ (a-zA-Z0-9)\*;
 
 Ok, I mixed a little bit of notation: first, don't get confused by the uppercase symbols (S, C, A) and the the set C and A. The grammar start symbol is S: it produces the string _"/hal"_ followed by the result of at least one (I used regex expression +) production of the symbol C followed by _";"_. Thus, our command would be something like
 
     /hal [result of C]; ... [result of C]; from 1 to n
 
-The C symbol produces a string in the form _"c"_ with \\(c \in C\\), followed by the result of 1 or more (I used regex expression + and or symbol \| to prevent insert a comma _","_) concatenation of _"->"_ with the production of the symbol A (related to the chosen context c) followed by _","_. Let be c = _"ec2"_, our C symbol would produce something like:
+The C symbol produces a string in the form _"c"_ with $$c \in C$$, followed by the result of 1 or more (I used regex expression + and or symbol \| to prevent insert a comma _","_) concatenation of _"->"_ with the production of the symbol A (related to the chosen context c) followed by _","_. Let be c = _"ec2"_, our C symbol would produce something like:
 
     ec2 -> [result of A(ec2)]
 
@@ -68,7 +68,7 @@ Or, if more than one action is produced, each one except the last is followed by
 
     ec2 -> [result of A(ec2), result of A(ec2), result of A(ec2)]
 
-Finally, given a context c, the symbol \\(A(c)\\) produces a concatenation of one of the actions \\(a\\) available in the context (i.e., with \\(a \in A_c\\)) followed by 0-n parameters. Given a = _"start"_, with \\(a \in A_c\\), then the symbol A(c) will produce:
+Finally, given a context c, the symbol $$A(c)$$ produces a concatenation of one of the actions $$a$$ available in the context (i.e., with $$a \in A_c$$) followed by 0-n parameters. Given a = _"start"_, with $$a \in A_c$$, then the symbol A(c) will produce:
 
     start all
 
@@ -124,7 +124,7 @@ Have a look at the configuration below
 }
 {{< / highlight >}}
 
-The keys at the first level provide the set \\(C\\) of specific contexts you want to handle with your grammar. Keys of each context provide the set of specific actions \\(A(c)\\) available in the context and the value of each action key is the name of the method to invoke during the AWS Lambda execution. To create an s3 bucket, follow [this](https://docs.aws.amazon.com/AmazonS3/latest/gsg/CreatingABucket.html) guidelines, then put your JSON configuration file in the bucket. You will need the name of the bucket and the of the file in it late to setup AWS Lambda(s). Let's create the core Lambda that will execute passed actions.
+The keys at the first level provide the set $$C$$ of specific contexts you want to handle with your grammar. Keys of each context provide the set of specific actions $$A(c)$$ available in the context and the value of each action key is the name of the method to invoke during the AWS Lambda execution. To create an s3 bucket, follow [this](https://docs.aws.amazon.com/AmazonS3/latest/gsg/CreatingABucket.html) guidelines, then put your JSON configuration file in the bucket. You will need the name of the bucket and the of the file in it late to setup AWS Lambda(s). Let's create the core Lambda that will execute passed actions.
 
 #### AWS Lambda: VPC Actions
 I created this Lambda using Python: you can of course working with the other supported language. The code is available [in this Github Gist](https://gist.github.com/made2591/6c4c35590831101f203f8b5b26d4e2f9).

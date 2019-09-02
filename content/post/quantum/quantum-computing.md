@@ -68,19 +68,19 @@ When you begin an experiment, you'll be prompted to give it a name, so that you 
 quantum processor, or custom topology. In both cases, you create your score by dragging gates onto the stave, adding a measurement, and then hitting "run\" for the score to execute. If you select "Custom Topology\" your only option is to run your score in simulation. This is because the custom processor permits all-to-all connectivity; the real device, in contrast, is limited by physical connectivity. When you select custom topology, a dialogue box will ask you to select the number of qubits and classical bits assigned to different registers. IBM have set the maximum number of qubits to 20.
 
 The operation
-\\(M\\)
+$$M$$
 consists in the measurement of a qubit. If you measure, for instance,
-\\(|\psi\rangle = \alpha|0\rangle + \beta|0\rangle\\)
+$$|\psi\rangle = \alpha|0\rangle + \beta|0\rangle$$
 you know the result is a classic bit
-\\(M\\)
+$$M$$
 (indicated with a double line) that will be
-\\(0\\)
+$$0$$
 or
-\\(1\\)
+$$1$$
 with probability respectively
-\\({|\alpha|}^2\\)
+$${|\alpha|}^2$$
 an
-\\({|\beta|}^2\\).
+$${|\beta|}^2$$.
 
 The execution of your circuit happens immediately (unless the number of qubits is large) and the output can then be viewed in the results. You can try the "single qubit measurement\" show in
 
@@ -94,52 +94,52 @@ In IBM quantum experience, the results from launching your quantum scores can be
 graph, and as a quantum sphere, or QSphere - the Block Sphere introduced before. The QSphere represents quantum circuit measurement outcomes in a visually striking and information-dense graphic.
 
 After performing a quantum measurement, a qubit's information becomes a classical bit, and in our system (as is standard) the measurements are performed in the computational basis. For each qubit the measurement either takes the value 0 if the qubit is measured in state
-\\(|0\rangle\\)
+$$|0\rangle$$
 and value
-\\(|1\rangle\\)
+$$|1\rangle$$
 if the qubit is measured in state
-\\(|1\rangle\\).
+$$|1\rangle$$.
 
 In a given run of a quantum circuit with
-\\(n\\)
+$$n$$
 measurements, the result will be one of the
-\\(2^n\\)
+$$2^n$$
 possible
-\\(n\\(-bit binary strings. If the experiment is run a second time, even if the measurement is perfect and has no error, the outcome may be different due to the fundamental randomness of quantum physics. The results of a quantum circuit executed many different times can be represented as a distribution over the full
-\\(2^n\\)
+$$n$$-bit binary strings. If the experiment is run a second time, even if the measurement is perfect and has no error, the outcome may be different due to the fundamental randomness of quantum physics. The results of a quantum circuit executed many different times can be represented as a distribution over the full
+$$2^n$$
 possible outcomes. It is not scalable to represent all possible outcomes; therefore, we keep only those outcomes that happen in a given experiment and represent them in two different ways: as bars or as a quantum sphere.
 
 - The **histogram representation** is the simplest to understand. The height of the bar represents the fraction of instances the outcome comes up in the different runs on the experiment. Only those outcomes that occurred with non-zero occurrences are included. If all the bars are small for visualization only (not if you download the data) they are collected into single bar called *other values*. In general this is not a problem as a good quantum circuit should not have many outcomes only circuits that have the final state in a large superposition will give many outcomes and these would take exponential measurements to measure.
 - The **quantum sphere representation** (QSphere) is the IBM tool to visually show the same data as the bar graph neatly and strikingly. Each line from the center represents a possible outcome of the experiment, and the weight (darkness of the line) represents the likelihood of each outcome. As with the histogram, only those outcomes are included that occurred in a given experiment. The QSphere is divided into
-\\(n+1\\)
+$$n+1$$
 levels, and each section represents the weight (total number of
-\\(1\\)
+$$1$$
 s) of the binary outcome. The top is the
-\\(|0\ldots0\rangle\\)
+$$|0\ldots0\rangle$$
 outcome, the next line is all the outcomes with a single 1 (
-\\(|10\ldots0\rangle\\),
-\\(|01\ldots0\rangle\\), etc), the line after that is all outcomes with two
-\\(1\\)
+$$|10\ldots0\rangle$$,
+$$|01\ldots0\rangle$$, etc), the line after that is all outcomes with two
+$$1$$
 s, and so on until the bottom that is the outcome
-\\(|1\ldots1\rangle\\).
+$$|1\ldots1\rangle$$.
 
 For a single qubit there are two outcomes, and the sphere has only two levels; for two qubits, it has three sections with the middle section separated into two parts; for three qubits, it has four sections with the middle two being broken into three sections, and so on, following Pascal's triangle. The usefulness of the Block Sphere representation is for distinguishing classical states from entangled states. A computational basis state will have a single line pointing in one direction. Under the assumption the state is pure, a superposition of two basis states will have two lines pointing in two directions of half weight. If these directions are on opposite sides of the QSphere we have a state that is maximally entangled (for
-\\(n>1\\)
+$$n>1$$
 ) in the computation bases. Finally if there are faint lines in every direction we have made a uniform superposition state.
 
 ### IBM Q - Testing the gates
 The configuration to test the effect of `X` gate is really simple: first, drag and drop an `X` gate on the first qubit (first line) - time
 is discrete, divided in several dots. The initial state of each qubit is
-\\(|0\rangle\\)
+$$|0\rangle$$
 
 In general, an operation on a single qubit can be specified by a
-\\(2 \times 2\\)
+$$2 \times 2$$
 matrix. However, not all
-\\(2 \times 2\\)
+$$2 \times 2$$
 arrays define "legitimate\" operations on qubits. We recall that the normalization condition requires that
-\\(\alpha^{2} + \beta^{2}\\)
+$$\alpha^{2} + \beta^{2}$$
 in any quantum state
-\\(\alpha|0\rangle + \beta|1\rangle\\)
+$$\alpha|0\rangle + \beta|1\rangle$$
 The same condition must also apply to the state that is obtained after carrying out the operation. The property of matrices that guarantees the transformation of a unit vector into a vector that is still unitary is unity.
 
 You can try also the other Pauli operators using `Y` and `Z` gates. In the next few paragraphs, something more will be said about these two
@@ -148,104 +148,104 @@ gates.
 ### IBM Q - Create a superposition
 On the contrary to the classic case in which we can define a single non-trivial operation on a single bit, in the quantum case there are
 many non-trivial operations on a single qubit. Besides the `NOT` two important operations that we will use later are the
-\\(Z\\)
+$$Z$$
 port:
-\\(Z = \begin{bmatrix}
+$$Z = \begin{bmatrix}
 1 & 0 \\
 0 & -1
-\end{bmatrix}\\)
+\end{bmatrix}$$
 which only affects the
-\\(|1\rangle\\)
+$$|1\rangle$$
 component by changing
 the sign, and the Hadamard gate:
-\\(H =\frac{1}{\sqrt{2}}\begin{bmatrix}
+$$H =\frac{1}{\sqrt{2}}\begin{bmatrix}
 1 & 1 \\
 1 & -1
-\end{bmatrix}\\)
+\end{bmatrix}$$
 The latter operation is one of the most useful and is very often used in the definition of quantum circuits. Its effect is that of transforming a base state into an overlap that results, after a measurement in the computational basis, to be
-\\(0\\)
+$$0$$
 or
-\\(1\\)
+$$1$$
 with equal probability. For example, by applying
-\\(H\\)
+$$H$$
 to
-\\(|0\rangle\\)
+$$|0\rangle$$
 you get:
-\\(H \begin{bmatrix}
+$$H \begin{bmatrix}
 1 \\
 0 \\
 \end{bmatrix} = \frac{1}{\sqrt{2}}
 \begin{bmatrix}
 1 \\
 1 \\
-\end{bmatrix}\\)
+\end{bmatrix}$$
 that is the state
-\\(\frac{|0\rangle + |1\rangle}{\sqrt{2}}\\)
+$$\frac{|0\rangle + |1\rangle}{\sqrt{2}}$$
 ![Display of Hadamard port applied to input
-\\(|0\rangle\\(:
+$$|0\rangle$$:
 the output is
-\\(|\psi\rangle = |0\rangle + |1\rangle\\)
+$$|\psi\rangle = |0\rangle + |1\rangle$$
 
 <div class="img_container"><img src="https://github.com/made2591/quantum-notes/blob/master/images/ibmQuantumSphereHadamard.png?raw=true" style="marker-top: -10px;"/></div>
 
 The effect of
-\\(H\\)
+$$H$$
 can therefore be seen as an *half-executed* `NOT`, so that the resulting state is neither
-\\(0\\)
+$$0$$
 nor
-\\(1\\), but a coherent overlap of the two base states. For this reason
-\\(H\\)
+$$1$$, but a coherent overlap of the two base states. For this reason
+$$H$$
 is often called the *square root of* `NOT`. Note that this expression has **only** a physical meaning! From an algebraic point of view,
-\\(H^2\\)
+$$H^2$$
 is not the
-\\(X\\)
+$$X$$
 matrix. With a simple calculation one can in fact verify that
-\\(H^2\\)
+$$H^2$$
 is the identity and therefore applying
-\\(H\\)
+$$H$$
 twice to a state leaves it unaltered. In the Bloch sphere, the
-\\(H\\)
+$$H$$
 operation corresponds to a rotation of
-\\(90\\)
+$$90$$
 of the sphere around the
-\\(Y\\)
+$$Y$$
 axis followed by a reflection through the plane
-\\((X, Z)\\). Another way to see the rotation is to imagine it as a
-\\(180\\)
+$$(X, Z)$$. Another way to see the rotation is to imagine it as a
+$$180$$
 rotation over the bisector between
-\\(X\\)
+$$X$$
 and
-\\(Z\\)
+$$Z$$
 axis: a
-\\(180\\)
+$$180$$
 rotation around
-\\(X+Z\\)
+$$X+Z$$
 swaps points on the
-\\(X\\)
+$$X$$
 axis to the
-\\(Z\\)
+$$Z$$
 axis (and vice versa), and negates points on the
-\\(Y\\)
+$$Y$$
 axis. The shows the effect of applying
-\\(H\\)
+$$H$$
 to qubit
-\\(|0\rangle\\).
+$$|0\rangle$$.
 
 <div class="img_container"><img src="https://i.imgur.com/HIg0HyE.png"  style="width: 70%; marker-top: -10px;"/></div>
 
 You can try to visualize the effect of
-\\(H\\)
+$$H$$
 on the qubit
-\\(\frac{|0\rangle + |1\rangle}{\sqrt{2}}\\)
+$$\frac{|0\rangle + |1\rangle}{\sqrt{2}}$$
 For effect of the rotation and subsequent reflection through the plane
-\\(x, y\\)
+$$x, y$$
 you will obtain again
-\\(|0\rangle\\)
+$$|0\rangle$$
 The logic gates to a qubit
-\\(X\\),
-\\(Z\\)
+$$X$$,
+$$Z$$
 and
-\\(H\\)
+$$H$$
 are represented graphically as in
 
 <div class="img_container"><img src="https://i.imgur.com/WYNOa3p.png"  style="width: 70%; marker-top: -10px;"/></div>
@@ -256,30 +256,30 @@ Operations on quantum registers of two or more qubits are necessary to describe 
 <div class="img_container"><img src="https://i.imgur.com/spOVDbR.png"  style="width: 40%; marker-top: -10px;"/></div>
 
 If the control is zero then the target is left unchanged; if the control is one, then the target is denied, that is
-\\(|00\rangle \rightarrow{} |00\rangle, |01\rangle \rightarrow{} |01\rangle, |10\rangle \rightarrow{} |11\rangle, |11\rangle \rightarrow{} |10\rangle\\)
+$$|00\rangle \rightarrow{} |00\rangle, |01\rangle \rightarrow{} |01\rangle, |10\rangle \rightarrow{} |11\rangle, |11\rangle \rightarrow{} |10\rangle$$
 Equivalently, `CNOT` can be seen as the transformation
-\\(|A,B\rangle \mapsto |A,B\rangle \otimes A\\)
+$$|A,B\rangle \mapsto |A,B\rangle \otimes A$$
 where
-\\(A\\)
+$$A$$
 is the control qubit,
-\\(B\\)
+$$B$$
 is the target and
-\\(\otimes\\)
+$$\otimes$$
 is the sum module
-\\(2\\)
+$$2$$
 that is the classical `XOR` operation. The representation as a unitary matrix is:
-\\(\begin{bmatrix}
+$$\begin{bmatrix}
 1 & 0 & 0 & 0 \\
 0 & 1 & 0 & 0 \\
 0 & 0 & 0 & 1 \\
 0 & 0 & 1 & 0
-\end{bmatrix}\\)
+\end{bmatrix}$$
 where the first column describes the transformation of the vector of the computational base
-\\(|00\rangle\\), the second that of the vector
-\\(|01\rangle\\), the third of
-\\(|10\rangle\\)
+$$|00\rangle$$, the second that of the vector
+$$|01\rangle$$, the third of
+$$|10\rangle$$
 and the fourth of
-\\(|11\rangle\\).
+$$|11\rangle$$.
 
 It is important to note that the `CNOT`, like all unit transformations, is invertible: input can always be obtained from the output. This is not true for the `XOR` and `NAND` logic gates: in general, classic operations are irreversible. The `CNOT` gate and one-qubit ports represent the prototypes of all quantum logic gates. In fact, is is possible to demonstrate the universality of these operations (later on
 this).
@@ -290,7 +290,7 @@ this).
 
 The gates made with vertical lines connecting two qubits together are a physical implementation of the `CNOT` gates just introduced. These two-qubit gates function like an exclusive `OR` gate in conventional digital logic. The qubit at the solid-dot end of the `CNOT` gate
 controls the whether or not the target qubit at the
-\\(\oplus\\(-end of the gate is inverted (hence `controlled NOT`, or `CNOT`). Some gates, like the `CNOT`, have hardware constraints; the set of allowed connections is defined by the schematic of the device located below the quantum Composer, along with recently calibrated device parameters.
+$$\oplus$$-end of the gate is inverted (hence `controlled NOT`, or `CNOT`). Some gates, like the `CNOT`, have hardware constraints; the set of allowed connections is defined by the schematic of the device located below the quantum Composer, along with recently calibrated device parameters.
 
 ### Quantum circuits
 
@@ -300,59 +300,59 @@ A simple example of a quantum circuit is given in Fig. [\[circuit\]](#circuit){r
 <div class="img_container"><img src="https://i.imgur.com/Wf42oHU.png"  style="width: 40%; marker-top: -10px;"/></div>
 
 The circuit realizes the exchange of two qubits states. Given in input the register of two qubits
-\\(|a, b\rangle\\), a `CNOT` is carried out with qubit of control a. As a result,
-\\(b\\)
+$$|a, b\rangle$$, a `CNOT` is carried out with qubit of control a. As a result,
+$$b$$
 is replaced by
-\\(a \otimes b\\). The latter is taken as a control of a second `CNOT` with target
-\\(a\\). The effect is that a is replaced by
-\\(a \otimes (a \otimes b) = b\\). Finally, a last `CNOT` with control
-\\(b\\)
+$$a \otimes b$$. The latter is taken as a control of a second `CNOT` with target
+$$a$$. The effect is that a is replaced by
+$$a \otimes (a \otimes b) = b$$. Finally, a last `CNOT` with control
+$$b$$
 and target
-\\(a \otimes b\\)
+$$a \otimes b$$
 realizes the exchange by replacing
-\\(a \otimes b\\)
+$$a \otimes b$$
 with
-\\(a\\).
+$$a$$.
 The line with the black dot indicates the control qubit, while the qubits target are the
-\\(n\\)
+$$n$$
 inputs of
-\\(U\\). According to this convention the controlled-`NOT` is nothing more than a controlled-\\(U\\)
+$$U$$. According to this convention the controlled-`NOT` is nothing more than a controlled-$$U$$
 with
-\\(U = X\\).
+$$U = X$$.
 
 <div class="img_container"><img src="https://i.imgur.com/dicSz6O.png"  style="width: 40%; marker-top: -10px;"/></div>
 
 Testing the swapping of the qubit is really simple. Let's prepare a simulated register with two qubit in the initial state
-\\(|10\rangle\\), like the one shown in
+$$|10\rangle$$, like the one shown in
 
 <div class="img_container"><img src="https://github.com/made2591/quantum-notes/blob/master/images/quantumSwap.png?raw=true" style="marker-top: -10px;"/></div>
 
 **NOTE**: in *IBM* platform the histogram will provide the result in the opposite order. For instance, in the figure, the unique bar on histogram is labelled
-\\(10\\), where
-\\(1\\)
+$$10$$, where
+$$1$$
 refer to the second (`q[1]`) qubit in the register and
-\\(0\\)
+$$0$$
 to the first (`q[0]`). Thus, as show in the histogram, the result will be the swapping between the two qubit. Mathematically, the proof is simple. Let's start by saying that
-\\(|0\rangle = \binom{1}{0}\\)
+$$|0\rangle = \binom{1}{0}$$
 Thus,
-\\(X|0\rangle = \binom{1}{0}\left({\begin{matrix} 0 & 1 \\ 1 & 0 \\ \end{matrix}}\right)\\)
+$$X|0\rangle = \binom{1}{0}\left({\begin{matrix} 0 & 1 \\ 1 & 0 \\ \end{matrix}}\right)$$
 
 The initial state is ready (with value
-\\(|10\rangle\\)). Then, we apply a `CNOT`. Our first qubit is in
-\\(|1\rangle\\), thus the second qubit will be negated as well: the status become
-\\(|11\rangle\\). Then, a second `CNOT` is applied using the second qubit as a control and the first as a target qubit. The first qubit change to the
-\\(|0\rangle\\), bringing the entire register in the
-\\(|01\rangle\\). The last `CNOT` doesn't anything: the swap is completed. Ok but what if the initial status was set tup
-\\(|00\rangle\\)
+$$|10\rangle$$). Then, we apply a `CNOT`. Our first qubit is in
+$$|1\rangle$$, thus the second qubit will be negated as well: the status become
+$$|11\rangle$$. Then, a second `CNOT` is applied using the second qubit as a control and the first as a target qubit. The first qubit change to the
+$$|0\rangle$$, bringing the entire register in the
+$$|01\rangle$$. The last `CNOT` doesn't anything: the swap is completed. Ok but what if the initial status was set tup
+$$|00\rangle$$
 or any other possible permutation? Let's see the effect of the circuit over the four possible initial state (the third is the one we already described).
 
-\\(|00\rangle \xrightarrow{1 \; CNOT} |00\rangle \xrightarrow{2 \; CNOT} |00\rangle \xrightarrow{3 \; CNOT} |00\rangle\\)
+$$|00\rangle \xrightarrow{1 \; CNOT} |00\rangle \xrightarrow{2 \; CNOT} |00\rangle \xrightarrow{3 \; CNOT} |00\rangle$$
 
-\\(|01\rangle \xrightarrow{1 \; CNOT} |01\rangle \xrightarrow{2 \; CNOT} |11\rangle \xrightarrow{3 \; CNOT} |10\rangle\\)
+$$|01\rangle \xrightarrow{1 \; CNOT} |01\rangle \xrightarrow{2 \; CNOT} |11\rangle \xrightarrow{3 \; CNOT} |10\rangle$$
 
-\\(|10\rangle \xrightarrow{1 \; CNOT} |11\rangle \xrightarrow{2 \; CNOT} |01\rangle \xrightarrow{3 \; CNOT} |01\rangle\\)
+$$|10\rangle \xrightarrow{1 \; CNOT} |11\rangle \xrightarrow{2 \; CNOT} |01\rangle \xrightarrow{3 \; CNOT} |01\rangle$$
 
-\\(|11\rangle \xrightarrow{1 \; CNOT} |10\rangle \xrightarrow{2 \; CNOT} |10\rangle \xrightarrow{3 \; CNOT} |11\rangle\\)
+$$|11\rangle \xrightarrow{1 \; CNOT} |10\rangle \xrightarrow{2 \; CNOT} |10\rangle \xrightarrow{3 \; CNOT} |11\rangle$$
 
 ### Quantum teleportation
 
