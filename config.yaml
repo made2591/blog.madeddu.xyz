@@ -9,6 +9,8 @@ taxonomies:
   category: categories
   tag: tags
 params:
+  recentposts:
+    hide: true
   name: Matteo Madeddu
   description: "Platform Engineer, Software Developer, DevOps"
   date_format: "2006-01-02"
