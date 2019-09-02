@@ -12,6 +12,8 @@ tags:
 - q
 - informative
 - ibm
+katex: true
+markup: "mmark"
 ---
 
 ### Much more than a post

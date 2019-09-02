@@ -10,6 +10,8 @@ tags:
 - jails
 - freebsd
 - container
+katex: true
+markup: "mmark"
 ---
 
 ### Preamble

@@ -12,6 +12,8 @@ tags:
 - reasoning
 - knowledge
 - representation
+katex: true
+markup: "mmark"
 ---
 
 ### Introduction

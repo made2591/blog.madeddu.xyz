@@ -15,6 +15,8 @@ tags:
 - ibm
 - deutsch
 - algorithm
+katex: true
+markup: "mmark"
 ---
 
 ### Much more than a post (again)
@@ -64,8 +66,8 @@ Any irreversible classical computation can be transformed into an equivalent *bu
 
 <div class="img_container"><img src="https://i.imgur.com/XKgkF81.png"  style="width: 40%; marker-top: -10px;"/></div>
 
-|   |In |  | |   |Out |    |
-|---|---|---||----|----|----|
+|     | In  |     |  |  | Out |  |
+| --- | --- | --- ||----|----|----|
 | a | b | c || a' | b' | c' |
 | 0 | 0 | 0 || 0  | 0  | 0  |
 | 0 | 0 | 1 || 0  | 0  | 1  |
@@ -231,7 +233,7 @@ in
 
 $$(-1)^{f(x)}\vert x\rangle(\vert 0\rangle - \vert 1\rangle), f(x) \in \{0, 1\}$$
 
-<span style="color:#FF8C00; font-size: bold;">Note</span>: if someone is able to convince me about this, please comment it below or feel free to contact me at <a href="mailto:{{site.email.address}}">{{site.email.text}}</a> because I didn't find a real good explanation to this. Anyway, let's assume it's true because of some trick (I have a theory, that is replacing $$((-1)^{f(x)}$$ with $$(-f(x)^{f(x)}$$) over signs, and go ahead because the rest it seems *ok* imho.
+<span style="color:#FF8C00; font-size: bold;">Note</span>: if someone is able to convince me about this, please comment it below or feel free to contact me at <a href="mailto:matteo.madeddu@gmail.com">matteo.madeddu@gmail.com</a> because I didn't find a real good explanation to this. Anyway, let's assume it's true because of some trick (I have a theory, that is replacing $$((-1)^{f(x)}$$ with $$(-f(x)^{f(x)}$$) over signs, and go ahead because the rest it seems *ok* imho.
 
 Thus, by applying $$U_f$$ to $$\vert \psi_1\rangle$$ we obtain a result $$\vert \psi_2\rangle$$ that varies over two possibilities
 

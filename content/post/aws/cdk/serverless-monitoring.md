@@ -14,6 +14,7 @@ tags:
 - serverless
 - cloudformation
 - lambda
+draft: true
 ---
 
 ### Introduction

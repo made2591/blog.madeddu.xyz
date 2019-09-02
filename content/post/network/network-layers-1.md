@@ -11,6 +11,8 @@ tags:
 - iso/osi
 - tcp/ip
 - saga
+katex: true
+markup: "mmark"
 ---
 
 ### A journey through the network - Layer 1

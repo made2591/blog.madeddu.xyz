@@ -14,6 +14,8 @@ tags:
 - tibor
 - computational
 - theory
+katex: true
+markup: "mmark"
 ---
 
 ### Preamble

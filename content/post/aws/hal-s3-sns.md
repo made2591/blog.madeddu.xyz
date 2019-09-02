@@ -16,6 +16,8 @@ tags:
 - lambda
 - slack
 - bot
+katex: true
+markup: "mmark"
 ---
 
 ### Introduction

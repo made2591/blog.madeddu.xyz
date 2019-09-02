@@ -11,6 +11,8 @@ tags:
 - iso/osi
 - tcp/ip
 - saga
+katex: true
+markup: "mmark"
 ---
 
 ### A journey through the network - Layer 2
@@ -32,11 +34,11 @@ To guarantee this functionalities, the data link layer takes the packets it gets
 #### Offered services
 The data link layer can be designed to offer various services. Following the Computer Networks book by A. Tanembaum:
 
-| Service | Description | Use | Example(s)
-|---------|-------------|-----|------------
-| Unacknowledged connectionless service | Consists of having the source machine send independent frames to the destination machine without having the destination machine acknowledge them. If errors happen, there are no attempt to detect and recover them | Appropriate when the error rate is very low, so recovery is left to higher layers, like real time traffic, voice | Ethernet
-| Acknowledged connectionless service | There are still no logical connections used, but each frame sent is individually acknowledged. If it has not arrived within a specified time interval, it can be sent again | This service is useful over unreliable channels, such as wireless systems | 802.11 (WiFi)
-| Acknowledged connection-oriented service | With this service, the source and destination machines establish a connection before any data are transferred | Each frame sent over the connection is numbered, and the data link layer guarantees that each frame is sent exactly once, indeed received, in the right order | Satellite Channel, Long-Distance Telephone Circuit
+| Service                                  | Description                                                                                                                                                                                                         | Use                                                                                                                                                           | Example(s)                                         |
+| ---------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------- |
+| Unacknowledged connectionless service    | Consists of having the source machine send independent frames to the destination machine without having the destination machine acknowledge them. If errors happen, there are no attempt to detect and recover them | Appropriate when the error rate is very low, so recovery is left to higher layers, like real time traffic, voice                                              | Ethernet                                           |
+| Acknowledged connectionless service      | There are still no logical connections used, but each frame sent is individually acknowledged. If it has not arrived within a specified time interval, it can be sent again                                         | This service is useful over unreliable channels, such as wireless systems                                                                                     | 802.11 (WiFi)                                      |
+| Acknowledged connection-oriented service | With this service, the source and destination machines establish a connection before any data are transferred                                                                                                       | Each frame sent over the connection is numbered, and the data link layer guarantees that each frame is sent exactly once, indeed received, in the right order | Satellite Channel, Long-Distance Telephone Circuit |
 
 When connection-oriented service is used, transfers go through three distinct phases. In the first phase, the connection is established by having both sides initialize variables and counters needed to keep track of which frames have been received and which ones have not. In the second phase, one or more frames are actually transmitted. In the third and final phase, the connection is released, freeing up the variables, buffers, and other resources used to maintain the connection.
 

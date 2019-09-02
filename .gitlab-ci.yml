@@ -6,9 +6,9 @@ stages:
   - deploy
 
 variables:
-  AWS_DEFAULT_REGION: $AWS_DEFAULT_REGION # set your aws region
-  BUCKET_NAME: $BUCKET_NAME # change your bucket name
-  # CLOUDFRONT_DIST_ID: {ID} # paste your cloudFront distribution id
+  AWS_DEFAULT_REGION: $AWS_DEFAULT_REGION
+  BUCKET_NAME: $BUCKET_NAME
+  CLOUDFRONT_DIST_ID: $CLOUDFRONT_DIST_ID
   GIT_SUBMODULE_STRATEGY: recursive
 
 build:
@@ -30,8 +30,8 @@ deploy:
   before_script:
     - pip install awscli
   script:
-    # - aws configure set preview.cloudfront true
+    - aws configure set preview.cloudfront true
     - aws s3 sync ./public s3://$BUCKET_NAME --delete;
-    # - aws cloudfront create-invalidation --distribution-id $CLOUDFRONT_DIST_ID  --paths "/*";
+    - aws cloudfront create-invalidation --distribution-id $CLOUDFRONT_DIST_ID  --paths "/*";
   only:
   - master

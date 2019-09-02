@@ -19,6 +19,8 @@ tags:
 - erlangen
 - bayern
 - germany
+katex: true
+markup: "mmark"
 ---
 
 ### Prelude

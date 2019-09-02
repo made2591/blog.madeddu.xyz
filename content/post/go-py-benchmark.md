@@ -13,6 +13,8 @@ tags:
 - goroutine
 - algorithms
 - benchmark
+katex: true
+markup: "mmark"
 ---
 
 ### Introduction
