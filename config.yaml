@@ -18,7 +18,7 @@ params:
   custom_css: []
   sidebar:
     avatar: avatar.svg
-    bio: If at first you don't succeed<br/>call it version 1.0
+    bio: If at first you don't succeed<br/> call it version 1.0
     twitter: made2591
     github: made2591
     dribbble: ""
