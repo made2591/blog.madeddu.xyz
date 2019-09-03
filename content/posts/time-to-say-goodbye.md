@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: post
 title: "Time to say good bye"
 date: 2019-09-03
 categories:
@@ -44,7 +44,6 @@ During the last year, I spent my time in Bamberg, an amazing place, where you ca
 Valentina, thank you for your support, your attention, and your patience: we met many times this year, and I never felt so grateful to see you once again, every time. Matteo, thank you very much for your time, and I will miss our phone calls while walking in the supermarket, or while waiting for the washing machine to finish the cycle. Both, I'm gonna miss our movie evenings remotely, far but near in *the three-nation of beers: Germany, Belgium, Ireland*. It's amazing what a Skype call can do... and is unbelievable that it STILL DOESN'T WORK properly this fucking Skype. Sorry Microfost, but it was in the air for some years. I wanna thank you, Marco, because of the time and the passion you dedicate to your job: you truly care, too much even, and this is to be respected. I wanna thank you Ronald and *martiano*, for all the time you both dedicated in to listen and give me insights about how to deal with... well, life :-)
 
 ### Conclusion
-
-If you know me a bit, you should know I like memes, so... I don't wanna talk anymore. I just prepared a special one for this occasion.
+I wanna thank Daniel Eichten, Markus Rautert, Fernando Cornago, Simon Dalmaczynski and everyone else I forgot to mention in the paragraph above: if you know me a bit, you should know I like memes, so... I don't wanna talk anymore. I just prepared a special one for this occasion.
 
 <div class="img_container"><img src="https://i.imgur.com/aZUkYuc.jpg" style="width: 100%; marker-top: -10px;"/></div>
