@@ -11,7 +11,10 @@ jobs:
     steps:
       - uses: actions/docker/cli@master
         with:
-          args: hugo
+          args: pull registry.gitlab.com/pages/hugo:0.55.6
+      - uses: actions/checkout@v1
+        with:
+          args: run registry.gitlab.com/pages/hugo:0.55.6 hugo
   # deploy:
   #   name: deploy
   #   runs-on: ubuntu-latest
