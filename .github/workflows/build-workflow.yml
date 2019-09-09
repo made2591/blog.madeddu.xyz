@@ -1,0 +1,23 @@
+name: My personal blog
+# This workflow is triggered on pushes to the repository.
+on:
+  push:
+    branches:
+      - dev
+    # file paths to consider in the event. Optional; defaults to all.
+    # paths:
+    #  - 'test/*'
+
+jobs:
+  build:
+    # Job name is Greeting
+    name: Blog
+    # This job runs on Linux
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/aws/cli@master
+        secrets: ["AWS_ACCESS_KEY_ID", "AWS_SECRET_ACCESS_KEY"]
+        with:
+          who-to-greet: aws s3 ls
+      # This step prints the time.
+      - run: echo The time was ${{ steps.hello.outputs.time }}
