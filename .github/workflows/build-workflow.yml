@@ -12,15 +12,14 @@ jobs:
       - uses: actions/docker/cli@master
         with:
           args: hugo
-
-  deploy:
-    name: deploy
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v1
-      - uses: actions/aws/cli@master
-        with:
-          args: aws s3 ls
-    env:
-      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+  # deploy:
+  #   name: deploy
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     env:
+  #       AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+  #       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+  #     - uses: actions/checkout@v1
+  #     - uses: actions/aws/cli@master
+  #       with:
+  #         args: aws s3 ls
