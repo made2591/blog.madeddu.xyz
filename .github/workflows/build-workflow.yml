@@ -34,3 +34,4 @@ jobs:
       - uses: actions/aws/cli@master
         with:
           args: aws s3 ls
+
