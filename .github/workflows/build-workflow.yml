@@ -5,16 +5,23 @@ on:
       - dev
 
 jobs:
+  checkout:
+    name: checkout
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/docker/cli@master
+        with:
+          args: pull registry.gitlab.com/pages/hugo:0.55.6
+
   build:
+    needs: checkout
     name: build
     runs-on: ubuntu-latest
     steps:
       - uses: actions/docker/cli@master
         with:
           args: pull registry.gitlab.com/pages/hugo:0.55.6
-      - uses: actions/checkout@v1
-        with:
-          args: run registry.gitlab.com/pages/hugo:0.55.6 hugo
   # deploy:
   #   name: deploy
   #   runs-on: ubuntu-latest
