@@ -1,19 +1,26 @@
-name: Greet Everyone
-# This workflow is triggered on pushes to the repository.
-on: [push]
+name: Matteo Madeddu
+on:
+  push:
+    branches:
+      - dev
 
 jobs:
   build:
-    # Job name is Greeting
-    name: Greeting
-    # This job runs on Linux
+    name: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/docker/cli@master
+        with:
+          args: hugo
+
+  deploy:
+    name: deploy
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
-      # This step uses the hello-world-action stored in this workflow's repository.
-      - uses: ./hello-world-action
+      - uses: actions/aws/cli@master
         with:
-          who-to-greet: Octocat
-        id: hello
-      # This step prints the time.
-      - run: echo The time was ${{ steps.hello.outputs.time }}
+          args: aws s3 ls
+          env:
+            AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+            AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
