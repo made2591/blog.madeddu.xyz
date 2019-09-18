@@ -72,3 +72,9 @@ Everything is possible. The impossible only takes more time.
 Premature optimization is the root of all evil
 
 <span style="font-size: 11px; font-style: italic;">(Donald Knuth, american computer scientist, mathematician, professor emeritus at Stanford University)<span>
+
+
+To do something good, it has to scare you
+
+<span style="font-size: 11px; font-style: italic;">(Anonymous)<span>
+
