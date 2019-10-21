@@ -13,7 +13,6 @@ tags:
 - golang
 - holidays
 - styles
-draft: true
 ---
 
 ### Intro
