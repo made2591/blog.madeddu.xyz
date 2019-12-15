@@ -78,3 +78,17 @@ To do something good, it has to scare you
 
 <span style="font-size: 11px; font-style: italic;">(Anonymous)<span>
 
+
+Where we're going, we don't need roads.
+
+<span style="font-size: 11px; font-style: italic;">(Dr Emmett Brown, Back to the Future)<span>
+
+
+The real challenge is not to find the right answers, but to ask the right questions.
+
+<span style="font-size: 11px; font-style: italic;">(Me)<span>
+
+
+Do or do not. There is no try.
+
+<span style="font-size: 11px; font-style: italic;">(Yoda)<span>
