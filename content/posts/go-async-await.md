@@ -122,10 +122,10 @@ Done? Then we should be ready and pretty confident to map this concept to the we
 Since I'm not a Javascript expert (neither a Golang one, I'm sorry about that), you definitely know more than me about `Promise` and `async/await`. The simplest use case you can think about is the following:
 
 {{< highlight js >}}
-const myAsyncFunction = () => {
-    return new Promise((resolve) => {
-        setTimeout(() => resolve(2), 2000);
-    })
+const sleep = require('util').promisify(setTimeout)
+async function myAsyncFunction() {
+    await sleep(2000)
+    return 2
 };
 
 (async function() {
