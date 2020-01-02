@@ -321,7 +321,7 @@ The code above implements a non-blocking receive. If a value is available on `me
 
 As you can see, the `await/async` basic patterns are easily portable to a Golang code. But... this was just a tasting: you can get so much more using `buffered channels`, `signals` and `context`. I will talk about all of this next time! Stay tuned and thank you for reading. 
 
-If you like this post, please upvote it on HackerNews [here](todo).
+If you like this post, please upvote it on HackerNews [here](https://news.ycombinator.com/submitted?id=made2591).
 
 [^golang-blog]: https://blog.golang.org/concurrency-is-not-parallelism
 [^golang-by-example-goroutines]: https://tour.golang.org/concurrency/1
