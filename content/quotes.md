@@ -4,37 +4,37 @@ title: "Quotes"
 date: 2019-03-25
 ---
 
-风向转变时,有人筑墙,有人造风车
+风向转变时,有人筑墙,有人造风车.
 
 <span style="font-size: 11px; font-style: italic;">(When the wind of change blows, some people build walls, others build windmills)<span>
 
 
-You are never wrong to do the right thing
+You are never wrong to do the right thing.
 
 <span style="font-size: 11px; font-style: italic;">(Mark Twain, american writer, humorist, entrepreneur, publisher, lecturer - 1835/1910)<span>
 
 
-Everyone wants to be successful until they see what it actually takes
+Everyone wants to be successful until they see what it actually takes.
 
 <span style="font-size: 11px; font-style: italic;">(Anonymous)<span>
 
 
-I was getting really good at being mediocre
+I was getting really good at being mediocre.
 
 <span style="font-size: 11px; font-style: italic;">(Anonymous)<span>
 
 
-I think I can safely say that nobody understands quantum mechanics
+I think I can safely say that nobody understands quantum mechanics.
 
 <span style="font-size: 11px; font-style: italic;">(Richard Feynman, American theoretical physicist, Nobel Prize in Physics in 1965)<span>
 
 
-You got to be crazy. It’s too late to be sane, too late. You got to go full-tilt bozo. Cause, you’re only given a little spark of madness. If you lose that, you’re nothing. Don’t ever lose that cause it keeps you alive
+You got to be crazy. It’s too late to be sane, too late. You got to go full-tilt bozo. Cause, you’re only given a little spark of madness. If you lose that, you’re nothing. Don’t ever lose that cause it keeps you alive.
 
 <span style="font-size: 11px; font-style: italic;">(Robin McLaurin Williams, American actor and comedian)<span>
 
 
-If you only write code and you don't deploy it you are not a software owner. And vice versa
+If you only write code and you don't deploy it you are not a software owner. And vice versa.
 
 <span style="font-size: 11px; font-style: italic;">(Anonymous)<span>
 
@@ -44,12 +44,12 @@ If you only write code and you don't deploy it you are not a software owner. And
 <span style="font-size: 11px; font-style: italic;">(He will win who knows when to fight and when not to fight)<span>
 
 
-It's very hard to make creators work on something they dislike
+It's very hard to make creators work on something they dislike.
 
 <span style="font-size: 11px; font-style: italic;">(Daniel Vassallo, Software Development Engineer, AWS)<span>
 
 
-Before you embark on a journey of revenge, dig two graves
+Before you embark on a journey of revenge, dig two graves.
 
 <span style="font-size: 11px; font-style: italic;">(Confucius)<span>
 
@@ -69,12 +69,12 @@ Everything is possible. The impossible only takes more time.
 <span style="font-size: 11px; font-style: italic;">(Anonymous)<span>
 
 
-Premature optimization is the root of all evil
+Premature optimization is the root of all evil.
 
 <span style="font-size: 11px; font-style: italic;">(Donald Knuth, american computer scientist, mathematician, professor emeritus at Stanford University)<span>
 
 
-To do something good, it has to scare you
+To do something good, it has to scare you.
 
 <span style="font-size: 11px; font-style: italic;">(Anonymous)<span>
 

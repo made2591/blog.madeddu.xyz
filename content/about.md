@@ -19,6 +19,7 @@ My master thesis was published in the Journal of Cognitive System Research [here
 <a href="https://goo.gl/PA7Evc"><img width="128px" height="128px" src="/images/solution_architect.png"/></a>
 <a href="https://goo.gl/yLwQUA"><img width="128px" height="128px" src="/images/machine_learning.png"/></a>
 </div>
+
 ### Some of my repo
 
 * [__go-perceptron-go__](http://github.com/made2591/go-perceptron-go)
@@ -34,6 +35,13 @@ My master thesis was published in the Journal of Cognitive System Research [here
 * [trello2google](https://github.com/made2591/trello2google)
 
 and [__some others__](https://github.com/made2591?tab=repositories).
+
+### Some of my slides
+
+* [January, 29th Torino, Golang Developer Group - The async/await Concurrency Pattern in Golang](https://www.slideshare.net/MatteoMadeddu/the-asyncawait-concurrency-pattern-in-golang)
+* [October, 10th Torino, FullStackConf 2019 - The Rise of Mobility](https://www.slideshare.net/MatteoMadeddu/the-rise-of-mobility-225938256)
+* [Python - Fundamentals and Best practices](https://www.slideshare.net/secret/CUE1QW2vtmrcDV)
+* [Bootstrap 3.0 - Introduzione](https://www.slideshare.net/MatteoMadeddu/bootstrap-30-introduzione)
 
 ### Proud of
 
