@@ -2,7 +2,7 @@ baseurl: "https://madeddu.xyz/"
 languageCode: en-us
 title: madeddu.xyz
 theme: hugo-strata-theme
-disqusShortname: made2591
+DisqusShortname: made2591
 googleAnalytics: UA-111283556-2
 paginate: 10
 taxonomies:
@@ -32,15 +32,17 @@ params:
     hide: false
     title: Hi!
     content: >-
-      <br/>I'm Matteo Madeddu, a Platform Engineer that works mainly with Amazon
+      <br/>I'm Matteo Madeddu, a DevOps that works mainly with Amazon
       Web Services. I love **Golang**, **Docker**, serverless architecture and
       **quantum computing**/mechanics.<br/><br/>In my free time, I'm a software
       developer - you can find me on Github at (<a
       href="https://github.com/made2591/">@made2591</a>), a blogger, a juggler,
       a skier, a skater, a guitarist (sometimes) and a dreamer (always). You can
       read more about my interest in my <a href="posts/">blog</a> and in the <a
-      href="about/">about</a> section.<br/><br/>Have
-      fun!<br/><br/><strong>Matteo</strong>
+      href="about/">about</a> section.<br/><br/>You can subscribe to <a
+      href="https://tinyletter.com/made2591">my newsletter</a> to
+      be informed about my new blog posts, talks and activities :-)<br/><br/>Have
+      fun! 🤟<br/><br/><strong>Matteo</strong>
   portfolio:
     hide: true
     title: Recent work
