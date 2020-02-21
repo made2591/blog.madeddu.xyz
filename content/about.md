@@ -18,6 +18,7 @@ My master thesis was published in the Journal of Cognitive System Research [here
 <a href="http://bit.ly/2WvYOK5"><img width="128px" height="128px" src="/images/developer.png"/></a>
 <a href="https://goo.gl/PA7Evc"><img width="128px" height="128px" src="/images/solution_architect.png"/></a>
 <a href="https://goo.gl/yLwQUA"><img width="128px" height="128px" src="/images/machine_learning.png"/></a>
+<a href="http://bit.ly/2T4POI2"><img width="128px" height="128px" src="/images/devops_professional.png"/></a>
 </div>
 
 ### Some of my repo
