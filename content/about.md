@@ -48,7 +48,7 @@ and [__some others__](https://github.com/made2591?tab=repositories).
 
 From time to time, I like studying reading about quantum world and a few time ago I started to collect some [quantum-notes](https://github.com/made2591/quantum-notes): in this document I write my personal notes about IBM Q platform, but most of all the quantum-computing world in general. I was also invited in Verona by the Quantum Research Group to talk about the platform. A pre-compiled (not super updated) version is available [here](https://madeddu.xyz/matteo_madeddu_quantum_notes.pdf)! Enjoy the reading!
 
-### Actual work position (adidas HQ)
+### Actual work position (Enerbrain HQ)
 
 | Theme | Description                    |
 | ----- | ------------------------------ |
