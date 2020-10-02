@@ -92,3 +92,8 @@ The real challenge is not to find the right answers, but to ask the right questi
 Do or do not. There is no try.
 
 <span style="font-size: 11px; font-style: italic;">(Yoda)<span>
+  
+
+Gli applausi in un teatro hanno un suono particolare, ti piovono addosso come un temporale improvviso. 
+
+<span style="font-size: 11px; font-style: italic;">(Cesare Cremonini, cantautore, attore e scrittore italiano)<span>
