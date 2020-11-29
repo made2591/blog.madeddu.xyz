@@ -2,6 +2,7 @@
 layout: post
 title: "I hacked my blog to let AWS Polly create podcast over it"
 date: 2020-11-26
+polly: https://madeddu.xyz/mp3/aws/hacked-my-blog-polly.mp3
 categories:
 - aws
 - miscellaneous
