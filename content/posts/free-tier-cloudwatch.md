@@ -2,6 +2,7 @@
 layout: post
 title: "AWS Free Tier, Docker and Jenkins: smart resources handling with CloudWatch Events and Slack"
 date: 2018-03-11
+polly: https://madeddu.xyz/mp3/free-tier-cloudwatch.mp3
 categories:
 - coding
 - golang

@@ -2,6 +2,7 @@
 layout: post
 title: "How my Elman network learnt to count"
 date: 2018-11-13
+polly: https://madeddu.xyz/mp3/elman-student.mp3
 categories:
 - coding
 - golang

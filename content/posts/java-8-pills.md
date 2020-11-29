@@ -2,6 +2,7 @@
 layout: post
 title: "Java 8 Pills"
 date: 2017-12-15
+polly: https://madeddu.xyz/mp3/java-8-pills.mp3
 categories:
 - coding
 - java

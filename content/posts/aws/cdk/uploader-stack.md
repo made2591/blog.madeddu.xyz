@@ -2,6 +2,7 @@
 layout: post
 title: "Build an upload form with 45 lines of Typescript"
 date: 2019-05-29
+polly: https://madeddu.xyz/mp3/aws/cdk/uploader-stack.mp3
 categories:
 - coding
 - aws

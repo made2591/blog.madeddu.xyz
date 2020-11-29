@@ -2,6 +2,7 @@
 layout: post
 title: "Build a multilayer perceptron with Golang"
 date: 2017-12-20
+polly: https://madeddu.xyz/mp3/neuralnetwork.mp3
 categories:
 - coding
 - golang

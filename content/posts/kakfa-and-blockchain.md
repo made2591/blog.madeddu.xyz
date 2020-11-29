@@ -2,6 +2,7 @@
 layout: post
 title: "[Not completed yet] Implementing a Blockchain using Kafka"
 date: 2018-04-11
+polly: https://madeddu.xyz/mp3/kakfa-and-blockchain.mp3
 categories:
 - coding
 - python

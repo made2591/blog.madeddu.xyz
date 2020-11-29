@@ -2,6 +2,7 @@
 layout: post
 title: "DRY, immutable, opinionated, agnostic"
 date: 2018-10-21
+polly: https://madeddu.xyz/mp3/dry-immutable-opinionated.mp3
 categories:
 - coding
 - life

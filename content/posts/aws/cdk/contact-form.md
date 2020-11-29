@@ -2,6 +2,7 @@
 layout: post
 title: "How to deploy a serverless contact form with API Gateway, DynamoDB and SNS"
 date: 2019-05-23
+polly: https://madeddu.xyz/mp3/aws/cdk/contact-form.mp3
 categories:
 - coding
 - aws

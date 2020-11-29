@@ -1,12 +1,15 @@
 {{ define "main" }}
 
 	<span>
+
 		<h1>{{ .Title }}</h1>
 
 		<p>Subscribe to <a href="https://tinyletter.com/made2591">my newsletter</a> to be informed about my new blog posts, talks and activities.</p>
 
 		{{ partial "post-meta" . }}
 	</span>
+
+	{{ if .Params.polly }}<audio controls style="width: 100%"><source src="{{ .Params.polly }}" type="audio/mpeg"></audio><br />{{ end }}
 
 	<p>
 	    {{ .Content }}

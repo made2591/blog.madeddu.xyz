@@ -1,9 +1,10 @@
 ---
 layout: post
 title: "Jails: confining the omnipotent root"
-date: 2018-01-08
+date: 2020-04-19
 polly: https://madeddu.xyz/mp3/jails.mp3
 categories:
+- repost
 - theory
 - miscellaneous
 tags:
@@ -16,6 +17,9 @@ markup: "mmark"
 ---
 
 ### Preamble
+
+This is a repost of an old article :)
+
 Recently I became nostalgic and fascinated with stuff from the past, so I decided to create a [Vagrantfile](https://github.com/made2591/vagrant-freebsd) to work with FreeBSD[^fbsd]. Why FreeBSD? Because as a developer, I really like Docker and I started looking in the past to find its _historical_ birth: in fact, as a concept, Docker is no so recent as you think, and I think it exists also because of the works of some other bigs from 80', such as Poul-Henning Kamp[^phk]. Starting from [its work](http://phk.freebsd.dk/pubs/sane2000-jail.pdf) and using a FreeBSD installation I did some experiments with jails, to understand better what they really are, how they works - how can you create what it will look like a _vintage container_ - and why you should use them in a FreeBSD environment - at least, to learn something new.
 
 <div class="img_container"><img src="https://i.imgur.com/BC3tgBK.jpg" style="width: 100%; marker-top: -10px;"/></div>

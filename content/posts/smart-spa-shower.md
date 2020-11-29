@@ -2,6 +2,7 @@
 layout: post
 title: "Smart SPA Shower at home"
 date: 2019-01-13
+polly: https://madeddu.xyz/mp3/smart-spa-shower.mp3
 categories:
 - coding
 - js

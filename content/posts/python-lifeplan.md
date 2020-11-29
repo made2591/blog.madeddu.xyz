@@ -2,6 +2,7 @@
 layout: post
 title: "How to plan your daily activity with Python"
 date: 2017-12-14
+polly: https://madeddu.xyz/mp3/python-lifeplan.mp3
 categories:
 - coding
 - algorithms

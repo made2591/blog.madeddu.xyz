@@ -2,6 +2,7 @@
 layout: post
 title: "ACT-R by John R. Anderson - Part II"
 date: 2018-11-07
+polly: https://madeddu.xyz/mp3/cognitive/act-r-part-ii.mp3
 categories:
 - theory
 - cognitive

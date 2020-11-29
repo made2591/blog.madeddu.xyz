@@ -2,6 +2,7 @@
 layout: post
 title: "Security and Docker: tips and tricks"
 date: 2019-02-07
+polly: https://madeddu.xyz/mp3/docker-security.mp3
 categories:
 - theory
 - docker

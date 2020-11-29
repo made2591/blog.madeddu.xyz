@@ -2,6 +2,7 @@
 layout: post
 title: "Software developing and Data science"
 date: 2019-03-18
+polly: https://madeddu.xyz/mp3/life/data-whatever.mp3
 categories:
 - life
 - miscellaneous

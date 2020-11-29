@@ -1,9 +1,10 @@
 ---
 layout: post
 title: "I run VSC in the browser and I am just fine - Part I"
-date: 2019-06-25
+date: 2020-09-21
 polly: https://madeddu.xyz/mp3/aws/cloudformation/immutable-vsc.mp3
 categories:
+- repost
 - coding
 - aws
 - immutable
@@ -18,6 +19,9 @@ tags:
 ---
 
 ### Introduction
+
+This is a repost of an old article - that actually also inspired my talk of the last year at FullStackConf2019 :)
+
 Serverless and managed *things* are the best choices if you don't want to deal with infrastructure (3 2 1: fight) buuuuut...even immutable things are not so bad for this purpose - at least, if they are immutable for real 🤣 Today I wanna talk about a useful way to run an instance(s) of [VSC](https://github.com/microsoft/vscode) server in AWS and code from everywhere (yes, even your iPad): let's start!
 
 <div class="img_container"><img src="https://i.imgur.com/dgm4ksi.png" style="width: 100%; marker-top: -10px;"/></div>

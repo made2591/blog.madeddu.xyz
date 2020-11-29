@@ -2,6 +2,7 @@
 layout: post
 title: "SQS Extended: a serverless producer/consumer chain"
 date: 2019-06-04
+polly: https://madeddu.xyz/mp3/aws/cdk/producer-consumer.mp3
 categories:
 - coding
 - aws

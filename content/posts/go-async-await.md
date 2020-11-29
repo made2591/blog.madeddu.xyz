@@ -2,6 +2,7 @@
 layout: post
 title: "The await/async concurrency pattern in Golang"
 date: 2020-01-02
+polly: https://madeddu.xyz/mp3/go-async-await.mp3
 categories:
 - coding
 - golang

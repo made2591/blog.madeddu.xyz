@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "The Deutsch Algorithm"
-date: 2019-01-23
+date: 2020-07-20
 polly: https://madeddu.xyz/mp3/quantum/deutsch-algorithm.mp3
 categories:
 - theory
@@ -21,6 +21,9 @@ markup: "mmark"
 ---
 
 ### Much more than a post (again)
+
+This is a repost of an old article :)
+
 What is the quantum theory? As said by [quantumexperience](https://quantumexperience.ng.bluemix.net/) official site by IBM, it's _an elegant mathematical theory able to explain the counterintuitive behavior of subatomic particles, most notably the phenomenon of entanglement_. In the late twentieth century it was discovered that quantum theory applies not only to atoms and molecules, but to bits and logic operations in a computer. This realization has been bringing about a revolution in the science and technology of information processing: I decided to write some notes to better explain, from a physics-agnostic computer scientist's point of view XD, __what I understood__ - and it is certainly wrong - about Q until now and why I think it's an amazing field for computer science. More on this story in [my previous post](https://madeddu.xyz/posts/quantum-computing).
 
 So - back to the origins - why am I writing this post? Because I recently came over my quantum notes again and YES, I'M CONTINUING THEM (clap clap clap), even if, unfortunately, I don't have a lot of time to dedicate to it - you know, the always-valid excuse of life *I don't have time*.

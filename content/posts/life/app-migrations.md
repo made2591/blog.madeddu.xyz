@@ -2,6 +2,7 @@
 layout: post
 title: "Migrations in modern companies: how to expect the unexpected from a real-life point of view"
 date: 2018-11-18
+polly: https://madeddu.xyz/mp3/life/app-migrations.mp3
 categories:
 - miscellaneous
 - life

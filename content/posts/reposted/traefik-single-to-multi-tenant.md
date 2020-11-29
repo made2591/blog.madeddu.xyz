@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "My team run VSC in the browser and they are just fine - Part II"
-date: 2019-07-03
+date: 2020-10-22
 polly: https://madeddu.xyz/mp3/aws/cloudformation/traefik-single-to-multi-tenant.mp3
 categories:
 - coding
@@ -19,6 +19,9 @@ tags:
 ---
 
 ### Introduction
+
+This is a repost of an old article :)
+
 In the first part of this series - [I run VSC in the browser and I was just fine](https://madeddu.xyz/posts/immutable-vsc) - I wrote many stupid things around the possibility of having a VSC server instance running inside AWS over a simple, immutable, ec2 instance. The template {that can be easily deployed by a Lambda function [that can be easily deployed behind a route53 record (that can be easily placed as the endpoint of a custom Slack action)]} let you start your IDE and code from wherever you would like to. In this second part, I wanna talk about how to extend the same idea to serve a Team of developers. Yes, like the one below.
 
 <div class="img_container"><img src="https://i.imgur.com/WQt9Ay9.jpg" style="width: 100%; marker-top: -10px;"/></div>

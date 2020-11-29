@@ -2,6 +2,7 @@
 layout: post
 title: "GraphQL is the new black"
 date: 2019-03-05
+polly: https://madeddu.xyz/mp3/graphql.mp3
 categories:
 - coding
 - api

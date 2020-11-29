@@ -2,6 +2,7 @@
 layout: post
 title: "A Quantum Experience"
 date: 2018-02-20
+polly: https://madeddu.xyz/mp3/quantum/quantum-computing.mp3
 categories:
 - theory
 - quantum

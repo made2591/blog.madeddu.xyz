@@ -2,6 +2,7 @@
 layout: post
 title: "Elasticsearch over My home Network Attached Storage"
 date: 2018-01-13
+polly: https://madeddu.xyz/mp3/elasticnas.mp3
 categories:
 - coding
 - python

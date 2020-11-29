@@ -2,6 +2,7 @@
 layout: post
 title: "A Bugs Life: stories of a software engineer"
 date: 2019-05-12
+polly: https://madeddu.xyz/mp3/life/life-as-a-software-engineer.mp3
 categories:
 - life
 - miscellaneous

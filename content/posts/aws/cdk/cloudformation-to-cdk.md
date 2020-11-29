@@ -2,6 +2,7 @@
 layout: post
 title: "From Cloudformation to CDK: the good, the bad and the evil"
 date: 2019-03-25
+polly: https://madeddu.xyz/mp3/aws/cdk/cloudformation-to-cdk.mp3
 categories:
 - coding
 - aws

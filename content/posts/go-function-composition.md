@@ -2,6 +2,7 @@
 layout: post
 title: "A monadic reasoning around function composition in Golang"
 date: 2020-01-16
+polly: https://madeddu.xyz/mp3/go-function-composition.mp3
 categories:
 - coding
 - golang

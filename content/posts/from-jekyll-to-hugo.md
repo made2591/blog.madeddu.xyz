@@ -2,6 +2,7 @@
 layout: post
 title: "From Jekyll to Hugo, from Travis to Gitlab: a time for changes"
 date: 2019-09-20
+polly: https://madeddu.xyz/mp3/from-jekyll-to-hugo.mp3
 categories:
 - coding
 - miscellaneous

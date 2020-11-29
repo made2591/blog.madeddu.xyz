@@ -2,6 +2,7 @@
 layout: post
 title: "?(DRY(KIS(afe)S)) => CF(ALB+TLS+SM);"
 date: 2020-02-01
+polly: https://madeddu.xyz/mp3/aws/alb-tls-termination.mp3
 categories:
 - coding
 - aws

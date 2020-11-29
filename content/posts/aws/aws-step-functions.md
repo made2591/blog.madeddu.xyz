@@ -2,6 +2,7 @@
 layout: post
 title: "Node.js, DynamoDB, and AWS Step Functions to collect <em>sentimented</em> movie reviews"
 date: 2018-03-05
+polly: https://madeddu.xyz/mp3/aws/aws-step-functions.mp3
 categories:
 - coding
 - golang

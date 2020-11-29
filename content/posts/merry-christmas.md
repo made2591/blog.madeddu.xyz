@@ -2,6 +2,7 @@
 layout: post
 title: "Best wishes for Christmas holidays!"
 date: 2017-12-24
+polly: https://madeddu.xyz/mp3/merry-christmas.mp3
 categories:
 - coding
 - miscellaneous

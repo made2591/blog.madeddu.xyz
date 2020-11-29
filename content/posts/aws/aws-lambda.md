@@ -2,6 +2,7 @@
 layout: post
 title: "AWS Lambda, GoLang and Grafana to perform sentiment analysis for your company / business"
 date: 2018-01-30
+polly: https://madeddu.xyz/mp3/aws/aws-lambda.mp3
 categories:
 - coding
 - golang

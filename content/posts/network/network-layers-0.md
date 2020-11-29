@@ -2,6 +2,7 @@
 layout: post
 title: "A journey through the network - Introduction"
 date: 2017-12-22
+polly: https://madeddu.xyz/mp3/network/network-layers-0.mp3
 categories:
 - theory
 - network

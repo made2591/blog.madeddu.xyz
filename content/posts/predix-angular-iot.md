@@ -2,6 +2,7 @@
 layout: post
 title: "Predix Machine and how to configure them"
 date: 2017-12-21
+polly: https://madeddu.xyz/mp3/predix-angular-iot.mp3
 categories:
 - coding
 - js

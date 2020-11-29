@@ -2,6 +2,7 @@
 layout: post
 title: "Go Erlangen!"
 date: 2018-09-24
+polly: https://madeddu.xyz/mp3/go-erlangen.mp3
 categories:
 - coding
 - golang

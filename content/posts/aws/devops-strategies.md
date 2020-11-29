@@ -2,6 +2,7 @@
 layout: post
 title: "Devops strategies"
 date: 2019-12-08
+polly: https://madeddu.xyz/mp3/aws/devops-strategies.mp3
 categories:
 - devops
 - life

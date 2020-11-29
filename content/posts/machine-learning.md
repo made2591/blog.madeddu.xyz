@@ -2,6 +2,7 @@
 layout: post
 title: "Machine Learning is useless"
 date: 2018-12-19
+polly: https://madeddu.xyz/mp3/machine-learning.mp3
 categories:
 - theory
 - miscellaneous

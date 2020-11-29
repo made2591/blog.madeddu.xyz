@@ -2,6 +2,7 @@
 layout: post
 title: "A serverless OCR with Polly and Rekognition unveils the power of stack inheritance in CDK"
 date: 2019-06-13
+polly: https://madeddu.xyz/mp3/aws/cdk/serverless-ocr.mp3
 categories:
 - coding
 - aws

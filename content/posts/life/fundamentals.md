@@ -2,6 +2,7 @@
 layout: post
 title: "Fundamentals by an ITalian guy"
 date: 2017-12-19
+polly: https://madeddu.xyz/mp3/life/fundamentals.mp3
 categories:
 - life
 - miscellaneous

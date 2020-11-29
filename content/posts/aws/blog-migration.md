@@ -2,6 +2,7 @@
 layout: post
 title: "A serverless blog using CodePipeline, s3 and CloudFront"
 date: 2019-02-24
+polly: https://madeddu.xyz/mp3/aws/blog-migration.mp3
 categories:
 - coding
 - aws

@@ -2,6 +2,7 @@
 layout: post
 title: "HAL: AWS s3-sns based single-slack-command bot to handle your VPC"
 date: 2018-03-24
+polly: https://madeddu.xyz/mp3/aws/hal-s3-sns.mp3
 categories:
 - coding
 - python

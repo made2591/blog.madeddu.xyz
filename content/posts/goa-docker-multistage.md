@@ -2,6 +2,7 @@
 layout: post
 title: "Golang, Docker and multistage build"
 date: 2017-12-18
+polly: https://madeddu.xyz/mp3/goa-docker-multistage.mp3
 categories:
 - coding
 - golang

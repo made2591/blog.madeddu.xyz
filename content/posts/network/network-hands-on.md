@@ -2,6 +2,7 @@
 layout: post
 title: "A journey through the network - Hands on (Part 1)"
 date: 2019-02-18
+polly: https://madeddu.xyz/mp3/network/network-hands-on.mp3
 categories:
 - theory
 - network

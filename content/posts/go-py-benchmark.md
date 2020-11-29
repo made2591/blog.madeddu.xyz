@@ -2,6 +2,7 @@
 layout: post
 title: "GoLang vs Python: deep dive into the concurrency"
 date: 2018-01-17
+polly: https://madeddu.xyz/mp3/go-py-benchmark.mp3
 categories:
 - coding
 - golang

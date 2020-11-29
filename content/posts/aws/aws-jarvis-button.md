@@ -2,6 +2,7 @@
 layout: post
 title: "JarvisButton: how to invoke multiple AWS Lambda with one AWS IoT Button (not Enterprise ed.)"
 date: 2018-03-18
+polly: https://madeddu.xyz/mp3/aws/aws-jarvis-button.mp3
 categories:
 - coding
 - js

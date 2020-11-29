@@ -2,6 +2,7 @@
 layout: post
 title: "The Good Employee, a story about how you can explain modern companies with graph theory"
 date: 2019-07-10
+polly: https://madeddu.xyz/mp3/life/im-still-learning.mp3
 categories:
 - miscellaneous
 - life

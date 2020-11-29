@@ -2,6 +2,7 @@
 layout: post
 title: "My first textual game"
 date: 2018-01-02
+polly: https://madeddu.xyz/mp3/textual-game.mp3
 categories:
 - coding
 - python

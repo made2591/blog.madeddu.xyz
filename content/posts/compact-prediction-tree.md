@@ -2,6 +2,7 @@
 layout: post
 title: "My first UniKernel image for sequence prediction"
 date: 2018-11-30
+polly: https://madeddu.xyz/mp3/compact-prediction-tree.mp3
 categories:
 - coding
 - golang

@@ -2,6 +2,7 @@
 layout: post
 title: "Time to say good bye"
 date: 2019-09-03
+polly: https://madeddu.xyz/mp3/time-to-say-goodbye.mp3
 categories:
 - miscellaneous
 - life

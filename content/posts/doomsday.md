@@ -2,6 +2,7 @@
 layout: post
 title: "The Doomsday rule"
 date: 2017-12-23
+polly: https://madeddu.xyz/mp3/doomsday.mp3
 categories:
 - coding
 - miscellaneous

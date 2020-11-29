@@ -1,9 +1,10 @@
 ---
 layout: post
 title: "A Golang Turing machine library"
-date: 2019-01-19
+date: 2020-05-20
 polly: https://madeddu.xyz/mp3/golang-turing-machine.mp3
 categories:
+- repost
 - coding
 - golang
 - miscellaneous
@@ -20,6 +21,9 @@ markup: "mmark"
 ---
 
 ### Preamble
+
+This is a repost of an old article :)
+
 In 1962, Hungarian mathematician Tibor Radó introduced the Busy Beaver competition for Turing machines: in a class of machines, find one which halts after the greatest number of steps when started on the empty input. Even if it could seem trivial, the Busy Beaver competition has implications in computability theory, the halting problem, and complexity theory.
 
 I decided to use GoLang to implement a Turing machine library and accomplish three goals: first, having a Turing Machine model to play with for learning purpose; second, learning how to use interfaces and the factory pattern, other then testing package to test my code and let it be more flexible for future enhancement (at least I hope!); third, implement some Busy Beaver setup and verify that the model works with well known executions. If you want to discover more about Golang, 60's math games and beavers, go ahead with reading :D!
