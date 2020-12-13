@@ -31,7 +31,7 @@ deploy:
     - pip install awscli
   script:
     - aws configure set preview.cloudfront true
-    - aws s3 sync ./public s3://$BUCKET_NAME --delete;
+    - aws s3 sync ./public s3://$BUCKET_NAME
     - aws cloudfront create-invalidation --distribution-id $CLOUDFRONT_DIST_ID  --paths "/*";
   only:
   - master
