@@ -53,7 +53,9 @@ The first thing to is... setup your cluster!
 
 I'm not a Kubernetes expert, so I decided to go through the simplest way to install Kubernetes - *at least* the simplest I was able to follow without too many troubles. I'm talking about [k8s](https://k3s.io/). K3s is a highly available, certified Kubernetes distribution designed for production workloads in unattended, resource-constrained, remote locations or inside IoT appliances. You can install it pretty easily by following one of the - literally - one thousand tutorial you can find in the web (like [this one](https://ikarus.sg/kubernetes-with-k3s/) - not sure, it's late I'm sorry). In any case, one important thing to do is to avoid the installation of Traefik by providing the `--no-deploy traefik` flag:
 
-```curl -sfL https://get.k3s.io | sh - --no-deploy traefik```
+```
+curl -sfL https://get.k3s.io | sh - --no-deploy traefik
+```
 
 For the operating system, I used Ubuntu server. If you want, you can even use an Ansible Playbook (like [this](https://github.com/itwars/k3s-ansible) - many thanks [https://github.com/michelangelomo](@michelangelomo) for the insight) to go straightforward through the installation setup without getting old doing thing manually. I did manually because Ansible hates me.
 
