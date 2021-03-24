@@ -133,17 +133,23 @@ In order for Let's Encrypt provider to use Cloudflare, an API Token with DNS:Edi
 
 You can now create your own secret in kubernetes by doing:
 
-```kubectl create secret generic cloudflare --from-literal=dns-token=<YOUR_CF_TOKEN>```
+```
+kubectl create secret generic cloudflare --from-literal=dns-token=<YOUR_CF_TOKEN>
+```
 
 ### Step 7: Install Traefik2
 
 You can now finally install traefik using Helm just by running:
 
-```helm install traefik traefik/traefik -f values.yml```
+```
+helm install traefik traefik/traefik -f values.yml
+```
 
 After this step, if you run:
 
-```kubectl port-forward $(kubectl get pods --selector "app.kubernetes.io/name=traefik" --output=name) 9000:9000```
+```
+kubectl port-forward $(kubectl get pods --selector "app.kubernetes.io/name=traefik" --output=name) 9000:9000
+```
 
 you should see the traefik dashboard. Well done! 🥳🥳🥳
 
@@ -297,7 +303,7 @@ Then, you can apply it by doing:
 kubectl apply -f dashboard-ingressroute.yml
 ```
 
-... and you're finally done. Clap clap clap! If you arrived here, many thanks first of all, and if you didn't become crazy - I did so... please forgive any mistakes and let me know if you had some troubles in your setup.
+...and you're finally done. Clap clap clap! If you arrived here, many thanks first of all, and if you didn't become crazy - I did so... please forgive any mistakes and let me know if you had some troubles in your setup.
 
 ### One More Thing...
 
