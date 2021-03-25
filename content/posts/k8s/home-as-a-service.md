@@ -26,7 +26,7 @@ For those of you who never heard the word *Traefik* before, here it is:
 
 > Traefik is an open-source Edge Router that makes publishing your services seamless. 
 
-I already made some experiments in the past (look at my two-pieces series [I run VSC in the browser and I am just fine - Part I](https://madeddu.xyz/posts/reposted/immutable-vsc/) and [My team run VSC in the browser and they are just fine - Part II](https://madeddu.xyz/posts/aws/cdk/serverless-ocr/)) and I've always been fascinated by the way Traefik *just works*. And... it's written in Golang! Since I recently had to deal a lot with SSO and k8s (I finally made my raspberry cluster with pi4 and k3s, a more specific blog post is coming), I wanted to extend my experience with Traefik moving to the 2nd version of the tool and leveraging `IngressRoute`. Moreover, I used Google and Traefik2 `Middleware` to forward requests and authenticate them using my Google account. The cool thing is that if you already own a domain, a Google account, and a k3s cluster (both running *on-premise* at home and in cloud if they didn't end up *fired*), you can get everything described in this article for free! 🥳
+I already made some experiments in the past (look at my two-pieces series [I run VSC in the browser and I am just fine - Part I](https://madeddu.xyz/posts/reposted/immutable-vsc/) and [My team run VSC in the browser and they are just fine - Part II](https://madeddu.xyz/posts/reposted/traefik-single-to-multi-tenant/)) and I've always been fascinated by the way Traefik *just works*. And... it's written in Golang! Since I recently had to deal a lot with SSO and k8s (I finally made my raspberry cluster with pi4 and k3s, a more specific blog post is coming), I wanted to extend my experience with Traefik moving to the 2nd version of the tool and leveraging `IngressRoute`. Moreover, I used Google and Traefik2 `Middleware` to forward requests and authenticate them using my Google account. The cool thing is that if you already own a domain, a Google account, and a k3s cluster (both running *on-premise* at home and in cloud if they didn't end up *fired*), you can get everything described in this article for free! 🥳
 
 The *high-level* schema of how this is implemented is shown in the diagram below:
 
@@ -57,7 +57,7 @@ I'm not a Kubernetes expert, so I decided to go through the simplest way to inst
 curl -sfL https://get.k3s.io | sh - --no-deploy traefik
 ```
 
-For the operating system, I used Ubuntu server. If you want, you can even use an Ansible Playbook (like [this](https://github.com/itwars/k3s-ansible) - many thanks [https://github.com/michelangelomo](@michelangelomo) for the insight) to go straightforward through the installation setup without getting old doing thing manually. I did manually because Ansible hates me.
+For the operating system, I used Ubuntu server. If you want, you can even use an Ansible Playbook (like [this](https://github.com/itwars/k3s-ansible) - many thanks [@michelangelomo](https://github.com/michelangelomo) for the insight - to go straightforward through the installation setup without getting old doing thing manually. I did manually because Ansible hates me.
 
 ### Step 2: Own a domain
 
